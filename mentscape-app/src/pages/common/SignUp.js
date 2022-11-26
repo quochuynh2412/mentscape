@@ -1,72 +1,98 @@
 import { Link } from "react-router-dom";
-import { Footer } from "../../components/Footer"
-import { Header } from "../../components/Header"
-import profile_pic from "../../assets/img/profile.jpeg";
+import default_pic from "../../assets/img/default_profile.jpeg";
 import "../../css/style.css"
+import { useState } from "react";
+import { Form, Col, Row } from "react-bootstrap";
 
 export const SignUp = () => {
-  return (
-    <>
-      <Header />
+  const [avatar, setAvatar] = useState();
+  const handlePreviewAvatar = (e) => {
+    const file = e.target.files[0]
+    file.preview = URL.createObjectURL(file)
+    setAvatar(file)
+  }
 
+  const [validated, setValidated] = useState(false);
+
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+  };
+
+  return (
       <div className="content">
-        <div class="container">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="../Homepage/homepage.php">Home</a></li>
-            <li class="breadcrumb-item"><a href="pickRegister.php">Register</a></li>
-            <li class="breadcrumb-item active" aria-current="page">User Register</li>
+        <div className="container">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+            <li className="breadcrumb-item active" aria-current="page">User Register</li>
           </ol>
-          <div class="p-5 info-box">
-            <form class="row g-3 needs-validation" enctype="multipart/form-data" method="post" action="customerRegister.php" novalidate>
-              <h2 class="text-center">Register as user</h2>
-              <div class="col-12 d-flex justify-content-center">
-                <div class="my-4 profile-picture">
-                  <label for="img-file">
-                    <span>Change Image</span>
-                  </label>
-                  <input type="file" id="img-file" name="profile-img" onchange="loadFile(event)" required />
-                  <img id="img-output" src={profile_pic} alt="profile avatar" />
-                  <div class="invalid-feedback">
-                    Please choose the profile image
+          <div className="p-5 info-box">
+          <Form noValidate validated={validated} onSubmit={handleSubmit} encType="multipart/form-data">
+              <h2 className="text-center">Register as user</h2>
+              <Row>
+                <Col xs={12} className="mb-2 d-flex justify-content-center">
+                  <div className="my-4 profile-picture">
+                    <label htmlFor="img-file">
+                      <span>Change Image</span>
+                    </label>
+                    <input type="file" id="img-file" name="profile-img" onChange={handlePreviewAvatar} required />
+                    <img src={avatar ? avatar.preview : default_pic} alt="profile avatar" />
+                    <Form.Control.Feedback type="invalid" className="text-center">
+                      Please provide a profile image.
+                    </Form.Control.Feedback>
                   </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <label for="email" class="form-label required">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email address" required/>
-              </div>
-              <div class="col-12">
-                <label for="password" class="form-label required">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]){8,20}$" required/>
-                  <div class="invalid-feedback" id="password-feedback">
-                    Password must be from 8 to 20 characters with appropriate characters, contain at least 1 lowercase character, 1 uppercase letter, 1 digit
-                  </div>
-              </div>
-              <div class="col-12">
-                <label for="name" class="form-label required">Full Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Customer name" required/>
-              </div>
-              <div class="col-md-6">
-                <label for="age" class="form-label required">Age</label>
-                <input type="number" class="form-control" id="age" name="age" placeholder="Age" min="1" required/>
-              </div>
-              <div class="col-md-6">
-                <label for="phone" class="form-label required">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number" required/>
-              </div>
-              <div class="col-12">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" name="address" placeholder="Address"/>
-              </div>
-              <div class="col-12">
-                <button class="mt-2 w-100 btn btn-primary" type="submit" name="act">Register</button>
-              </div>
-            </form>
+                </Col>
+                <Col xs={12} className="mb-2">
+                  <Form.Label htmlFor="email" className="required">Email</Form.Label>
+                  <Form.Control type="email" id="email" name="email" placeholder="Email address" required/>
+                  <Form.Control.Feedback type="invalid">
+                    Please enter your email address
+                  </Form.Control.Feedback>
+                </Col>
+                <Col xs={12} className="mb-2">
+                  <Form.Label htmlFor="password" className="required">Password</Form.Label>
+                <Form.Control type="password" id="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/>
+                  <Form.Control.Feedback type="invalid">
+                    Password must be at least 8 characters, contain at least 1 lowercase character, 1 uppercase letter, and 1 digit
+                  </Form.Control.Feedback>
+                </Col>
+                <Col xs={12} className="mb-2">
+                  <Form.Label htmlFor="name" className="required">Full Name</Form.Label>
+                  <Form.Control type="text" id="name" name="name" placeholder="Customer name" required/>
+                  <Form.Control.Feedback type="invalid">
+                    Please provide your full name
+                  </Form.Control.Feedback>
+                </Col>
+                <Col md={6} className="mb-2">
+                  <Form.Label htmlFor="age" className="required">Age</Form.Label>
+                  <Form.Control type="number" id="age" name="age" placeholder="Age" min="1" required/>
+                  <Form.Control.Feedback type="invalid">
+                    Please provide your age
+                  </Form.Control.Feedback>
+                </Col>
+                <Col md={6} className="mb-2">
+                  <Form.Label htmlFor="phone" className="required">Phone Number</Form.Label>
+                  <Form.Control type="tel" id="phone" name="phone" placeholder="Phone number" required/>
+                  <Form.Control.Feedback type="invalid">
+                    Please provide your phone number
+                  </Form.Control.Feedback>
+                </Col>
+                <Col xs={12} className="mb-2">
+                  <Form.Label htmlFor="address">Address</Form.Label>
+                  <Form.Control type="text" id="address" name="address" placeholder="Address"/>
+                </Col>
+                <Col xs={12} className="mb-2">
+                  <button className="mt-2 w-100 btn btn-primary" type="submit" name="act">Register</button>
+                </Col>
+              </Row>
+              </Form>
           </div>
         </div>
       </div>
-
-      <Footer />
-    </>
   )
 }

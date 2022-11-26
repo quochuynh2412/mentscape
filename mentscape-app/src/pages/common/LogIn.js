@@ -1,14 +1,8 @@
 import { Link } from "react-router-dom";
-import { Footer } from "../../components/Footer"
-import { Header } from "../../components/Header"
 import banner from "../../assets/img/banner.jpeg"
-import "../../css/style.css"
 
 export const LogIn = () => {
   return (
-    <>
-      <Header />
-
       <div className="content">
         <div className="container-fluid">
           <div className="row">
@@ -30,7 +24,7 @@ export const LogIn = () => {
                           <label for="floatingPassword">Password</label>
                       </div>
                       <div className="text-end py-2">
-                        <a className="forgot-link" href="forgot-password.html">Forgot Password?</a>
+                        <a className="forgot-link text-decoration-none text-reset" href="forgot-password.html">Forgot Password?</a>
                       </div>
                       <button className="btn btn-lg btn-primary login-btn w-100" type="submit">Login</button>
                       <div className="text-center py-2 fw-bold">
@@ -45,8 +39,5 @@ export const LogIn = () => {
           </div>
         </div>
       </div>		
-
-      <Footer />
-    </>
   )
 }
