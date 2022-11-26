@@ -1,14 +1,19 @@
-import logo from './logo.svg';
+
 import './App.css';
+
+// Import bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from 'react-bootstrap/Navbar'
+import 'bootstrap/dist/js/bootstrap.bundle';
+
+import { Header } from './Header';
+import { Footer } from './Footer';
 
 function App() {
   return (
-    <section className="section section-specialities">
-      <Navbar>
-        1234
-      </Navbar>
+    <>
+		<Header />
+		
+	  <div className="container-fluid bg-sky p-5"></div>
 				<div className="container-fluid">
 					<div className="section-header text-center">
 						<h2>Clinic and Specialities</h2>
@@ -58,7 +63,10 @@ function App() {
 						</div>
 					</div>
 				</div>   
-			</section>
+
+		  <Footer />
+			</>
+
   )
 }
 
