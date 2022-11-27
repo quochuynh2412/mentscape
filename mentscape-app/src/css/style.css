@@ -47,7 +47,10 @@
     border-radius: 4px;
     padding: 25px;
 }
-
+/* Login */
+.login-img {
+    padding: 35px;
+}
 /* Sign up */
 .profile-picture {
     display: flex;

@@ -3,8 +3,9 @@ import default_pic from "../../assets/img/default_profile.jpeg";
 import "../../css/style.css"
 import { useState } from "react";
 import { Form, Col, Row } from "react-bootstrap";
+import { specialties } from "../../data/const"
 
-export const SignUp = () => {
+export const SignUp = ({ isDoctor }) => {
   const [avatar, setAvatar] = useState();
   const handlePreviewAvatar = (e) => {
     const file = e.target.files[0]
@@ -33,7 +34,7 @@ export const SignUp = () => {
           </ol>
           <div className="p-5 info-box">
           <Form noValidate validated={validated} onSubmit={handleSubmit} encType="multipart/form-data">
-              <h2 className="text-center">Register as user</h2>
+              <h2 className="text-center">Register for new account</h2>
               <Row>
                 <Col xs={12} className="mb-2 d-flex justify-content-center">
                   <div className="my-4 profile-picture">
@@ -86,6 +87,30 @@ export const SignUp = () => {
                   <Form.Label htmlFor="address">Address</Form.Label>
                   <Form.Control type="text" id="address" name="address" placeholder="Address"/>
                 </Col>
+
+                {isDoctor && 
+                  <>
+                    <Col xs={12} className="mb-2">
+                      <Form.Label htmlFor="cv" className="required">CV Link</Form.Label>
+                      <Form.Control type="text" id="cv" name="cv" placeholder="CV link" />
+                    </Col>
+                    <Col xs={12} className="mb-2">
+                      <Form.Label htmlFor="description" className="required">Description</Form.Label>
+                      <Form.Control as="textarea" id="description" name="description" placeholder="Description" />
+                    </Col>
+                    <Col xs={12} className="mb-2">
+                      <Form.Label>Specialties</Form.Label>
+                    <Form.Select aria-label="Specialties options">
+                        <option>Choose your specialty</option>
+                        {
+                        specialties.map(specialty => 
+                          <option value={specialty}>{specialty}</option>)
+                        }
+                      </Form.Select>
+                    </Col>
+                  </>
+                }
+
                 <Col xs={12} className="mb-2">
                   <button className="mt-2 w-100 btn btn-primary" type="submit" name="act">Register</button>
                 </Col>

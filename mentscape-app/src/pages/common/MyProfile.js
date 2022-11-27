@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import profile_pic from "../../assets/img/profile.jpeg";
 import "../../css/style.css"
+import patient from "../../data/patient.json"
 
 export const MyProfile = () => {
   return (
@@ -20,19 +21,19 @@ export const MyProfile = () => {
               <div class="col-md-7">
                 <ul class="list-group list-group-flush info-list">
                   <li class="list-group-item"><label>Email address:</label>
-                    dauminh25@gmail.com
+                    {patient.email}
                   </li>
                   <li class="list-group-item"><label>Fullname:</label>
-                    Dau Hoang Minh
+                    {patient.name}
                   </li>
                   <li class="list-group-item"><label>Age:</label>
-                    19
+                    {patient.age}
                   </li>
                   <li class="list-group-item"><label>Phone number:</label>
-                    0997542345
+                    {patient.phone}
                   </li>
                   <li class="list-group-item"><label>Address:</label>
-                    Nam Tu Liem, Hanoi
+                    {patient.address}
                   </li>
                 </ul>
               </div>

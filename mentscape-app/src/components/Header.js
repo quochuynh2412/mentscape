@@ -1,6 +1,5 @@
 import { NavDropdown} from 'react-bootstrap';
 import { Link } from "react-router-dom";
-// import '../css/style.css';
 import logo from '../assets/img/logo.png';
 import profile_pic from "../assets/img/profile.jpeg";
 
