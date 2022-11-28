@@ -16,6 +16,8 @@ import Appointments from './pages/patients/Appointments';
 import BookingCalendar from './pages/patients/BookingCalendar';
 import Detail from './pages/therapist/Detail';
 import Search from './pages/therapist/Search';
+import News from'./pages/common/News';
+import Home from './pages/common/Home';
 
 import "./css/style.css"
 
@@ -37,6 +39,8 @@ function App() {
 			<Route path="/appointment" element={<Appointments />}></Route>
 			<Route path="/detailTherapist" element={<Detail />}></Route>
 			<Route path="/searchTherapist" element={<Search />}></Route>
+			<Route path="/news" element={<News />}></Route>
+			<Route path="/home" element={<Home />}></Route>
 		</Routes>
 
 		<Footer />
