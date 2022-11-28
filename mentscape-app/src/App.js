@@ -10,6 +10,10 @@ import { SignUp } from './pages/common/SignUp';
 import { MyProfile } from './pages/common/MyProfile';
 import { Homepage } from './pages/common/Homepage';
 import { PickSignUp } from './pages/common/PickSignUp';
+import Quizzes from "./pages/patients/Quizzes";
+import BookingForm from './pages/patients/BookingForm';
+import Appointments from './pages/patients/Appointments';
+import BookingCalendar from './pages/patients/BookingCalendar';
 
 import "./css/style.css"
 
