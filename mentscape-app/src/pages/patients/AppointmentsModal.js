@@ -1,4 +1,4 @@
-import ava from "../../assest/asset/doctors/doctor-01.jpg";
+import ava from "../../assets/img/doctors/doctor-01.jpg";
 function AppointmentModal(props) {
 
     const closeDetail =  () => {
