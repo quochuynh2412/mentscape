@@ -1,0 +1,38 @@
+[
+    {
+        "id": 0,
+        "name": "James Corden",
+        "degree": "PhD.",
+        "address": "Hanoi, Vietnam"
+    },
+    {
+        "id": 1,
+        "name": "Emma Watson",
+        "degree": "Doctor",
+        "address": "Ho Chi Minh, Vietnam"
+    },
+    {
+        "id": 2,
+        "name": "Dau Hoang Minh",
+        "degree": "PhD.",
+        "address": "Hanoi, Vietnam"
+    },
+    {
+        "id": 3,
+        "name": "Brittany Chiang",
+        "degree": "PhD.",
+        "address": "Da Nang, Vietnam"
+    },
+    {
+        "id": 4,
+        "name": "Patrick David",
+        "degree": "Master",
+        "address": "Ninh Binh, Vietnam"
+    },
+    {
+        "id": 5,
+        "name": "Ron Weasley",
+        "degree": "PhD.",
+        "address": "Can Tho, Vietnam"
+    }
+]

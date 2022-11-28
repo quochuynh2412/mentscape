@@ -1,13 +1,65 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+ul{
+  list-style-type: none;
 }
+.info, .selected-doctors{
+  margin: 100px 0;
+}
+.selected-doctors{
+  background-color: rgb(243, 243, 243);
+  padding: 50px 0;
+}
+.feature-slider{
+  width: 400px;
+  margin: 50px auto;
+}
+.feature-img img{
+  width: 100px;
+  height: 100px;
+}
+.header{
+  margin-top: 30px;
+  text-align: center;
+}
+.doctor-slider{
+  width: 900px;
+  margin: 30px;
+}
+.doctor-profile{
+  margin: 10px;
+  width: 280px !important;
+  height: auto !important;
+  padding: 15px;
+  background-color: white;
+}
+.doc-img{
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 4px;
+  width: 200px;
+  margin: 10px auto;
+}
+.verified{
+  padding: 8px;
+}
+.doc-name{
+  text-decoration: none !important;
+  color: black !important;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: gray;
+}
+.news-slider{
+  margin: 30px auto;
+  width: 1200px;
+}
+.article-card{
+  padding: 15px;
+  margin:15px auto;
+  width: 650px;
+}
+.article-img img{
+  height: 150px;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
