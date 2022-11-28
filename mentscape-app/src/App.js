@@ -25,6 +25,10 @@ function App() {
 			<Route path="/signup/patient" element={<SignUp isDoctor={false} />}></Route>
 			<Route path="/signup/therapist" element={<SignUp isDoctor={true} />}></Route>
 			<Route path="/profile" element={<MyProfile />}></Route>
+			<Route path="/quizzes" element={<Quizzes />}></Route>
+			<Route path="/booking-calendar" element={<BookingCalendar />}></Route>
+			<Route path="/booking-form" element={<BookingForm />}></Route>
+			<Route path="/appointment" element={<Appointments />}></Route>
 		</Routes>
 
 		<Footer />

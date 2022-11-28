@@ -1,0 +1,202 @@
+[
+    {
+        "text": "Little interest or pleasure in doing things",
+        "options": [
+            {
+                "id": 1,
+                "ans": "Not at all",
+                "point": 3
+            },
+            {
+                "id": 2,
+                "ans": "Several days",
+                "point": 2
+            },
+            {
+                "id": 3,
+                "ans": "More than half of the days",
+                "point": 1
+            },
+            {
+                "id": 4,
+                "ans": "Nearly every day",
+                "point": 0
+            }
+        ]
+    },
+    {
+        "text": "Feeling down, depressed, or hopeless ",
+        "options": [
+            {
+                "id": 1,
+                "ans": "Not at all",
+                "point": 3
+            },
+            {
+                "id": 2,
+                "ans": "Several days",
+                "point": 2
+            },
+            {
+                "id": 3,
+                "ans": "More than half of the days",
+                "point": 1
+            },
+            {
+                "id": 4,
+                "ans": "Nearly every day",
+                "point": 0
+            }
+        ]
+    },
+    {
+        "text": "Trouble falling or staying asleep, or sleeping too much",
+        "options": [
+            {
+                "id": 1,
+                "ans": "Not at all",
+                "point": 3
+            },
+            {
+                "id": 2,
+                "ans": "Several days",
+                "point": 2
+            },
+            {
+                "id": 3,
+                "ans": "More than half of the days",
+                "point": 1
+            },
+            {
+                "id": 4,
+                "ans": "Nearly every day",
+                "point": 0
+            }
+        ]
+    },
+    {
+        "text": "Feeling tired or having little energy",
+        "options": [
+            {
+                "id": 1,
+                "ans": "Not at all",
+                "point": 3
+            },
+            {
+                "id": 2,
+                "ans": "Several days",
+                "point": 2
+            },
+            {
+                "id": 3,
+                "ans": "More than half of the days",
+                "point": 1
+            },
+            {
+                "id": 4,
+                "ans": "Nearly every day",
+                "point": 0
+            }
+        ]
+    },
+    {
+        "text": "Poor appetite or overeating",
+        "options": [
+            {
+                "id": 1,
+                "ans": "Not at all",
+                "point": 3
+            },
+            {
+                "id": 2,
+                "ans": "Several days",
+                "point": 2
+            },
+            {
+                "id": 3,
+                "ans": "More than half of the days",
+                "point": 1
+            },
+            {
+                "id": 4,
+                "ans": "Nearly every day",
+                "point": 0
+            }
+        ]
+    },
+    {
+        "text": "Feeling bad about yourself - or that you are a failure or have let yourself or your family down",
+        "options": [
+            {
+                "id": 1,
+                "ans": "Not at all",
+                "point": 3
+            },
+            {
+                "id": 2,
+                "ans": "Several days",
+                "point": 2
+            },
+            {
+                "id": 3,
+                "ans": "More than half of the days",
+                "point": 1
+            },
+            {
+                "id": 4,
+                "ans": "Nearly every day",
+                "point": 0
+            }
+        ]
+    },
+    {
+        "text": "Trouble concentrating on things, such as reading the newspaper or watching television",
+        "options": [
+            {
+                "id": 1,
+                "ans": "Not at all",
+                "point": 3
+            },
+            {
+                "id": 2,
+                "ans": "Several days",
+                "point": 2
+            },
+            {
+                "id": 3,
+                "ans": "More than half of the days",
+                "point": 1
+            },
+            {
+                "id": 4,
+                "ans": "Nearly every day",
+                "point": 0
+            }
+        ]
+    },
+    {
+        "text": "Moving or speaking so slowly that other people could have noticed",
+        "options": [
+            {
+                "id": 1,
+                "ans": "Not at all",
+                "point": 3
+            },
+            {
+                "id": 2,
+                "ans": "Several days",
+                "point": 2
+            },
+            {
+                "id": 3,
+                "ans": "More than half of the days",
+                "point": 1
+            },
+            {
+                "id": 4,
+                "ans": "Nearly every day",
+                "point": 0
+            }
+        ]
+    }
+]
