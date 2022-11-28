@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import default_pic from "../../assets/img/default_profile.jpeg";
 import "../../css/style.css"
 import { useState } from "react";
-import { Form, Col, Row } from "react-bootstrap";
+import { Form, Col, Row, Button } from "react-bootstrap";
 import { specialties } from "../../data/const"
 
 export const SignUp = ({ isDoctor }) => {
@@ -112,7 +112,7 @@ export const SignUp = ({ isDoctor }) => {
                 }
 
                 <Col xs={12} className="mb-2">
-                  <button className="mt-2 w-100 btn btn-primary" type="submit" name="act">Register</button>
+                  <Button variant="primary" className="mt-2 w-100" type="submit" name="act">Register</Button>
                 </Col>
               </Row>
               </Form>
