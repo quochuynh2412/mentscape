@@ -8,7 +8,6 @@ import { Footer } from './components/Footer';
 import { LogIn } from './pages/common/LogIn';
 import { SignUp } from './pages/common/SignUp';
 import { MyProfile } from './pages/common/MyProfile';
-import { Homepage } from './pages/common/Homepage';
 import { PickSignUp } from './pages/common/PickSignUp';
 import Quizzes from "./pages/patients/Quizzes";
 import BookingForm from './pages/patients/BookingForm';
@@ -27,7 +26,7 @@ function App() {
 		<Header />
 
 		<Routes>
-			<Route path="/" element={<Homepage />}></Route>
+			<Route path="/" element={<Home />}></Route>
 			<Route path="/login" element={<LogIn />}></Route>
 			<Route path="/signup" element={<PickSignUp />}></Route>
 			<Route path="/signup/patient" element={<SignUp isDoctor={false} />}></Route>
@@ -40,7 +39,6 @@ function App() {
 			<Route path="/detailTherapist" element={<Detail />}></Route>
 			<Route path="/searchTherapist" element={<Search />}></Route>
 			<Route path="/news" element={<News />}></Route>
-			<Route path="/home" element={<Home />}></Route>
 		</Routes>
 
 		<Footer />
