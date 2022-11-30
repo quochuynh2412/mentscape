@@ -23,7 +23,7 @@ export const LogIn = () => {
                         <Form.Control type="password" id="floatingPassword" placeholder="Password"/>
                       </FloatingLabel>
                       <div className="text-end py-2">
-                        <a className="forgot-link text-decoration-none text-reset" href="forgot-password.html">Forgot Password?</a>
+                        <Link to="/" className="forgot-link text-decoration-none text-reset">Forgot Password?</Link>
                       </div>
                       <Button variant="primary" size="lg" className="login-btn w-100" type="submit">Login</Button>
                       <div className="text-center py-2 fw-bold">
