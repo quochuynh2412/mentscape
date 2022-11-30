@@ -17,6 +17,7 @@ import Detail from './pages/therapist/Detail';
 import Search from './pages/therapist/Search';
 import News from'./pages/common/News';
 import Home from './pages/common/Home';
+import Approve_page from './pages/admin/Approve-page';
 
 import "./css/style.css"
 
@@ -39,6 +40,7 @@ function App() {
 			<Route path="/detailTherapist" element={<Detail />}></Route>
 			<Route path="/searchTherapist" element={<Search />}></Route>
 			<Route path="/news" element={<News />}></Route>
+			<Route path="/admin" element= {<Approve_page/>}></Route>
 		</Routes>
 
 		<Footer />
