@@ -20,10 +20,10 @@ export const Header = () => {
             <Link to="/" className="nav-links">Home</Link>
             </li>
           <li className="nav-links me-4">
-            <Link to="/" className="nav-links">Quiz</Link>
+            <Link to="/quizzes" className="nav-links">Quiz</Link>
           </li>
           <li className="nav-links me-4">
-            <Link to="/" className="nav-links">News</Link>
+            <Link to="/news" className="nav-links">News</Link>
           </li>
           {
             signedIn ? <li className="nav-links me-4"><Link to="/login" className="nav-links">Login</Link></li>

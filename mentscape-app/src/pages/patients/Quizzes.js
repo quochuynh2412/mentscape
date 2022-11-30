@@ -244,7 +244,7 @@ function Quizzes() {
     }
     return (
         <>  
-            <div className="quizzes">
+            <div className="content">
             <h2 className="mt-5 text-center">Mental Health Tests, Quizzes, Self-Assessments:</h2>
             <h3 className="mt-3 text-center">How Happy Are You?</h3>
             {showFinalResult ? (
