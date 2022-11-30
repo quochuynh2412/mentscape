@@ -1,4 +1,4 @@
-import '../../index.css'
+import '../../css/Huynh.css'
 import StickyBox from "react-sticky-box";
 import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';

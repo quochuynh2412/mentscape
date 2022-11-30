@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import profile_pic from "../../assets/img/profile.jpeg";
 import patient from "../../data/patient.json";
-import { Container, Row, Col, ListGroup} from "react-bootstrap";
+import { Container, Row, Col, ListGroup, Button} from "react-bootstrap";
+import { firebaseSignout } from "../../firebase/authFunc";
 
 export const MyProfile = () => {
   return (
@@ -43,11 +44,8 @@ export const MyProfile = () => {
                     <img className="position-relative" src={profile_pic} alt="profile" />
                   </div>
                 </div>
-                <div className="py-2 w-100">
-                  <ListGroup>
-                    <Link to="/profile" className="list-group-item list-group-item active">My Profile</Link>
-                    <Link to="/" className="list-group-item list-group-item">Sign out</Link>
-                  </ListGroup>
+                <div className="py-2 text-center">
+                  <Button variant="secondary"className="" onClick={firebaseSignout}>Sign out</Button>
                 </div>
               </Col>
             </Row>
