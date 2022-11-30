@@ -2,14 +2,15 @@ import { useState, useEffect } from 'react';
 import { onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../firebase-config";
 
-// export const firebaseSignUp = async (email, password) => {
-//     const userCredential = await auth.createUserWithEmailAndPassword(
-//         email,
-//         password
-//     );
-//     const userId = await userCredential.user.uid;
-//     return userId;
-// };
+export const firebaseSignUp = async (email, password) => {
+    const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+    );
+    const userId = userCredential.user.uid;
+    return userId;
+};
 
 export const firebaseLogIn = async (email, password) => {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);

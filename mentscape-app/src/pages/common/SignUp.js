@@ -4,6 +4,10 @@ import { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Col, Row, Button } from "react-bootstrap";
 import { specialties } from "../../data/const"
+import { firebaseSignout, firebaseSignUp } from "../../firebase/authFunc";
+import { uploadFile } from "../../firebase/uploadFile";
+import { db } from "../../firebase-config";
+import { doc, setDoc } from "firebase/firestore";
 
 
 export const SignUp = ({ isDoctor }) => {
@@ -17,11 +21,21 @@ export const SignUp = ({ isDoctor }) => {
   const [age, setAge] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
-  const [cv, setCv] = useState('');
+  const [cv_link, setCvLink] = useState('');
   const [description, setDescription] = useState('');
   const [focusSpecialty, setFocusSpecialty] = useState(
     new Array(specialties.length).fill(false)
   );
+
+  const finalSpecialty = [];
+  const returnFinalSpecialty = () => {
+    for (let i = 0; i < focusSpecialty.length; i++) {
+      if (focusSpecialty[i]) {
+        finalSpecialty.push(specialties[i]);
+      }
+    }
+    return finalSpecialty
+  }
 
   const handleCheckChange = (position) => {
     const updatedCheckedState = focusSpecialty.map((item, index) =>
@@ -37,25 +51,47 @@ export const SignUp = ({ isDoctor }) => {
   }
 
   const [validated, setValidated] = useState(false);
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+    if (form.checkValidity() === true) {
 
-      const finalSpecialty = [];
-      // focusSpecialty.map((focus, index) => {if (focus)  { finalSpecialty.push(specialties[index]) }} );
-      for (let i =0;i<focusSpecialty.length;i++){
-        if (focusSpecialty[i]){
-          finalSpecialty.push(specialties[i]);
-        }
+      const userId = await firebaseSignUp(email, password);
+      const profilePictureUrl = avatar ? await uploadFile(avatar, 'profilePictures') : null;
+
+      if (!isDoctor) {
+        await setDoc(doc(db, 'User', userId), {
+          email,
+          fullname,
+          age,
+          phone,
+          address,
+          isAdmin: false,
+          profile_pic: profilePictureUrl
+        });
+      } else {
+        returnFinalSpecialty();
+        await setDoc(doc(db, 'Therapist', userId), {
+          email,
+          fullname,
+          age,
+          phone,
+          address,
+          cv_link,
+          description,
+          profile_pic: profilePictureUrl,
+          date_available: null,
+          approved: false,
+          specialties : finalSpecialty
+        });
+        
       }
-      console.log(focusSpecialty);
-      console.log(finalSpecialty);
-    } else {
-      alert("hi");
 
-      // navigate(`/`);
+      alert('Account created successfully');
+      await firebaseSignout();
+      navigate('/login');
     }
     setValidated(true);
   };
@@ -128,7 +164,7 @@ export const SignUp = ({ isDoctor }) => {
                   <>
                     <Col xs={12} className="mb-2">
                       <Form.Label className="required">CV Link</Form.Label>
-                  <Form.Control type="text" id="cv" value={cv} onChange={e => setCv(e.target.value)} placeholder="CV link" required />
+                  <Form.Control type="text" id="cv" value={cv_link} onChange={e => setCvLink(e.target.value)} placeholder="CV link" required />
                     </Col>
                     <Col xs={12} className="mb-2">
                       <Form.Label className="required">Description</Form.Label>
