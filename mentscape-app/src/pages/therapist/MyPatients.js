@@ -1,5 +1,5 @@
 import { Component } from "react";
-import "./index.css";
+import "../../css/Huynh.css";
 import { Link } from "react-router-dom";
 import DocSidebar from "../../components/SideBar/DocSideBar";
 import Row from "react-bootstrap/Row";
