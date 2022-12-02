@@ -1,11 +1,25 @@
 import { Link } from "react-router-dom";
-import profile_pic from "../../assets/img/profile.jpeg";
-import patient from "../../data/patient.json";
 import { Container, Row, Col, ListGroup, Button} from "react-bootstrap";
 import { firebaseSignout } from "../../firebase/authFunc";
+import { getCurrentUserInfo } from "../../firebase/user";
+import { useState, useEffect } from "react";
+import { Header } from "../../components/Header";
 
 export const MyProfile = () => {
+
+  const [userInfo, setUserInfo] = useState({});
+  useEffect(() => {
+    const loadUserInfo = async () => {
+      const results = await getCurrentUserInfo();
+      setUserInfo(results);
+    }
+    loadUserInfo();
+  }, []);
+
+
   return (
+    <>
+    <Header />
       <div className="content">
         <Container>
           <ol className="breadcrumb">
@@ -22,26 +36,44 @@ export const MyProfile = () => {
               <Col md={7}>
                 <ListGroup variant="flush" className="info-list">
                   <ListGroup.Item><label>Email address:</label>
-                    {patient.email}
+                  {userInfo.email}
                   </ListGroup.Item>
                   <ListGroup.Item><label>Fullname:</label>
-                    {patient.name}
+                  {userInfo.fullname}
                   </ListGroup.Item>
                   <ListGroup.Item><label>Age:</label>
-                    {patient.age}
+                  {userInfo.age}
                   </ListGroup.Item>
                   <ListGroup.Item><label>Phone number:</label>
-                    {patient.phone}
+                  {userInfo.phone}
                   </ListGroup.Item>
                   <ListGroup.Item><label>Address:</label>
-                    {patient.address}
+                  {userInfo.address}
                   </ListGroup.Item>
+                  {
+                    (userInfo.role === "therapist") && 
+                    <>
+                      <ListGroup.Item><label>Description:</label>
+                        {userInfo.description}
+                      </ListGroup.Item>
+                    <ListGroup.Item><label>Specialities:</label>
+                      {userInfo.specialties.map(((specialty, index) => {
+                        
+                        return (
+                          <span key={specialty}>
+                            {specialty}, 
+                          </span>)
+                      }))
+                      }
+                    </ListGroup.Item>
+                    </>
+                  }
                 </ListGroup>
               </Col>
               <Col md={5}>
                 <div className="py-2 d-flex justify-content-center">
                   <div className="profile-picture">
-                    <img className="position-relative" src={profile_pic} alt="profile" />
+                    <img className="position-relative" src={userInfo.profile_pic} alt="profile" />
                   </div>
                 </div>
                 <div className="py-2 text-center">
@@ -52,6 +84,6 @@ export const MyProfile = () => {
           </div>
         </Container>
       </div>
-
+    </>
   )
 }

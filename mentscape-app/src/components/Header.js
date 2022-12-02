@@ -1,10 +1,20 @@
 import { NavDropdown, Navbar} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import logo from '../assets/img/logo.png';
-import profile_pic from "../assets/img/profile.jpeg";
+import { firebaseSignout } from '../firebase/authFunc';
+import { useState, useEffect } from 'react';
+import { getCurrentUserInfo } from '../firebase/user';
 
 export const Header = () => {
-  const signedIn = true;
+  const [userInfo, setUserInfo] = useState({});
+  useEffect(() => {
+    const loadUserInfo = async () => {
+      const results = await getCurrentUserInfo();
+      setUserInfo(results);
+    }
+    loadUserInfo();
+  }, []);
+
   return (
 
     <Navbar expand="lg" className="bg-white text-black px-4 d-flex justify-content-between divider">
@@ -26,23 +36,29 @@ export const Header = () => {
             <Link to="/news" className="nav-links">News</Link>
           </li>
           {
-            signedIn ? <li className="nav-links me-4"><Link to="/login" className="nav-links">Login</Link></li>
-            : <li>
+            (userInfo !== null && userInfo.role === "therapist") &&
+            <>
+              <li className="nav-links me-4">
+                <Link to="/dashboard" className="nav-links">Dashboard</Link>
+              </li>
+            </>
+          }
+          {
+            (userInfo === null) ? <li className="nav-links me-4"><Link to="/login" className="nav-links">Login</Link></li>
+              : <li className="nav-links me-4">
                 <NavDropdown
                   id="nav-dropdown"
                   title="My Account"
                   className="nav-links"
                 >
-                  <NavDropdown.Item>
-                    <Link to="/profile">
-                      <img src={profile_pic} alt="User profile" className="avatar-img rounded-circle" />
-                      <span href="doctor-profile.html">Dr. Hoang Minh</span>
-                    </Link>
+                  <NavDropdown.Item href="/profile">
+                      <img src={userInfo.profile_pic} alt="User profile" className="avatar-img rounded-circle" />
+                      <span href="doctor-profile.html">{userInfo.fullname}</span>
                   </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.4">
-                    Logout
-                  </NavDropdown.Item>
+                  {/* <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={firebaseSignout}>
+                    Sign out
+                  </NavDropdown.Item> */}
                 </NavDropdown>
               </li>
           }

@@ -68,12 +68,12 @@ export const SignUp = ({ isDoctor }) => {
           age,
           phone,
           address,
-          isAdmin: false,
+          role: "patient",
           profile_pic: profilePictureUrl
         });
       } else {
         returnFinalSpecialty();
-        await setDoc(doc(db, 'Therapist', userId), {
+        await setDoc(doc(db, 'User', userId), {
           email,
           fullname,
           age,
@@ -81,6 +81,7 @@ export const SignUp = ({ isDoctor }) => {
           address,
           cv_link,
           description,
+          role: "therapist",
           profile_pic: profilePictureUrl,
           date_available: null,
           approved: false,

@@ -1,5 +1,6 @@
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare } from 'react-icons/fa';
 import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 export const Footer = () => {
   return (
       <Container fluid className="text-white bg-sky pt-3">
@@ -17,17 +18,17 @@ export const Footer = () => {
               <h5 className="text-uppercase fw-bold mb-4">
                 About Mentscape
               </h5>
-              <p><a href="../../pages/Privacy/introprivacy.php" className="text-reset">History</a></p>
-              <p><a href="../../pages/Privacy/datacollect.php" className="text-reset">Administrator Team</a></p>
-              <p><a href="../../pages/Privacy/personalprotect.php" className="text-reset">Our Network</a></p>
-              <p><a href="../../pages/Privacy/thirdparty.php" className="text-reset">Operational Regulations</a></p>
+              <p><Link to="/" className="text-reset">History</Link></p>
+            <p><Link to="/" className="text-reset">Administrator Team</Link></p>
+            <p><Link to="/" className="text-reset">Our Network</Link></p>
+            <p><Link to="/" href="../../pages/Privacy/thirdparty.php" className="text-reset">Operational Regulations</Link></p>
             </Col>
             <Col sm={6} md={3} className="mx-auto mb-4">
               <h5 className="text-uppercase fw-bold mb-4">Our policy</h5>
-              <p><a href="../../pages/Privacy/paymentmethod.php" className="text-reset">Terms Of Use</a></p>
-              <p><a href="../../pages/Privacy/shipping.php" className="text-reset">Data Collection</a></p>
-              <p><a href="../../pages/Privacy/return.php" className="text-reset">Privacy Policy</a></p>
-              <p><a href="../../pages/Privacy/international.php" className="text-reset">Frequently asked questions</a></p>
+            <p><Link to="/" className="text-reset">Terms Of Use</Link></p>
+            <p><Link to="/" className="text-reset">Data Collection</Link></p>
+            <p><Link to="/" className="text-reset">Privacy Policy</Link></p>
+            <p><Link to="/" className="text-reset">Frequently asked questions</Link></p>
             </Col>
             <Col sm={6} md={3} className="mx-auto mb-4">
               <h5 className="text-uppercase fw-bold mb-4">Contact Us</h5>

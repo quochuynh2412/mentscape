@@ -7,8 +7,11 @@ import Container from "react-bootstrap/esm/Container";
 import Banner from "../../components/Banner/Banner";
 import ReactDOM from 'react-dom/client';
 import CardGroup from 'react-bootstrap/CardGroup';
+import { Header } from '../../components/Header';
 export default function News() {
     return (
+        <>
+        <Header />
         <div className="overflow-hidden">
             <Banner></Banner>
             <section className="info">
@@ -52,5 +55,6 @@ export default function News() {
                 </Row>
             </section>
         </div>
+        </>
     )
 }

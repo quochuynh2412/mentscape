@@ -23,12 +23,13 @@ import Dashboard from './pages/therapist/Dashboard';
 
 import { useAuth } from './firebase/authFunc';
 import "./css/style.css"
+import MyPatients from './pages/therapist/MyPatients';
 
 function App() {
 	const { isLoading, user } = useAuth();
 	return (
 		<BrowserRouter>
-			<Header />
+			{/* <Header /> */}
 
 			<Routes>
 				<Route path="/" element={<Home />}></Route>
@@ -81,6 +82,11 @@ function App() {
 				<Route path="dashboard" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<Dashboard />
+					</ProtectedRoute>
+				} />
+				<Route path="myPatient" element={
+					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
+						<MyPatients />
 					</ProtectedRoute>
 				} />
 			</Routes>

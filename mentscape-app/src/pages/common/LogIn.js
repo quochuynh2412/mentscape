@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, FloatingLabel, Button } from "react-bootstrap";
 import banner from "../../assets/img/banner.jpeg"
 import { firebaseLogIn } from '../../firebase/authFunc';
+import { Header } from '../../components/Header';
 
 export const LogIn = () => {
   const [email, setEmail] = useState('');
@@ -25,6 +26,8 @@ export const LogIn = () => {
   }
 
   return (
+    <>
+    <Header/>
       <div className="content">
         <Container fluid>
           <Row>
@@ -60,6 +63,7 @@ export const LogIn = () => {
             </Col>
           </Row>
         </Container>
-      </div>		
+      </div>	
+    </>	
   )
 }

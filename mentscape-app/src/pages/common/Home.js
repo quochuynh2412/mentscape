@@ -14,6 +14,7 @@ import { Route, Router } from "react-router-dom";
 import News from "./News";
 import { Component } from "react";
 import { Link } from "react-router-dom";
+import { Header } from "../../components/Header";
 
 const feature_settings = {
   dots: true,
@@ -33,6 +34,8 @@ news = news.slice(0, 5);
 export default class Home extends Component {
   render() {
     return (
+      <>
+      <Header />
       <div className="overflow-hidden">
         <Banner></Banner>
         <section className="info">
@@ -107,6 +110,7 @@ export default class Home extends Component {
           </div >
         </section>
       </div>
+      </>
     )
   }
 }

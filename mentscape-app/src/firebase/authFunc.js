@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../firebase-config";
+import { Navigate } from 'react-router-dom';
 
 export const firebaseSignUp = async (email, password) => {
     const userCredential = await createUserWithEmailAndPassword(
@@ -21,6 +22,8 @@ export const firebaseLogIn = async (email, password) => {
 export const firebaseSignout = async () => {
     try {
         await signOut(auth);
+        // Navigate('/')
+
     } catch (error) {
         throw new Error('Error signing out');
     }
