@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import default_pic from "../../assets/img/default_profile.jpeg";
-import { useState} from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Form, Col, Row, Button } from "react-bootstrap";
+import { Form, Col, Row, Button, Container } from "react-bootstrap";
 import { specialties } from "../../data/const"
 import { firebaseSignout, firebaseSignUp } from "../../firebase/authFunc";
 import { uploadFile } from "../../firebase/uploadFile";
@@ -87,7 +87,6 @@ export const SignUp = ({ isDoctor }) => {
           approved: false,
           specialties : finalSpecialty
         });
-        
       }
 
       alert('Account created successfully');
@@ -100,13 +99,13 @@ export const SignUp = ({ isDoctor }) => {
 
   return (
       <div className="content">
-        <div className="container">
+        <Container>
           <ol className="breadcrumb">
             <li className="breadcrumb-item"><Link to="/">Home</Link></li>
             <li className="breadcrumb-item active" aria-current="page">User Register</li>
           </ol>
           <div className="p-5 info-box">
-          <Form noValidate validated={validated} onSubmit={handleSubmit} encType="multipart/form-data">
+            <Form noValidate validated={validated} onSubmit={handleSubmit} encType="multipart/form-data">
               <h2 className="text-center">Register for new account</h2>
               <Row>
                 <Col xs={12} className="mb-2 d-flex justify-content-center">
@@ -176,12 +175,6 @@ export const SignUp = ({ isDoctor }) => {
                       {specialties.map(( (specialty, index) => {
                           return (
                             <div key={specialty} className="mb-3">
-                              {/* <Form.Check
-                                type="checkbox"
-                                id={specialty}
-                                label={specialty}
-                                className="text-reset"
-                              /> */}
                               <input type="checkbox" checked={focusSpecialty[index]} onChange={() => handleCheckChange(index)} />
                               <label className="ms-2">{specialty} </label>
                             </div>)
@@ -195,9 +188,9 @@ export const SignUp = ({ isDoctor }) => {
                   <Button variant="primary" className="mt-2 w-100" type="submit" name="act">Register</Button>
                 </Col>
               </Row>
-              </Form>
+            </Form>
           </div>
-        </div>
+        </Container>
       </div>
   )
 }

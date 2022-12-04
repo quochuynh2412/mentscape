@@ -57,13 +57,11 @@ export const MyProfile = () => {
                         {userInfo.description}
                       </ListGroup.Item>
                     <ListGroup.Item><label>Specialities:</label>
-                      {userInfo.specialties.map(((specialty, index) => {
-                        
-                        return (
-                          <span key={specialty}>
-                            {specialty}, 
-                          </span>)
-                      }))
+                      {userInfo.specialties.map((specialty, index) => 
+                        <span key={specialty}>
+                          {index > 0 && ", "}
+                          {specialty}
+                        </span>)
                       }
                     </ListGroup.Item>
                     </>
@@ -77,7 +75,7 @@ export const MyProfile = () => {
                   </div>
                 </div>
                 <div className="py-2 text-center">
-                  <Button variant="secondary"className="" onClick={firebaseSignout}>Sign out</Button>
+                  <Button variant="secondary" onClick={firebaseSignout}>Sign out</Button>
                 </div>
               </Col>
             </Row>
