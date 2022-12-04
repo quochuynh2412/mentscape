@@ -1,14 +1,28 @@
 import ava from "../../assets/img/doctors/doctor-01.jpg";
+import { getUserInfo } from "../../firebase/user";
+import { useState, useEffect } from 'react'
 function AppointmentList(props) {
+    const [therapist, setTherapistInfo] = useState([]);
+    useEffect(() => {
+        const loadTherapist = async () => {
+            console.log(props.therapist_id);
+            const data = await getUserInfo(props.therapist_id);
+            setTherapistInfo(data);
+            console.log(data);
+        }
+        loadTherapist();
+    }, []);
+    const date = new Date(props.date.seconds * 1000)
     var b = "bg-success";
     const changeColor = () => {
         b = "bg-danger";
     }
     changeColor();
 
-    const showdetail =  () => {
+    const showdetail = () => {
         props.setModal(false);
     }
+
     return (
         <>
             <tr>
@@ -21,19 +35,19 @@ function AppointmentList(props) {
                             <img
                                 style={{ width: "5.5rem", height: "5.5rem" }}
                                 className="avatar-img rounded-circle"
-                                src={ava}
+                                src={therapist.profile_pic}
                                 alt="Doctor"
                             />
 
                         </a>
                         <a style={{ fontSize: "large" }} href="doctor-profile.html" className=" p-3 col-sm-4 nav-link active">
-                            {/* {props.doctor} */}
-                            Dr. Ruby Perrin <span>Dental</span>
+                            {therapist.fullname}
+                            <span>Dental</span>
                         </a>
                     </h2>
                 </td>
                 <td>
-                    14 Nov 2019 <span className="d-block text-info">10.00 AM</span>
+                    {date.toDateString()} <span className="d-block text-info">{date.toLocaleTimeString('en-US')}</span>
                 </td>
                 <td>12 Nov 2019</td>
                 <td>
