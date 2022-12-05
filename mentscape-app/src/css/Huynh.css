@@ -1,7 +1,22 @@
 ul {
   list-style-type: none;
 }
-
+.booking-info{
+  margin: 0 25px;
+}
+.therapist-detail{
+  padding: 0 !important;
+}
+.therapist-detail li{
+  padding: 4px;
+}
+.therapist-detail li span{
+  color: #042d6a;
+  margin-right: 15px;
+}
+.booking-calendar-container{
+  padding: 40px 0;
+}
 .info,
 .selected-doctors {
   margin: 100px 0;
@@ -418,4 +433,7 @@ table.table td h2 span {
 }
 .card{
   margin-bottom: 20px;
+}
+.rating svg{
+  color: rgb(255, 204, 0) !important;
 }
