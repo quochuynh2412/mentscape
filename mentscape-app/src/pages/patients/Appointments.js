@@ -4,15 +4,16 @@ import AppointmentList from "./AppointmentList";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from '../../firebase-config';
 import { getAppointments } from "../../firebase/appointment";
+import { getCurrentUser } from "../../firebase/authFunc";
 function Appointments() {
     const [apm, setApm] = useState([]);
     useEffect(() => {
-        const loadAppointment = async () => {
-            const data = await getAppointments();
+        const loadAppointment = async (userId) => {
+            console.log(userId)
+            const data = await getAppointments(true, userId);
             setApm(data);
-            console.log(data);
         }
-        loadAppointment();
+        loadAppointment(getCurrentUser().id);
     }, []);
     const [showModal, setShowModal] = useState(true);
     return (

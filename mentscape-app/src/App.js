@@ -15,7 +15,7 @@ import BookingForm from './pages/patients/BookingForm';
 import Appointments from './pages/patients/Appointments';
 import BookingCalendar from './pages/patients/BookingCalendar';
 import Detail from './pages/therapist/Detail';
-import Search from './pages/therapist/Search';
+import Search from './pages/patients/Search';
 import News from './pages/common/News';
 import Home from './pages/common/Home';
 import Approve_page from './pages/admin/Approve-page';

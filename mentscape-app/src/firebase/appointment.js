@@ -22,6 +22,7 @@ export async function getAppointments(isPatient, userId) {
         querySnapshot.forEach(doc => {
             if (doc.data().patient_id === userId) {
                 apm.push(doc.data());
+                console.log(true)
             }
         });
     } else {
