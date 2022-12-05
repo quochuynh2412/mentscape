@@ -1,6 +1,24 @@
 import ava from "../../assets/img/doctors/doctor-01.jpg";
-import {Link} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { getUserInfo } from "../../firebase/user";
+import { useState, useEffect } from 'react';
+import DayTimePicker from '@mooncake-dev/react-day-time-picker';
 function BookingCalendar() {
+    const [therapist, setTherapistInfo] = useState([]);
+    let { id } = useParams();
+    id = id.substring(4);
+    useEffect(() => {
+        const loadTherapist = async () => {
+            console.log(id);
+            const data = await getUserInfo(id);
+            setTherapistInfo(data);
+            console.log(data);
+        }
+        loadTherapist();
+    }, []);
+    const handleScheduled = dateTime => {
+        console.log('scheduled: ', dateTime);
+    };
     return (
         <>
             <div style={{ height: "100%", width: "95%" }} className="mt-5 mx-auto rounded-3 ">
@@ -68,76 +86,10 @@ function BookingCalendar() {
                     </div>
 
                     <div className="card-body">
-                        <div className="table-responsive">
-                            <table className="table table-hover table-center mb-0">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <a href="#">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                                                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
-                                                </svg>
-                                            </a>
-                                        </th>
-                                        <th><span>Mon</span>
-                                            <span className="slot-date">11 Nov <small className="slot-year">2019</small></span></th>
-                                        <th><span>Mon</span>
-                                            <span className="slot-date">11 Nov <small className="slot-year">2019</small></span></th>
-                                        <th><span>Mon</span>
-                                            <span className="slot-date">11 Nov <small className="slot-year">2019</small></span></th>
-                                        <th><span>Mon</span>
-                                            <span className="slot-date">11 Nov <small className="slot-year">2019</small></span></th>
-                                        <th><span>Mon</span>
-                                            <span className="slot-date">11 Nov <small className="slot-year">2019</small></span></th>
-                                        <th>
-                                            <a href="#">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                                                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                                                </svg>
-                                            </a>
-                                        </th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-
-                                    <tr>
-                                        <td></td>
-
-                                        <td>
-                                            <a className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                            {/* <Link to="/quizzes" className="d-block btn bg-info-light border mb-1 text-info"></Link> */}
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                        </td>
-                                        <td>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                        </td>
-                                        <td>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                        </td>
-                                        <td>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                        </td>
-                                        <td>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                            <a href="#" className="d-block btn bg-info-light border mb-1 text-info">10.00 AM</a>
-                                        </td>
-
-                                        <td></td>
-
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
+                        <DayTimePicker
+                            timeSlotSizeMinutes={30}
+                            isDone={true}
+                            isLoading={true} />
                     </div>
 
                     {/* <div className="mb-1 card-footer user-tabs">
