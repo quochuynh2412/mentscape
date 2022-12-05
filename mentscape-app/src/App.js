@@ -20,6 +20,7 @@ import News from './pages/common/News';
 import Home from './pages/common/Home';
 import Approve_page from './pages/admin/Approve-page';
 import Dashboard from './pages/therapist/Dashboard';
+import { NotFound } from './pages/common/NotFound';
 
 import { useAuth } from './firebase/authFunc';
 import "./css/style.css"
@@ -39,12 +40,7 @@ function App() {
 				<Route path="/signup/therapist" element={<SignUp isDoctor={true} />}></Route>
 				<Route path="/quizzes" element={<Quizzes />}></Route>
 				<Route path="/news" element={<News />}></Route>
-				<Route path="profile" element={
-					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
-						<MyProfile />
-					</ProtectedRoute>
-				} />
-				<Route path="profile" element={
+				<Route path="/profile" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<MyProfile />
 					</ProtectedRoute>
@@ -54,41 +50,42 @@ function App() {
 						<BookingCalendar />
 					</ProtectedRoute>
 				} />
-				<Route path="booking-form" element={
+				<Route path="/booking-form" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<BookingForm />
 					</ProtectedRoute>
 				} />
-				<Route path="appointment" element={
+				<Route path="/appointment" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<Appointments />
 					</ProtectedRoute>
 				} />
-				<Route path="detailTherapist" element={
+				<Route path="/detailTherapist" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<Detail />
 					</ProtectedRoute>
 				} />
-				<Route path="searchTherapist" element={
+				<Route path="/searchTherapist" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<Search />
 					</ProtectedRoute>
 				} />
-				<Route path="admin" element={
+				<Route path="/admin" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<Approve_page />
 					</ProtectedRoute>
 				} />
-				<Route path="dashboard" element={
+				<Route path="/dashboard" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<Dashboard />
 					</ProtectedRoute>
 				} />
-				<Route path="myPatient" element={
+				<Route path="/myPatient" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<MyPatients />
 					</ProtectedRoute>
 				} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 
 			<Footer />
