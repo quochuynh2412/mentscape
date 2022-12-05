@@ -1,23 +1,104 @@
 import ava from "../../assets/img/doctors/doctor-01.jpg";
 import { Link, useParams } from "react-router-dom";
-import { getUserInfo } from "../../firebase/user";
+import { getUserInfo, getCurrentUserInfo } from "../../firebase/user";
 import { useState, useEffect } from 'react';
+import { getAppointments, getAvailability } from "../../firebase/appointment";
 import DayTimePicker from '@mooncake-dev/react-day-time-picker';
+import { faL } from "@fortawesome/free-solid-svg-icons";
+import { Appointment, addAppointment } from "../../firebase/appointment";
+import AppointmentList from "./AppointmentList";
 function BookingCalendar() {
     const [therapist, setTherapistInfo] = useState([]);
-    let { id } = useParams();
+    const [appointmentList, setAppointmentList] = useState([]);
+    const [patient, setPatientID] = useState([]);
+    const [availability, setAvailabilty] = useState([]);
+    const [isScheduling, setIsScheduling] = useState(false);
+    const [isScheduled, setIsScheduled] = useState(false);
+    var { id } = useParams();
     id = id.substring(4);
     useEffect(() => {
-        const loadTherapist = async () => {
-            console.log(id);
-            const data = await getUserInfo(id);
+        const loadTherapist = async (userId) => {
+            const data = await getUserInfo(userId);
             setTherapistInfo(data);
+            console.log("therapist ", data);
+            return data;
+        }
+        const loadAvailability = async (userId) => {
+            const user = await loadTherapist(userId)
+            const data = await getAvailability(user.date_available);
+            setAvailabilty(data);
             console.log(data);
         }
-        loadTherapist();
+        const loadCurrentUser = async () => {
+            const currentId = await getCurrentUserInfo();
+            setPatientID(currentId);
+        }
+        const loadAppointment = async (userId) => {
+            const data = await getAppointments(false, userId);
+            setAppointmentList(data);
+        }
+        loadAvailability(id);
+        loadAppointment(id);
+        loadCurrentUser();
     }, []);
-    const handleScheduled = dateTime => {
-        console.log('scheduled: ', dateTime);
+    function timeSlotValidator(slotTime) {
+        const time = slotTime.toTimeString().substring(0, 5);
+        var isvalid = false;
+        if (slotTime.getDay() == 1) {
+            availability.Monday.forEach(element => {
+                if (time === element) {
+                    isvalid = true;
+                }
+            });
+        } else if (slotTime.getDay() == 2) {
+            availability.Tuesday.forEach(element => {
+                if (time === element) {
+                    isvalid = true;
+                }
+            });
+        } else if (slotTime.getDay() == 3) {
+            availability.Wednesday.forEach(element => {
+                if (time === element) {
+                    isvalid = true;
+                }
+            });
+        } else if (slotTime.getDay() == 4) {
+            availability.Thursday.forEach(element => {
+                if (time === element) {
+                    isvalid = true;
+                }
+            });
+        } else if (slotTime.getDay() == 5) {
+            availability.Friday.forEach(element => {
+                if (time === element) {
+                    isvalid = true;
+                }
+            });
+        } else if (slotTime.getDay() == 6) {
+            availability.Saturday.forEach(element => {
+                if (time === element) {
+                    isvalid = true;
+                }
+            });
+        } else if (slotTime.getDay() == 0) {
+            availability.Sunday.forEach(element => {
+                if (time === element) {
+                    isvalid = true;
+                }
+            });
+        }
+        appointmentList.forEach(element => {
+            const apm_date = new Date(element.date.seconds * 1000)
+            if (slotTime.getTime() == apm_date.getTime()) {
+                isvalid = false;
+            }
+        })
+        return isvalid;
+    }
+    const handleScheduled = async dateTime => {
+        setIsScheduling(true);
+        const booked_apm = new Appointment(new Date(), dateTime, "anxiety", patient.id, 'none', 'not good', therapist.id);
+        setIsScheduled(await addAppointment(booked_apm));
     };
     return (
         <>
@@ -88,8 +169,12 @@ function BookingCalendar() {
                     <div className="card-body">
                         <DayTimePicker
                             timeSlotSizeMinutes={30}
-                            isDone={true}
-                            isLoading={true} />
+                            isDone={isScheduled}
+                            isLoading={isScheduling}
+                            onConfirm={handleScheduled}
+                            confirmText={"Book appointment"}
+                            timeSlotValidator={timeSlotValidator}
+                        />
                     </div>
 
                     {/* <div className="mb-1 card-footer user-tabs">
