@@ -32,7 +32,7 @@ function App() {
 			{/* <Header /> */}
 
 			<Routes>
-				<Route path="/" element={<Home />}></Route>
+				<Route exact path="/" element={<Home />}></Route>
 				<Route path="/login" element={<LogIn />}></Route>
 				<Route path="/signup" element={<PickSignUp />}></Route>
 				<Route path="/signup/patient" element={<SignUp isDoctor={false} />}></Route>
@@ -40,16 +40,16 @@ function App() {
 				<Route path="/quizzes" element={<Quizzes />}></Route>
 				<Route path="/news" element={<News />}></Route>
 				<Route path="profile" element={
-				<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
-					<MyProfile/>
-				</ProtectedRoute>
-				}/>
+					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
+						<MyProfile />
+					</ProtectedRoute>
+				} />
 				<Route path="profile" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<MyProfile />
 					</ProtectedRoute>
 				} />
-				<Route path="booking-calendar" element={
+				<Route path="booking-calendar/:id" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<BookingCalendar />
 					</ProtectedRoute>

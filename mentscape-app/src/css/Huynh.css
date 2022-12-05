@@ -288,7 +288,7 @@ a {
 }
 .nav-link.active{
   border-color: transparent !important;
-  background-color: #09dca4;
+  
 }
 
 .appointment-tab {
@@ -353,7 +353,7 @@ table.table td h2 a {
 }
 
 table.table td h2 a:hover {
-  color: #09dca4;
+  color: #0f0686;
 }
 
 table.table td h2 span {
