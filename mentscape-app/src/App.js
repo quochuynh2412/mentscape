@@ -22,7 +22,6 @@ import Approve_page from './pages/admin/Approve-page';
 import Dashboard from './pages/therapist/Dashboard';
 import { NotFound } from './pages/common/NotFound';
 import PatientNote from './pages/therapist/PatientNote';
-import {DisplayNote} from './pages/therapist/DisplayNote';
 import { useAuth } from './firebase/authFunc';
 import "./css/style.css"
 import MyPatients from './pages/therapist/MyPatients';
@@ -86,14 +85,9 @@ function App() {
 						<MyPatients />
 					</ProtectedRoute>
 				} />
-				<Route path="/patientNote" element={
-					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
-						<PatientNote />
-					</ProtectedRoute>
-				} />
 				<Route path="/DisplayNote" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
-						<DisplayNote />
+						<PatientNote />
 					</ProtectedRoute>
 				} />
 				<Route path="*" element={<NotFound />}/>
