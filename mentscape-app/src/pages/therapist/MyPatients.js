@@ -9,10 +9,14 @@ import Container from "react-bootstrap/esm/Container";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas, faCertificate } from '@fortawesome/free-solid-svg-icons';
+import { Header } from "../../components/Header";
 const a = [1, 2, 3, 4, 5, 6]
 export default class MyPatients extends Component {
     render() {
         return (
+            <>
+            <Header />
+            <div className="content">
             <Container fluid>
                 <Row>
                     <Col lg={3}><DocSidebar /></Col>
@@ -52,6 +56,8 @@ export default class MyPatients extends Component {
                     </Col>
                 </Row>
             </Container>
+                </div>
+            </>
         )
     }
 }

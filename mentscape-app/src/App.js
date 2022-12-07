@@ -19,7 +19,7 @@ import Search from './pages/patients/Search';
 import News from './pages/common/News';
 import Home from './pages/common/Home';
 import Approve_page from './pages/admin/Approve-page';
-import Dashboard from './pages/therapist/Dashboard';
+import { Dashboard } from './pages/therapist/Dashboard';
 import { NotFound } from './pages/common/NotFound';
 
 import { useAuth } from './firebase/authFunc';

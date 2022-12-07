@@ -5,6 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from '../../firebase-config';
 import { getAppointments } from "../../firebase/appointment";
 import { getCurrentUser } from "../../firebase/authFunc";
+import { Header } from "../../components/Header";
 function Appointments() {
     const [apm, setApm] = useState([]);
     useEffect(() => {
@@ -18,6 +19,7 @@ function Appointments() {
     const [showModal, setShowModal] = useState(true);
     return (
         <>
+        <Header />
             {showModal ?
                 <>
                     <div style={{ width: "95%" }} id="appointments" className="mt-4 mx-auto rounded-3 tab-pane fade show active">
@@ -41,7 +43,8 @@ function Appointments() {
 
                                         <tbody>
                                             {apm.map(appointment => (
-                                                <AppointmentList setModal={setShowModal} {...appointment} />
+                                                <AppointmentList setModal={setShowModal} isDoctor={false} key={appointment.id}
+                                                {...appointment} />
                                             ))}
                                         </tbody>
                                     </table>
