@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
 import Container from "react-bootstrap/esm/Container";
 import DocSidebar from '../../components/SideBar/DocSideBar';
-import { doc,addDoc,setDoc,collection } from "firebase/firestore"; 
+import { doc,addDoc,setDoc,collection,deleteDoc } from "firebase/firestore"; 
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import { db } from '../../firebase-config';
@@ -42,6 +42,12 @@ export default function PatientNote() {
         Therapist_id: user.id,
       });
   }
+
+  const deleteNoteInfo = async (e) => {
+    e.preventDefault();
+    await deleteDoc(doc(db, "cities", note.id));
+
+  }
   
 
  
@@ -54,10 +60,14 @@ export default function PatientNote() {
           <Row>
             {Note.map(note => <Alert variant='info'>
               <Alert.Heading> <div key={note.id}>{note.title}</div></Alert.Heading>
-              <div key={note.id}>Patient name: {note.patient_name}</div> 
-              <div key={note.id}>Background: {note.background}</div>
-              <div key={note.id}>Problem: {note.problem}</div>  
-              <div key={note.id}>Note: {note.note}</div> 
+              <div>
+                <div key={note.id}>Patient name: {note.patient_name}</div> 
+                <div key={note.id}>Background: {note.background}</div>
+                <div key={note.id}>Problem: {note.problem}</div>  
+                <div key={note.id}>Note: {note.note}</div> 
+              </div>
+              <hr />
+              <div className="mb-0"><Button variant="outline-secondary">Delete</Button></div>
              </Alert>) }
           </Row>
           <Row>

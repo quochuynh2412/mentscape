@@ -85,7 +85,7 @@ function App() {
 						<MyPatients />
 					</ProtectedRoute>
 				} />
-				<Route path="/DisplayNote" element={
+				<Route path="/PatientNote" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<PatientNote />
 					</ProtectedRoute>
