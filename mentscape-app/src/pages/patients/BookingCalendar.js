@@ -102,92 +102,87 @@ function BookingCalendar() {
     }
     const handleScheduled = async dateTime => {
         setIsScheduling(true);
-        const booked_apm = new Appointment(new Date(), dateTime, "anxiety", patient.id, 'none', 'not good', therapist.id);
+        const booked_apm = new Appointment(new Date(), dateTime, "anxiety", patient.id, 'none', 'active', therapist.id);
         setIsScheduled(await addAppointment(booked_apm));
     };
     return (
         <>
-            <Container fluid>
-                <Row className="booking-calendar-container">
-                    <Col md={4}>
-                        <StickyBox>
-                            <Card>
-                                <div className="card-header">
-                                    <h4 className="card-title">Booking Summary</h4>
-                                </div>
-                                <Card.Body>
-                                    <div className="widget-profile pro-widget-content">
-                                        <div className="profile-info-widget">
-                                            <div className="booking-doc-img">
-                                                <img src={therapist.profile_pic} alt="User Image" />
-                                            </div>
-                                            <div className="profile-det-info">
-                                                <h3>{therapist.fullname}</h3>
+            <Container className="booking-calendar-container" fluid>
+                <Container className="mx-auto">
+                    <Row>
+                        <Col md={4}>
+                            <StickyBox>
+                                <Card>
+                                    <div className="card-header">
+                                        <h4 className="card-title">Booking Summary</h4>
+                                    </div>
+                                    <Card.Body>
+                                        <div className="widget-profile pro-widget-content">
+                                            <div className="profile-info-widget">
+                                                <div className="booking-doc-img">
+                                                    <img src={therapist.profile_pic} alt="User Image" />
+                                                </div>
+                                                <div className="profile-det-info">
+                                                    <h3>{therapist.fullname}</h3>
 
-                                                <div className="patient-details">
-                                                    <h5 className="mb-0 text-wrap">{therapist.description}</h5>
+                                                    <div className="patient-details">
+                                                        <h5 className="mb-0 text-wrap">{therapist.description}</h5>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </Card.Body>
+                                    </Card.Body>
 
-                                <Card.Body>
-                                    <div className="booking-info">
-                                        <h5>
-                                            <a className="text-decoration-none link-dark" href="doctor-profile.html">Dr. {therapist.fullname}</a>
-                                        </h5>
-                                        <ul className="therapist-detail">
-                                            <li className="rating">
-                                                <span>
-                                                    <FontAwesomeIcon icon="fa-solid fa-star" />
-                                                    <FontAwesomeIcon icon="fa-solid fa-star" />
-                                                    <FontAwesomeIcon icon="fa-solid fa-star" />
-                                                    <FontAwesomeIcon icon="fa-solid fa-star" />
-                                                    <FontAwesomeIcon icon="fa-solid fa-star" />
-                                                </span>
-                                                (35)
-                                            </li>
-                                            <li>
-                                                <span><FontAwesomeIcon icon="fa-solid fa-envelope" size="lg" /></span>{therapist.email}
-                                            </li>
-                                            <li>
-                                                <span><FontAwesomeIcon icon="fa-solid fa-phone" size="lg" /></span>{therapist.phone}
-                                            </li>
-                                            <li>
-                                                <span><FontAwesomeIcon icon="fa-solid fa-location-dot" size="lg" /></span>{therapist.address}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </Card.Body>
+                                    <Card.Body>
+                                        <div className="booking-info">
+                                            <h5>
+                                                <a className="text-decoration-none link-dark" href="doctor-profile.html">Dr. {therapist.fullname}</a>
+                                            </h5>
+                                            <ul className="therapist-detail">
+                                                <li className="rating">
+                                                    <span>
+                                                        <FontAwesomeIcon icon="fa-solid fa-star" />
+                                                        <FontAwesomeIcon icon="fa-solid fa-star" />
+                                                        <FontAwesomeIcon icon="fa-solid fa-star" />
+                                                        <FontAwesomeIcon icon="fa-solid fa-star" />
+                                                        <FontAwesomeIcon icon="fa-solid fa-star" />
+                                                    </span>
+                                                    (35)
+                                                </li>
+                                                <li>
+                                                    <span><FontAwesomeIcon icon="fa-solid fa-envelope" size="lg" /></span>{therapist.email}
+                                                </li>
+                                                <li>
+                                                    <span><FontAwesomeIcon icon="fa-solid fa-phone" size="lg" /></span>{therapist.phone}
+                                                </li>
+                                                <li>
+                                                    <span><FontAwesomeIcon icon="fa-solid fa-location-dot" size="lg" /></span>{therapist.address}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </Card.Body>
+                                </Card>
+                            </StickyBox>
+                        </Col>
+                        <Col md={8}>
+                            <Card>
+                                <Card.Header>
+                                    <h4 className="card-title">Book an appointment</h4>
+                                </Card.Header>
+                                <div className="card-body">
+                                    <DayTimePicker
+                                        timeSlotSizeMinutes={30}
+                                        isDone={isScheduled}
+                                        isLoading={isScheduling}
+                                        onConfirm={handleScheduled}
+                                        confirmText={"Book appointment"}
+                                        timeSlotValidator={timeSlotValidator}
+                                    />
+                                </div>
                             </Card>
-                        </StickyBox>
-                    </Col>
-                    <Col md={8}>
-                        <div className="card card-table mb-0">
-                            <div className="mb-1 card-header user-tabs">
-                                <h5>Book an appointment</h5>
-                            </div>
-
-                            <div className="card-body">
-                                <DayTimePicker
-                                    timeSlotSizeMinutes={30}
-                                    isDone={isScheduled}
-                                    isLoading={isScheduling}
-                                    onConfirm={handleScheduled}
-                                    confirmText={"Book appointment"}
-                                    timeSlotValidator={timeSlotValidator}
-                                />
-                            </div>
-
-                            {/* <div className="mb-1 card-footer user-tabs">
-                        <div className="submit-section proceed-btn text-right">
-                            <a href="checkout.html" className="rounded-pill btn btn-primary submit-btn">Proceed to Book An Appointment</a>
-                        </div>
-                    </div> */}
-                        </div>
-                    </Col>
-                </Row>
+                        </Col>
+                    </Row>
+                </Container>
             </Container>
         </>
     );
