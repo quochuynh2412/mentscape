@@ -1,7 +1,23 @@
 ul {
   list-style-type: none;
 }
-
+.booking-info{
+  margin: 0 25px;
+}
+.therapist-detail{
+  padding: 0 !important;
+}
+.therapist-detail li{
+  padding: 4px;
+}
+.therapist-detail li span{
+  color: #042d6a;
+  margin-right: 15px;
+}
+.booking-calendar-container{
+  background-color: #e9f0fc;
+  padding: 40px 0;
+}
 .info,
 .selected-doctors {
   margin: 100px 0;
@@ -288,7 +304,7 @@ a {
 }
 .nav-link.active{
   border-color: transparent !important;
-  background-color: #09dca4;
+  
 }
 
 .appointment-tab {
@@ -353,7 +369,7 @@ table.table td h2 a {
 }
 
 table.table td h2 a:hover {
-  color: #09dca4;
+  color: #0f0686;
 }
 
 table.table td h2 span {
@@ -418,4 +434,16 @@ table.table td h2 span {
 }
 .card{
   margin-bottom: 20px;
+  border: transparent !important;
+  border-radius: 4% !important;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.103);
+}
+.rating svg{
+  color: rgb(255, 204, 0) !important;
+}
+.card-header{
+  background-color: transparent !important;
+}
+.card-title{
+  margin: 10px !important;
 }

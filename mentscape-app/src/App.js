@@ -15,11 +15,11 @@ import BookingForm from './pages/patients/BookingForm';
 import Appointments from './pages/patients/Appointments';
 import BookingCalendar from './pages/patients/BookingCalendar';
 import Detail from './pages/therapist/Detail';
-import Search from './pages/therapist/Search';
+import Search from './pages/patients/Search';
 import News from './pages/common/News';
 import Home from './pages/common/Home';
 import Approve_page from './pages/admin/Approve-page';
-import Dashboard from './pages/therapist/Dashboard';
+import { Dashboard } from './pages/therapist/Dashboard';
 import { NotFound } from './pages/common/NotFound';
 import PatientNote from './pages/therapist/PatientNote';
 import { useAuth } from './firebase/authFunc';
@@ -33,7 +33,7 @@ function App() {
 			{/* <Header /> */}
 
 			<Routes>
-				<Route path="/" element={<Home />}></Route>
+				<Route exact path="/" element={<Home />}></Route>
 				<Route path="/login" element={<LogIn />}></Route>
 				<Route path="/signup" element={<PickSignUp />}></Route>
 				<Route path="/signup/patient" element={<SignUp isDoctor={false} />}></Route>
@@ -45,7 +45,7 @@ function App() {
 						<MyProfile />
 					</ProtectedRoute>
 				} />
-				<Route path="/booking-calendar" element={
+				<Route path="booking-calendar/:id" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<BookingCalendar />
 					</ProtectedRoute>
@@ -85,6 +85,7 @@ function App() {
 						<MyPatients />
 					</ProtectedRoute>
 				} />
+ vinh5
 				<Route path="/PatientNote" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<PatientNote />
