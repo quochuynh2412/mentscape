@@ -1,6 +1,7 @@
 import { useState } from "react";
 import QuizzModal from "./QuizzModal";
 import questions from "./Questions.json";
+import { Header } from "../../components/Header";
 function Quizzes() {
     const [showFinalResult, setFinalResult] = useState(true);
     const [score, setScore] = useState(0);
@@ -244,6 +245,7 @@ function Quizzes() {
     }
     return (
         <>  
+            <Header />
             <div className="content">
             <h2 className="mt-5 text-center">Mental Health Tests, Quizzes, Self-Assessments:</h2>
             <h3 className="mt-3 text-center">How Happy Are You?</h3>

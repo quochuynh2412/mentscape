@@ -19,9 +19,9 @@ import Search from './pages/patients/Search';
 import News from './pages/common/News';
 import Home from './pages/common/Home';
 import Approve_page from './pages/admin/Approve-page';
-import Dashboard from './pages/therapist/Dashboard';
+import { Dashboard } from './pages/therapist/Dashboard';
 import { NotFound } from './pages/common/NotFound';
-
+import PatientNote from './pages/therapist/PatientNote';
 import { useAuth } from './firebase/authFunc';
 import "./css/style.css"
 import MyPatients from './pages/therapist/MyPatients';
@@ -85,7 +85,13 @@ function App() {
 						<MyPatients />
 					</ProtectedRoute>
 				} />
-				<Route path="*" element={<NotFound />} />
+ vinh5
+				<Route path="/PatientNote" element={
+					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
+						<PatientNote />
+					</ProtectedRoute>
+				} />
+				<Route path="*" element={<NotFound />}/>
 			</Routes>
 
 			<Footer />

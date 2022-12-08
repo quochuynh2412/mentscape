@@ -9,9 +9,29 @@ import Container from 'react-bootstrap/esm/Container';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas, faCertificate } from '@fortawesome/free-solid-svg-icons';
-export default class Dashboard extends Component {
-  render() {
+import { Header } from '../../components/Header';
+import { useState, useEffect } from 'react';
+import { getAppointments } from '../../firebase/appointment';
+import { getCurrentUser } from '../../firebase/authFunc';
+import AppointmentList from '../patients/AppointmentList';
+import AppointmentModal from '../patients/AppointmentsModal';
+
+export const Dashboard = () => {
+    const [apm, setApm] = useState([]);
+  const [showModal, setShowModal] = useState(true);
+    useEffect(() => {
+      const loadAppointment = async (userId) => {
+        // console.log(userId)
+        const data = await getAppointments(false, userId);
+        setApm(data);
+      }
+      loadAppointment(getCurrentUser().id);
+    }, []);
     return (
+      <>
+      <Header />
+      {showModal ?
+      <div className='content'>
       <Container fluid>
         <Row>
           <Col lg={3}>
@@ -98,6 +118,7 @@ export default class Dashboard extends Component {
                       </a>
                     </li>
                   </ul>
+
                   <div className='tab-content'>
                     <div
                       className='tab-pane show active'
@@ -106,125 +127,26 @@ export default class Dashboard extends Component {
                       <div className='card card-table mb-0'>
                         <div className='card-body'>
                           <div className='table-responsive'>
-                            <table className='table table-hover table-center mb-0'>
-                              <thead>
-                                <tr>
-                                  <th>Patient Name</th>
-                                  <th>Appt Date</th>
-                                  <th>Purpose</th>
-                                  <th className='text-center'>Paid Amount</th>
-                                  <th></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>
-                                    <h2 className='table-avatar'>
-                                      <a
-                                        href='/'
-                                        className='avatar avatar-sm mr-2'
-                                      >
-                                        <img
-                                          className='avatar-img rounded-circle'
-                                          src='/img/placeholders/user.webp'
-                                          alt='User Image'
-                                        />
-                                      </a>
-                                      <a href='/'>
-                                        Richard Wilson <span>#PT0016</span>
-                                      </a>
-                                    </h2>
-                                  </td>
-                                  <td>
-                                    11 Nov 2019{' '}
-                                    <span className='d-block text-info'>
-                                      10.00 AM
-                                    </span>
-                                  </td>
-                                  <td>General</td>
-                                  <td className='text-center'>$150</td>
-                                  <td className='text-right'>
-                                    <div className='table-action'>
-                                      <a
-                                        href='javascript:void(0);'
-                                        className='btn btn-sm bg-info-light'
-                                      >
-                                        <FontAwesomeIcon icon='fa-solid fa-eye' />{' '}
-                                        View
-                                      </a>
+                                <table className="table table-hover table-center mb-0">
+                                  <thead>
+                                    <tr>
+                                      <th>Doctor</th>
+                                      <th>Appt Date</th>
+                                      <th>Main Problem</th>
+                                      <th>Status</th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
 
-                                      <a
-                                        href='javascript:void(0);'
-                                        className='btn btn-sm bg-success-light'
-                                      >
-                                        <FontAwesomeIcon icon='fa-solid fa-check' />{' '}
-                                        Accept
-                                      </a>
-                                      <a
-                                        href='javascript:void(0);'
-                                        className='btn btn-sm bg-danger-light'
-                                      >
-                                        <FontAwesomeIcon icon='fa-solid fa-xmark' />{' '}
-                                        Cancel
-                                      </a>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                    <h2 className='table-avatar'>
-                                      <a
-                                        href='/'
-                                        className='avatar avatar-sm mr-2'
-                                      >
-                                        <img
-                                          className='avatar-img rounded-circle'
-                                          src='/img/placeholders/user.webp'
-                                          alt='User Image'
-                                        />
-                                      </a>
-                                      <a href='/'>
-                                        Richard Wilson <span>#PT0016</span>
-                                      </a>
-                                    </h2>
-                                  </td>
-                                  <td>
-                                    11 Nov 2019{' '}
-                                    <span className='d-block text-info'>
-                                      10.00 AM
-                                    </span>
-                                  </td>
-                                  <td>General</td>
-                                  <td className='text-center'>$150</td>
-                                  <td className='text-right'>
-                                    <div className='table-action'>
-                                      <a
-                                        href='javascript:void(0);'
-                                        className='btn btn-sm bg-info-light'
-                                      >
-                                        <FontAwesomeIcon icon='fa-solid fa-eye' />{' '}
-                                        View
-                                      </a>
-
-                                      <a
-                                        href='javascript:void(0);'
-                                        className='btn btn-sm bg-success-light'
-                                      >
-                                        <FontAwesomeIcon icon='fa-solid fa-check' />{' '}
-                                        Accept
-                                      </a>
-                                      <a
-                                        href='javascript:void(0);'
-                                        className='btn btn-sm bg-danger-light'
-                                      >
-                                        <FontAwesomeIcon icon='fa-solid fa-xmark' />{' '}
-                                        Cancel
-                                      </a>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
+                                  <tbody>
+                                    {apm.map(appointment => (
+                                      <AppointmentList setModal={setShowModal} isDoctor={true} key={appointment.id}
+                                        {
+                                          ...appointment
+                                        } />
+                                    ))}
+                                  </tbody>
+                                </table>
                           </div>
                         </div>
                       </div>
@@ -236,6 +158,11 @@ export default class Dashboard extends Component {
           </Col>
         </Row>
       </Container>
+        </div>
+          :
+          <AppointmentModal setModal={setShowModal} />
+        }
+      </>
     );
-  }
+  
 }

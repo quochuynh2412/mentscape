@@ -32,7 +32,7 @@ export default function DocSidebar() {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/myPatient">
                                     <FontAwesomeIcon className='doc-sidebar-icon' icon="fa-solid fa-user-injured" />
                                     <span>My Patients</span>
                                 </Link>

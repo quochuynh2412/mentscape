@@ -26,23 +26,23 @@ export const Header = () => {
 
       <Navbar.Collapse id="navbar-nav">
           <ul className="d-flex justify-content-sm-center nav-main reset-list">
-            <li className="me-4">
-            <Link to="/" className="nav-links">Home</Link>
-            </li>
+          {
+            (userInfo !== null && userInfo.role === "therapist") ?
+              <li className="nav-links me-4">
+                <Link to="/dashboard" className="nav-links">Dashboard</Link>
+              </li>
+              : <li className="me-4">
+                <Link to="/" className="nav-links">Home</Link>
+              </li>
+          }
+          
           <li className="nav-links me-4">
             <Link to="/quizzes" className="nav-links">Quiz</Link>
           </li>
           <li className="nav-links me-4">
             <Link to="/news" className="nav-links">News</Link>
           </li>
-          {
-            (userInfo !== null && userInfo.role === "therapist") &&
-            <>
-              <li className="nav-links me-4">
-                <Link to="/dashboard" className="nav-links">Dashboard</Link>
-              </li>
-            </>
-          }
+
           {
             (userInfo === null) ? <li className="nav-links me-4"><Link to="/login" className="nav-links">Login</Link></li>
               : <li className="nav-links me-4">
@@ -55,10 +55,16 @@ export const Header = () => {
                       <img src={userInfo.profile_pic} alt="User profile" className="avatar-img rounded-circle" />
                       <span href="doctor-profile.html">{userInfo.fullname}</span>
                   </NavDropdown.Item>
-                  {/* <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={firebaseSignout}>
-                    Sign out
-                  </NavDropdown.Item> */}
+                  {
+                    (userInfo !== null && userInfo.role === "patient") &&
+                    <>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item href="/appointment">
+                        My appoinment
+                      </NavDropdown.Item>
+                    </>
+                  }
+
                 </NavDropdown>
               </li>
           }
