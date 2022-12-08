@@ -122,3 +122,102 @@
     width: 150px;
     float: right;
 }
+.filter-widget {
+	margin-bottom: 20px;
+}
+.filter-widget h4 {
+	font-size: 1rem;
+	margin-bottom: 15px;
+}
+.filter-widget .custom_check {
+	line-height: 18px;
+}
+.btn-search .btn {
+    background-color: #0072dd;
+    border: 1px solid #0072dd;
+    color: #fff;
+    height: 46px;
+	font-weight:500;
+	font-size:16px;
+}
+.btn-book {
+    background-color: #0072dd !important;
+    border: 1px solid #0072dd !important;
+    color: #fff !important;
+    height: 46px;
+	font-weight:500 !important;
+	font-size:16px !important;
+}
+.btn-view-profile {
+    background-color: #e9f0fc !important;
+    border: 1px solid #e9f0fc !important;
+    color: rgb(0, 0, 0) !important;
+    height: 46px !important;
+	font-weight:500 !important;
+	font-size:16px !important;
+}
+.custom_check {
+	color: #666;
+	display: inline-block;
+	position: relative;
+	font-size: 14px;
+	font-size: .9375rem;
+	padding-left: 30px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none
+}
+.custom_check input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer
+}
+.custom_check input:checked ~ .checkmark {
+	background-color: #fff;
+}
+.custom_check .checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	border: 1px solid #dcdcdc;
+	background-color: #fff;
+	border-radius: 3px;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out
+}
+
+.icon::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.custom_check .checkmark::after {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    display: none;
+    left: 4px;
+    top: 0;
+    color: #0d69fe;
+    font-size: 11px;
+}
+.custom_check input:checked ~ .checkmark:after {
+	display: block
+}
+.therapist-list-container{
+    background-color: transparent !important;
+}
+.main-container{
+    background-color: #e9f0fc;
+    padding: 40px 0;
+}

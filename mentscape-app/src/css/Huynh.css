@@ -435,7 +435,7 @@ table.table td h2 span {
 .card{
   margin-bottom: 20px;
   border: transparent !important;
-  border-radius: 4% !important;
+  border-radius: 25px !important;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.103);
 }
 .rating svg{

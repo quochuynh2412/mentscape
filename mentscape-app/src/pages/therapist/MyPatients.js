@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Container from "react-bootstrap/esm/Container";
+import ListGroup from 'react-bootstrap/ListGroup';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas, faCertificate } from '@fortawesome/free-solid-svg-icons';
@@ -17,38 +18,40 @@ export default class MyPatients extends Component {
                 <Row>
                     <Col lg={3}><DocSidebar /></Col>
                     <Col md={9}>
-                        <Row>
-                            {a.map(b => (
-                                <Col lg={4}>
-                                    <Card className="widget-profile pat-widget-profile">
-                                        <Card.Body>
-                                            <div class="pro-widget-content">
-                                                <div class="profile-info-widget">
-                                                    <a href="patient-profile.html" class="booking-doc-img">
-                                                        <img src="/img/placeholders/user.webp" alt="User Image" />
-                                                    </a>
-                                                    <div class="profile-det-info">
-                                                        <h3><a href="patient-profile.html">Richard Wilson</a></h3>
-
-                                                        <div class="patient-details">
-                                                            <h5><b>Patient ID :</b> P0016</h5>
-                                                            <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Alabama, USA</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="patient-info">
-                                                <ul>
-                                                    <li>Phone <span>+1 952 001 8563</span></li>
-                                                    <li>Age <span>38 Years, Male</span></li>
-                                                    <li>Blood Group <span>AB+</span></li>
-                                                </ul>
-                                            </div>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            ))}
-                        </Row>
+                        <Card>
+                            <Card.Header className="mb-1 card-header user-tabs"><Card.Title>Notes</Card.Title></Card.Header>
+                            <Card.Body>
+                                <Row>
+                                    <Col md={4}>
+                                        <div className="note-list" data-bs-spy="scroll">
+                                            <ListGroup as={"ul"}>
+                                                <ListGroup.Item>
+                                                    Test 1
+                                                </ListGroup.Item>
+                                                <ListGroup.Item>
+                                                    Test 1
+                                                </ListGroup.Item>
+                                                <ListGroup.Item>
+                                                    Test 1
+                                                </ListGroup.Item>
+                                                <ListGroup.Item>
+                                                    Test 1
+                                                </ListGroup.Item>
+                                                <ListGroup.Item>
+                                                    Test 1
+                                                </ListGroup.Item>
+                                                <ListGroup.Item>
+                                                    Test 1
+                                                </ListGroup.Item>
+                                                <ListGroup.Item>
+                                                    Test 1
+                                                </ListGroup.Item>
+                                            </ListGroup>
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </Card.Body>
+                        </Card>
                     </Col>
                 </Row>
             </Container>
