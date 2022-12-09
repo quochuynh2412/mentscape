@@ -26,6 +26,8 @@ import { useAuth } from './firebase/authFunc';
 import "./css/style.css"
 import MyPatients from './pages/therapist/MyPatients';
 import { ReadStory } from './pages/patients/ReadStory';
+import Commentlist from './pages/patients/Commentlist';
+
 
 function App() {
 	const { isLoading, user } = useAuth();
@@ -92,6 +94,7 @@ function App() {
 					</ProtectedRoute>
 				} />
 				<Route path="/readStory" element={<ReadStory />} />
+				<Route path= '/commentlist' element = {<Commentlist/>}></Route>
 				<Route path="*" element={<NotFound />}/>
 			</Routes>
 
