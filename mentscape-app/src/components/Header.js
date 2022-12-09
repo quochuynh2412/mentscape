@@ -45,28 +45,43 @@ export const Header = () => {
 
           {
             (userInfo === null) ? <li className="nav-links me-4"><Link to="/login" className="nav-links">Login</Link></li>
-              : <li className="nav-links me-4">
-                <NavDropdown
-                  id="nav-dropdown"
-                  title="My Account"
-                  className="nav-links"
-                >
-                  <NavDropdown.Item href="/profile">
+              : 
+              (userInfo !== null && userInfo.role === "patient") ?
+                <>
+                  <li className="nav-links me-4">
+                    <NavDropdown id="nav-dropdown" title="Story" className="nav-links">
+                      <NavDropdown.Item href="/readStory">
+                        Read Story
+                      </NavDropdown.Item>
+                          {/* <NavDropdown.Divider /> */}
+                          <NavDropdown.Item href="">
+                            My Story
+                          </NavDropdown.Item>
+                    </NavDropdown>
+                  </li>
+
+                    <li className="nav-links me-4">
+                    <NavDropdown id="nav-dropdown" title="My Account" className="nav-links">
+                      <NavDropdown.Item href="/profile">
+                          <img src={userInfo.profile_pic} alt="User profile" className="avatar-img rounded-circle" />
+                          <span href="doctor-profile.html">{userInfo.fullname}</span>
+                      </NavDropdown.Item>
+                          <NavDropdown.Divider />
+                          <NavDropdown.Item href="/appointment">
+                            My appoinment
+                          </NavDropdown.Item>
+                    </NavDropdown>
+                  </li>
+                </>
+                : 
+                <li className="nav-links me-4">
+                  <NavDropdown id="nav-dropdown" title="My Account" className="nav-links">
+                    <NavDropdown.Item href="/profile">
                       <img src={userInfo.profile_pic} alt="User profile" className="avatar-img rounded-circle" />
                       <span href="doctor-profile.html">{userInfo.fullname}</span>
-                  </NavDropdown.Item>
-                  {
-                    (userInfo !== null && userInfo.role === "patient") &&
-                    <>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item href="/appointment">
-                        My appoinment
-                      </NavDropdown.Item>
-                    </>
-                  }
-
-                </NavDropdown>
-              </li>
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </li>
           }
           </ul>
       </Navbar.Collapse>
