@@ -17,9 +17,6 @@ function TherapistCard(props) {
                     <Row>
                         <Col md={4}>
                             <img src={require("../../data/avatar/images.jpeg")} className="img-fluid max mt-2" />
-                            {/* <img src={props.avatar}/> */}
-                            <h1>{props.id} {props.first_name} {props.last_name}</h1>
-                            <h2 className="education"><GrCertificate /> {props.education}</h2>
                         </Col>
                         <Col md={8}>
                             <div className="mt-2 row">
@@ -37,13 +34,9 @@ function TherapistCard(props) {
                                 </div>
                             </div>
                             <div className="mt-5">
-                                <div className="row mt-2 me-2">
-                                    <Col md={6}>
-                                        <button type="button" className="btn btn-view-profile">View Profile</button>
-                                    </Col>
-                                    <Col md={6}>
-                                        <button type="button" className="btn btn-book">Book Appointment</button>
-                                    </Col>
+                                <div className="d-flex flex-row ms-auto justify-content-end">
+                                    <button type="button" className="btn btn-view-profile"><span className='text-nowrap'>View Profile</span></button>
+                                    <button type="button" className="btn btn-book"><span className='text-nowrap'>Book Appointment</span></button>
                                 </div>
                             </div>
                         </Col>
