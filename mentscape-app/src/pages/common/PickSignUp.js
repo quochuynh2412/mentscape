@@ -2,9 +2,12 @@ import patient_pic from "../../assets/img/patient.jpeg"
 import therapist_pic from "../../assets/img/therapist.jpeg"
 import { Link } from "react-router-dom";
 import {Card, Container, Row, Col} from 'react-bootstrap';
+import { Header } from "../../components/Header";
 
 export const PickSignUp = () => {
   return (
+    <>
+    <Header />
     <div className="content">
         <Container>
             <h2 className="text-center mb-4">Register as ...</h2>
@@ -36,6 +39,7 @@ export const PickSignUp = () => {
             </Row>
         </Container>
     </div>
+      </>
 
   )
 }

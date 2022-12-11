@@ -11,6 +11,8 @@ import Button from 'react-bootstrap/Button';
 import { db } from '../../firebase-config';
 import { Form, FormGroup} from "react-bootstrap";
 import Modal from 'react-modal';
+import { Card } from 'react-bootstrap';
+import { Header } from '../../components/Header';
 
 
 
@@ -82,13 +84,15 @@ export default function PatientNote() {
   }
   
   return (
+    <>
+    <Header />
     <Container fluid>
       <Row>
         <Col lg={3}><DocSidebar /></Col>
         <Col md={9}>
           <Row>
             <div class="mb-3 mt-3">
-              <Button variant='success float-end' onClick={openModal}>Add note</Button>
+              <Button variant='success float-end' size="lg" onClick={openModal}>Add note</Button>
             </div>
               <Modal isOpen={modalIsOpen}  onAfterOpen={afterOpenModal} onRequestClose={closeModal} style={customStyles} contentLabel="Example Modal">
                 <Form onsumbit={addNoteInfo}>
@@ -116,19 +120,34 @@ export default function PatientNote() {
            
           </Row>
           <Row>
-            {Note.map(note => <Alert variant='info'>
-              <Alert.Heading> <div key={note.id}>{note.title}</div></Alert.Heading>
+            <div>
+            {/* {Note.map(note => <Alert variant='info' key={note.id}>
+              <Alert.Heading> <div>{note.patient_name}</div></Alert.Heading>
               <div>
-                <div key={note.id}>Patient name: {note.patient_name}</div> 
-                <div key={note.id}>Background: {note.background}</div>
-                <div key={note.id}>Problem: {note.problem}</div>  
-                <div key={note.id}>Note: {note.note}</div> 
+                <div><span className='fw-bold'>Background:</span> {note.background}</div>
+                <div><span className='fw-bold'>Problem:</span> {note.problem}</div>  
+                <div><span className='fw-bold'>Note:</span> {note.note}</div> 
               </div>
               <hr />
               
-                <div className="mb-0"><Button variant="outline-secondary" onClick={() => deleteNoteInfo(note.id)}>Delete</Button></div>
+              <div className="mb-0"><Button variant="danger" onClick={() => deleteNoteInfo(note.id)}>Delete</Button></div>
+            </Alert>)} */}
+
+              {Note.map(note =>
+              <Card border="secondary" className="mb-4" key={note.id}>
+                  <Card.Header as="h5">{note.patient_name}</Card.Header>
+                <Card.Body>
+                  <Card.Text><span className='fw-bold'>Background:</span> {note.background}</Card.Text>
+                  <Card.Text><span className='fw-bold'>Problem:</span> {note.problem}</Card.Text>
+                  <Card.Text><span className='fw-bold'>Note:</span> {note.note}</Card.Text>
+                    <Button variant="danger" onClick={() => deleteNoteInfo(note.id)}>Delete</Button>
+                </Card.Body>
+              </Card>
+
+              )}
+              </div>
               
-             </Alert>) }
+
           </Row>
           
         </Col>
@@ -140,6 +159,7 @@ export default function PatientNote() {
     </div>
       </Row>
     </Container>
+    </>
     
   )
 

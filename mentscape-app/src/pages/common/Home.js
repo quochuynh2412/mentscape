@@ -49,25 +49,25 @@ export default class Home extends Component {
                   <div className="feature-img">
                     <img src="/img/specialities/specialities1-01.png" className="mx-auto shadow rounded-circle" alt="Speciality" />
                   </div>
-                  <p className="fw-light">Urology</p>
+                  <p className="fw-light">Anxiety</p>
                 </div>
                 <div className="feature-item text-center">
                   <div className="feature-img ">
                     <img src="/img/specialities/specialities2-01.png" className="mx-auto shadow rounded-circle" alt="Speciality" />
                   </div>
-                  <p className="fw-light">Urology</p>
+                  <p className="fw-light">Stress</p>
                 </div>
                 <div className="feature-item text-center">
                   <div className="feature-img">
                     <img src="/img/specialities/specialities3-01.png" className="mx-auto shadow rounded-circle" alt="Speciality" />
                   </div>
-                  <p className="fw-light">Urology</p>
+                  <p className="fw-light">Depression</p>
                 </div>
                 <div className="feature-item text-center">
                   <div className="feature-img">
                     <img src="/img/specialities/specialities4-01.png" className="mx-auto shadow rounded-circle" alt="Speciality" />
                   </div>
-                  <p className="fw-light">Urology</p>
+                  <p className="fw-light">Trauma</p>
                 </div>
               </Slider>
             </div>
@@ -78,7 +78,7 @@ export default class Home extends Component {
                 <Col lg={4}>
                   <div className="section-header">
                     <h2>Book Our Doctor</h2>
-                    <p>Lorem Ipsum is simply dummy text </p>
+                    <p>All therapists in the Mentscape network are professional experts with advanced training.Their specialties include depression, anxiety, trauma, relationship issues, GBTQIA, gender, and sexuality...  </p>
                   </div>
                 </Col>
                 <Col lg={6}>

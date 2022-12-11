@@ -8,6 +8,7 @@ import { firebaseSignout, firebaseSignUp } from "../../firebase/authFunc";
 import { uploadFile } from "../../firebase/uploadFile";
 import { db } from "../../firebase-config";
 import { doc, setDoc } from "firebase/firestore";
+import { Header } from "../../components/Header";
 
 
 export const SignUp = ({ isDoctor }) => {
@@ -98,6 +99,8 @@ export const SignUp = ({ isDoctor }) => {
 
 
   return (
+    <>
+    <Header />
       <div className="content">
         <Container>
           <ol className="breadcrumb">
@@ -192,5 +195,6 @@ export const SignUp = ({ isDoctor }) => {
           </div>
         </Container>
       </div>
+      </>
   )
 }

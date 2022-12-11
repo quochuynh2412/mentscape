@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas, faCertificate } from '@fortawesome/free-solid-svg-icons';
+import { firebaseSignout } from '../../firebase/authFunc';
 export default function DocSidebar() {
     return (
         <StickyBox>
@@ -26,9 +27,15 @@ export default function DocSidebar() {
                     <nav className="dashboard-menu">
                         <ul>
                             <li className="">
-                                <Link to="/">
+                                <Link to="/dashboard">
                                     <FontAwesomeIcon className='doc-sidebar-icon' icon="fa-solid fa-table-columns" />
                                     <span>Dashboard</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/PatientNote">
+                                    <FontAwesomeIcon className='doc-sidebar-icon' icon="fa-solid fa-note-sticky" />
+                                    <span>Notes</span>
                                 </Link>
                             </li>
                             <li>
@@ -39,18 +46,12 @@ export default function DocSidebar() {
                             </li>
                             <li>
                                 <Link to="/">
-                                    <FontAwesomeIcon className='doc-sidebar-icon' icon="fa-solid fa-hourglass-start" />
-                                    <span>Schedule Timings</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/">
                                     <FontAwesomeIcon className='doc-sidebar-icon' icon="fa-solid fa-star" />
                                     <span>Reviews</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/">
+                                <Link to="/profile">
                                     <FontAwesomeIcon className='doc-sidebar-icon' icon="fa-solid fa-user-gear" />
                                     <span>Profile Settings</span>
                                 </Link>
@@ -62,7 +63,7 @@ export default function DocSidebar() {
                             </Link>
                         </li> */}
                             <li>
-                                <Link to="/">
+                                <Link onClick={firebaseSignout}>
                                     <i className="fas fa-sign-out-alt"></i>
                                     <span>Logout</span>
                                 </Link>

@@ -256,7 +256,7 @@ function Quizzes() {
                     </div>
 
                     <div className="card-body">
-                        <ul className="list-unstyled">
+                        <ul className="list-unstyled d-flex align-items-center flex-column">
                             {questions[questionNumber].options.map((answers) => {
                                 return (
                                     <li

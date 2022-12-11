@@ -25,6 +25,9 @@ import PatientNote from './pages/therapist/PatientNote';
 import { useAuth } from './firebase/authFunc';
 import "./css/style.css"
 import MyPatients from './pages/therapist/MyPatients';
+import { ReadStory } from './pages/patients/ReadStory';
+import Commentlist from './pages/patients/Commentlist';
+
 
 function App() {
 	const { isLoading, user } = useAuth();
@@ -85,12 +88,13 @@ function App() {
 						<MyPatients />
 					</ProtectedRoute>
 				} />
- vinh5
 				<Route path="/PatientNote" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<PatientNote />
 					</ProtectedRoute>
 				} />
+				<Route path="/readStory" element={<ReadStory />} />
+				<Route path= '/commentlist' element = {<Commentlist/>}></Route>
 				<Route path="*" element={<NotFound />}/>
 			</Routes>
 

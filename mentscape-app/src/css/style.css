@@ -116,6 +116,45 @@
     display: block;
 }
 
+/* Story page */
+.story_section {
+    /* padding: 100px 80px 210px 80px; */
+    padding: 50px calc(10% - 30px);
+    background-color: #39A2AE;
+    color: #e9f0fc;
+    text-align: center;
+}
+
+.story_item {
+    border: 1px solid #e6e6e6;
+    border-radius: 15px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    color: #000000;
+    overflow: scroll;
+    height: 400px;
+}
+
+
+.story_ava {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid #c3c3c3;
+}
+
+@media only screen and (max-width: 750px) {
+    .story_ava {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.story_description {
+    line-height: 2.0;
+}
+
+
 
 
 
