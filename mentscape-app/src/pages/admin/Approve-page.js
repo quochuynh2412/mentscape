@@ -20,7 +20,7 @@ const Approve_page = () => {
  
   const renderCard = (card, index) => {
     return (
-      <Col md={6} lg={4} className="gx-5 gy-3" key={index}>
+      <Col md={6} lg={4} className="gx-5 gy-3" >
       <Card>
       <Card.Img style={{height: "300px", objectFit: "cover"}} variant="top" src={card.image} />
       <Card.Body>
