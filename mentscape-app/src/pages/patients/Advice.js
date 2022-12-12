@@ -17,29 +17,10 @@ import { getCurrentUser } from '../../firebase/authFunc';
 import { getStory } from '../../firebase/myStory';
 
 const Advice = (props) => {
-  const user = getCurrentUser();
-  const sharing = [
-    {story: "Lorem ispum..,...."},
-    {story: "I feel down and lonely what should i do"},
-    {story: "I feel down and lonely what should i do"},
-];
-  const [Story, setStory] = useState([]);
-  useEffect(() => {
-    const loadStory = async () => {
-      const results = await getStory(user.id);
-      setStory(results);
-    }
-    loadStory();
-  }, []);
-
-  const Renderadvice = (card) => {
     const [open, setOpen] = useState(false);
-
-
   return (
-    
       <section>
-        {Story.map(story =>
+
           <div className="container my-5 py-5" key={story.id}>
             <div className="row d-flex justify-content-center">
               <div class="col-md-12 col-lg-10 col-xl-8">
@@ -50,24 +31,14 @@ const Advice = (props) => {
                         src="https://tse4.mm.bing.net/th?id=OIP.4TJLgIdQDKHOaaZ9tN5pGAHaHw&pid=Api&P=0" alt="avatar" width="60"
                         height="60" />
                       <div>
-                       
-                        <p class="text-muted small mb-0">
-                        </p>
+                        <p class="text-muted small mb-0"></p>
                       </div>
                     </div>
-        
-                
                         <p class="mt-3 mb-4 pb-2">
-                          {/* {card.story} */}
-                          {story.description}
+                          {props.story}
                       </p>
-                    
-                    
-                   
                   </div>
                   <div class="card-footer py-3 border-0" >
-                  <section >
-  
                   <Button
           onClick={() => setOpen(!open)}
           aria-controls="example-collapse-text"
@@ -123,40 +94,13 @@ const Advice = (props) => {
   
           </div>
         </Collapse>
-        
-        
-        
-      </section>
                   </div>
                 </div>
               </div>
               </div>
               </div>
-        )} 
-              </section>  
-              
-  
+              </section> 
   )
-
-}
-
-
-  
-  
-            
-            
-            
-// {story.map((props) => (
-//   <p class="mt-3 mb-4 pb-2">
-//     {props.story}
-// </p> }
-  return (
-    <div>
-      {sharing.map(Renderadvice)}
-    </div>
-  )
-
-
 }
 
 export default Advice;
