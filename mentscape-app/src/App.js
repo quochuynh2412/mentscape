@@ -29,7 +29,7 @@ import { ReadStory } from './pages/patients/ReadStory';
 import Commentlist from './pages/patients/Commentlist';
 import { Comment } from './pages/patients/Comment';
 import { AdviceList } from './pages/patients/AdviceList';
-
+import Advice from './pages/patients/Advice';
 
 
 
@@ -100,10 +100,10 @@ function App() {
 				<Route path="/readStory" element={<ReadStory />} />
 				<Route path= '/commentlist' element = {<Commentlist/>}></Route>
 				<Route path="*" element={<NotFound />}/>
-				<Route path='/adviceList' element = {<AdviceList/>}></Route>
+				<Route path='/advice' element = {<Advice />}></Route>
 
 				<Route path='/comment' element = {<Comment/>}></Route>
-
+				<Route path='/advicelist' element = {<AdviceList/>}></Route>
 
 			</Routes>
 

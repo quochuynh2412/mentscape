@@ -4,6 +4,7 @@ import { db } from '../firebase-config';
 export const getStory = async Patient_id => {
     const q = query(collection(db, "Patient_Story"), where("patient_id", "==", Patient_id));
     const querySnapshot = await getDocs(q);
+    console.log(Patient_id)
 
     // console.log(querySnapshot.docs);
 
