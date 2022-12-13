@@ -27,6 +27,10 @@ import "./css/style.css"
 import MyPatients from './pages/therapist/MyPatients';
 import { ReadStory } from './pages/patients/ReadStory';
 import Commentlist from './pages/patients/Commentlist';
+import { Comment } from './pages/patients/Comment';
+import { AdviceList } from './pages/patients/AdviceList';
+
+
 
 
 function App() {
@@ -96,6 +100,11 @@ function App() {
 				<Route path="/readStory" element={<ReadStory />} />
 				<Route path= '/commentlist' element = {<Commentlist/>}></Route>
 				<Route path="*" element={<NotFound />}/>
+				<Route path='/adviceList' element = {<AdviceList/>}></Route>
+
+				<Route path='/comment' element = {<Comment/>}></Route>
+
+
 			</Routes>
 
 			<Footer />
