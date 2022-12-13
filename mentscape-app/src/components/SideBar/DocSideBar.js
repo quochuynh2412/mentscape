@@ -5,20 +5,31 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas, faCertificate } from '@fortawesome/free-solid-svg-icons';
 import { firebaseSignout } from '../../firebase/authFunc';
+import { useEffect, useState } from 'react';
+import { getCurrentUserInfo } from '../../firebase/user';
 export default function DocSidebar() {
+    const [userInfo, setUserInfo] = useState({});
+    useEffect(() => {
+        const loadUserInfo = async () => {
+            const results = await getCurrentUserInfo();
+            setUserInfo(results);
+        }
+        loadUserInfo();
+    }, []);
+
     return (
         <StickyBox>
             <div className="profile-sidebar">
                 <div className="widget-profile pro-widget-content">
                     <div className="profile-info-widget">
                         <Link to="#" className="booking-doc-img">
-                            <img src="/img/placeholders/user.webp" alt="User Image" />
+                            <img src={userInfo.profile_pic} alt="User profile" />
                         </Link>
                         <div className="profile-det-info">
-                            <h3>Dr. Darren Elder</h3>
+                            <h3>Dr. {userInfo.fullname}</h3>
 
                             <div className="patient-details">
-                                <h5 className="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
+                                <h5 className="mb-0">A therapist with many years of experiences</h5>
                             </div>
                         </div>
                     </div>

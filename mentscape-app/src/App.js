@@ -97,12 +97,20 @@ function App() {
 						<PatientNote />
 					</ProtectedRoute>
 				} />
-				<Route path="/readStory" element={<ReadStory />} />
-				<Route path= '/commentlist' element = {<Commentlist/>}></Route>
-				<Route path="*" element={<NotFound />}/>
-				<Route path='/adviceList' element = {<AdviceList/>}></Route>
+				<Route path="/readStory" element={
+					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
+						<ReadStory />
+					</ProtectedRoute> 
+				}/>
+
+				<Route path='/adviceList' element = {
+					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
+						<AdviceList/>
+					</ProtectedRoute>
+				} />
 
 				<Route path='/comment' element = {<Comment/>}></Route>
+				<Route path="*" element={<NotFound />} />
 
 
 			</Routes>
