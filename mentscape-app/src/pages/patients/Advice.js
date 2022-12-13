@@ -1,35 +1,16 @@
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Comment } from "./Comment";
 import {getCurrentUser} from '../../firebase/authFunc';
 import { getStory } from '../../firebase/myStory';
 
 
-export default function Advice() {
-  // if (getCurrentUser().id == null) {
-  //   console.log("v2312");
-  // } else {console.log("may")};
-  const userID = getCurrentUser().id;
-    const [open, setOpen] = useState(false);
- 
-
-   
-  const [Story, setStory] = useState([]);
-  useEffect(() => {
-    const loadStory = async (userID) => {
-      const user = getCurrentUser();
-      console.log(userID);
-      const results = await getStory(userID);
-      setStory(results);
-    }
-    loadStory(userID);
-    
-  }, []);
-
+export default function Advice(props) {
+  // console.log(props.advices);
+  const [open, setOpen] = useState(false);
   return (
       <section>
-        {Story.map(story =>
           <div className="container my-5 py-5">
             <div className="row d-flex justify-content-center">
               <div class="col-md-12 col-lg-10 col-xl-8">
@@ -44,7 +25,7 @@ export default function Advice() {
                       </div>
                     </div>
                         <p class="mt-3 mb-4 pb-2">
-                          {story.description}
+                          {props.description}
                       </p>
                   </div>
                   <div class="card-footer py-3 border-0" >
@@ -57,7 +38,8 @@ export default function Advice() {
         </Button>
         <Collapse in={open}>
           <div id="example-collapse-text">
-          <Comment/>
+            {props.advices.map(advice => <Comment advice={advice} />)}
+          {/* <Comment/> */}
   
           </div>
         </Collapse>
@@ -66,7 +48,6 @@ export default function Advice() {
               </div>
               </div>
               </div>
-        )}
               </section> 
   )
 }
