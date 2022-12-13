@@ -8,7 +8,7 @@ import { GrBook } from "react-icons/gr";
 import { GrCertificate } from "react-icons/gr";
 import { GrMoney } from "react-icons/gr";
 import { Card, Row, Col } from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
 function TherapistCard(props) {
     return (
         <>
@@ -16,15 +16,18 @@ function TherapistCard(props) {
                 <Card.Body>
                     <Row>
                         <Col md={4}>
-                            <img src={require("../../data/avatar/images.jpeg")} className="img-fluid max mt-2" />
+                            <img src={props.profile_pic} className="img-fluid max mt-2" />
                         </Col>
                         <Col md={8}>
                             <div className="mt-2 row">
                                 <div>
-                                    <h2 className="infoSum2"><GrMapLocation /> Location: {props.location} </h2>
+                                    <h2 className="infoSum2">{props.fullname} </h2>
                                 </div>
                                 <div>
-                                    <h2 className="infoSum2"><GrBook /> Specialized: {props.specialized} </h2>
+                                    <h2 className="infoSum2"><GrMapLocation /> Location: {props.address} </h2>
+                                </div>
+                                <div>
+                                    <h2 className="infoSum2"><GrBook /> Specialized:</h2>
                                 </div>
                                 <div>
                                     <h2 className="infoSum2"><GrMoney /> Price:50-100$</h2>
@@ -36,7 +39,10 @@ function TherapistCard(props) {
                             <div className="mt-5">
                                 <div className="d-flex flex-row ms-auto justify-content-end">
                                     <button type="button" className="btn btn-view-profile"><span className='text-nowrap'>View Profile</span></button>
-                                    <button type="button" className="btn btn-book"><span className='text-nowrap'>Book Appointment</span></button>
+                                    <Link className="btn btn-book"
+                                        to={`/booking-calendar/$id=${props.id}`}>
+                                        <span className='text-nowrap align-middle'>Book Appointment</span>
+                                    </Link>
                                 </div>
                             </div>
                         </Col>
