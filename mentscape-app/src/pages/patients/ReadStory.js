@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Header } from "../../components/Header";
-import { StoryItem } from "./StoryItem";
+import { ReadStoryItem } from "./ReadStoryItem";
 import { useState, useEffect } from "react";
 import { getStory } from "../../firebase/story";
 import { getUserInfo } from "../../firebase/user";
@@ -29,18 +29,11 @@ export const ReadStory = () => {
   return (
     <>
         <Header />
-
-        <div className="content">
-            <div className="story_section">
-                <h2 className="mb-3 fw-bold">Deepest Stories</h2>
-                <Slider {...story_settings}>
-                    {/* <StoryItem img="/img/story_ava/ava1.png"/>
-                    <StoryItem img="/img/story_ava/ava2.png" />
-                    <StoryItem img="/img/story_ava/ava3.png" />
-                    <StoryItem img="/img/story_ava/ava4.png" /> */}
-                    {stories.map(story => <StoryItem {...story} key={story.id}/>)}
-                </Slider>
-            </div>
+        <div className="story_section">
+            <h2 className="mb-3 fw-bold">Deepest Stories</h2>
+            <Slider {...story_settings}>
+                {stories.map(story => <ReadStoryItem {...story} key={story.id}/>)}
+            </Slider>
         </div>
 
     </>
