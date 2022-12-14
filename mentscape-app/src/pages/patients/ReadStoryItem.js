@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap"
 import { setNewAdvices } from "../../firebase/story";
 
-export const StoryItem = (props) => {
+export const ReadStoryItem = (props) => {
     const [advice, setAdvice] = useState("");
     const submitAdvice = async (e) => {
         const advices = props.advices
