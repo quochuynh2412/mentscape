@@ -1,8 +1,8 @@
-import { collection, getDocs, query, limit, doc, updateDoc } from "firebase/firestore";
+import { collection, getDocs, query, limit, doc, updateDoc, where } from "firebase/firestore";
 import { db } from '../firebase-config';
 
 export const getStory = async patient_id => {
-    const q = query(collection(db, "Patient_Story"), limit(4));
+    const q = query(collection(db, "Patient_Story"), where("patient_id", "!=", patient_id), limit(4));
     const querySnapshot = await getDocs(q);
 
     // console.log(querySnapshot.docs);

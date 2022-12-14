@@ -6,6 +6,7 @@ import { ReadStoryItem } from "./ReadStoryItem";
 import { useState, useEffect } from "react";
 import { getStory } from "../../firebase/story";
 import { getUserInfo } from "../../firebase/user";
+import { getCurrentUser } from "../../firebase/authFunc";
 
 const story_settings = {
     dots: true,
@@ -20,7 +21,8 @@ export const ReadStory = () => {
 
     useEffect(() => {
         const loadStory = async () => {
-            const results = await getStory();
+            const userID = getCurrentUser().id;
+            const results = await getStory(userID);
             setStories(results);
         }
         loadStory();
