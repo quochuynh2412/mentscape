@@ -1,13 +1,23 @@
-
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Comment } from "./Comment";
+import {getCurrentUser} from '../../firebase/authFunc';
+import { getStory } from '../../firebase/myStory';
 
 
-const Advice = (props) => {
-
-    const [open, setOpen] = useState(false);
+export default function Advice(props) {
+  const user = getCurrentUser();
+  const [Advice, setAdvice] = useState([]);
+  useEffect(() => {
+      const loadAdvice = async () => {
+          const results = await getStory(user.id);
+          setAdvice(results);
+      }
+      loadAdvice();
+  }, []);
+ 
+  const [open, setOpen] = useState(false); 
   return (
       <section>
           <div className="container my-5 py-5">
@@ -17,14 +27,15 @@ const Advice = (props) => {
                   <div class="card-body">
                     <div class="d-flex flex-start align-items-center">
                       <img class="rounded-circle shadow-1-strong me-3"
-                        src="https://tse4.mm.bing.net/th?id=OIP.4TJLgIdQDKHOaaZ9tN5pGAHaHw&pid=Api&P=0" alt="avatar" width="60"
+                        src={props.story_ava} alt="avatar" width="60"
                         height="60" />
                       <div>
+                        <h4>{props.title}</h4>
                         <p class="text-muted small mb-0"></p>
                       </div>
                     </div>
                         <p class="mt-3 mb-4 pb-2">
-                          {props.story}
+                        {props.description}
                       </p>
                   </div>
                   <div class="card-footer py-3 border-0" >
@@ -37,8 +48,7 @@ const Advice = (props) => {
         </Button>
         <Collapse in={open}>
           <div id="example-collapse-text">
-          <Comment/>
-  
+            {props.advices.map(advice => <Comment advice={advice} />)}
           </div>
         </Collapse>
                   </div>
@@ -46,9 +56,7 @@ const Advice = (props) => {
               </div>
               </div>
               </div>
+     
               </section> 
   )
 }
-
-export default Advice;
-

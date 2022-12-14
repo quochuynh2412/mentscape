@@ -29,7 +29,7 @@ import { ReadStory } from './pages/patients/ReadStory';
 import Commentlist from './pages/patients/Commentlist';
 import { Comment } from './pages/patients/Comment';
 import { AdviceList } from './pages/patients/AdviceList';
-
+import Advice from './pages/patients/Advice';
 
 
 
@@ -97,6 +97,7 @@ function App() {
 						<PatientNote />
 					</ProtectedRoute>
 				} />
+
 				<Route path="/readStory" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<ReadStory />
