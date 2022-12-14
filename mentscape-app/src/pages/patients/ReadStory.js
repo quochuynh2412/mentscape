@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Header } from "../../components/Header";
-import { ReadStoryItem} from "./ReadStoryItem";
+import { ReadStoryItem } from "./ReadStoryItem";
 import { useState, useEffect } from "react";
 import { getStory } from "../../firebase/story";
 import { getUserInfo } from "../../firebase/user";
