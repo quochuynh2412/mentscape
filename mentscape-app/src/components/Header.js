@@ -54,7 +54,7 @@ export const Header = () => {
                         Read Story
                       </NavDropdown.Item>
                       {/* <NavDropdown.Divider /> */}
-                      <NavDropdown.Item href="">
+                      <NavDropdown.Item href="/myStory">
                         My Story
                       </NavDropdown.Item>
                     </NavDropdown>

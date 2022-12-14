@@ -26,10 +26,8 @@ import { useAuth } from './firebase/authFunc';
 import "./css/style.css"
 import MyPatients from './pages/therapist/MyPatients';
 import { ReadStory } from './pages/patients/ReadStory';
-import Commentlist from './pages/patients/Commentlist';
 import { Comment } from './pages/patients/Comment';
 import { AdviceList } from './pages/patients/AdviceList';
-import Advice from './pages/patients/Advice';
 
 
 
@@ -104,7 +102,7 @@ function App() {
 					</ProtectedRoute> 
 				}/>
 
-				<Route path='/adviceList' element = {
+				<Route path='/myStory' element = {
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<AdviceList/>
 					</ProtectedRoute>

@@ -19,8 +19,7 @@ export default function Advice(props) {
  
   const [open, setOpen] = useState(false); 
   return (
-      <section>
-          <div className="container my-5 py-5">
+          <div className="mb-2 py-4">
             <div className="row d-flex justify-content-center">
               <div class="col-md-12 col-lg-10 col-xl-8">
                 <div class="card">
@@ -57,6 +56,5 @@ export default function Advice(props) {
               </div>
               </div>
      
-              </section> 
   )
 }

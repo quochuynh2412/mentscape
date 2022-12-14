@@ -6,7 +6,7 @@ import { getStory } from '../../firebase/myStory';
 import { useState, useEffect } from 'react';
 import { getCurrentUserInfo } from '../../firebase/user';
 import Modal from 'react-modal';
-import { Form, FormGroup} from "react-bootstrap";
+import { Container, Form, FormGroup} from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import { doc,addDoc,setDoc,collection, } from "firebase/firestore"; 
 import { db } from '../../firebase-config';
@@ -74,34 +74,36 @@ const addStory = async (e) => {
   return (
       <>
           <Header />
-          <div class="mb-3 mt-3">
-          <Button variant='success float-end' size="lg" onClick={openModal}>Add story</Button>
+          <Container className="mb-3 mt-3">
+            <div className='text-end'>
+              <Button variant='success' size="lg" onClick={openModal}>Add story</Button>
+            </div>
           <Modal isOpen={modalIsOpen}  onAfterOpen={afterOpenModal} onRequestClose={closeModal} style={customStyles} contentLabel="Example Modal">
             <Form onSubmit={addStory} >
               <FormGroup>
                   <h1>My story</h1>
-                  <div class="mb-2 mt-2">
+                  <div className="mb-2 mt-2">
                     <Form.Control type="text" id="title" value={title} onChange={e => setTitle(e.target.value)} placeholder="Title"/>
                   </div>
-                  <div class="mb-2 mt-2">
+                  <div className="mb-2 mt-2">
                     <Form.Control type="text" id="description" value={description} onChange={e => setDescription(e.target.value)} placeholder="Description"/>
                   </div>
-                  <div class="mt-3">
+                  <div className="mt-3">
                     <h4>Choose an avatar for you story:</h4>
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div className="form-check form-check-inline">
                         <Form.Check type="radio" id="inline" name="story_ava" value="/img/story_ava/ava1.png" onChange={() => setStory_ava("/img/story_ava/ava1.png")} />
                         <img src="/img/story_ava/ava1.png"  width="100" height="100"/> 
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div className="form-check form-check-inline">
                         <Form.Check type="radio"  id="inline" name="story_ava" onChange={()=> setStory_ava("/img/story_ava/ava2.png")} value="/img/story_ava/ava2.png"  />
                         <img src="/img/story_ava/ava2.png"  width="100" height="100"/> 
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div className="form-check form-check-inline">
                         <Form.Check type="radio" id="inline" name="story_ava" onChange={() => setStory_ava("/img/story_ava/ava3.png")} value="/img/story_ava/ava3.png" />
                         <img src="/img/story_ava/ava3.png"  width="100" height="100"/> 
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div className="form-check form-check-inline">
                         <Form.Check type="radio" id="inline" name="story_ava" onChange={() => setStory_ava("/img/story_ava/ava4.png")} value="/img/story_ava/ava4.png"/>
                         <img src="/img/story_ava/ava4.png"  width="100" height="100"/> 
                     </div>
@@ -109,10 +111,11 @@ const addStory = async (e) => {
                 </FormGroup>
             </Form>
           </Modal>
-        </div>
-          <div>
+
+          {/* <div> */}
           {Story.map(story => <Advice {...story} />)}
-          </div>
+          {/* </div> */}
+      </Container>
       </>
   )
 }

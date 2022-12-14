@@ -90,8 +90,8 @@ export default function PatientNote() {
         <Col lg={3}><DocSidebar /></Col>
         <Col md={9}>
           <Row>
-            <div class="mb-3 mt-3">
-              <Button variant='success float-end' size="lg" onClick={openModal}>Add note</Button>
+            <div class="my-4 text-end">
+              <Button variant='success' size="lg" onClick={openModal}>Add note</Button>
             </div>
               <Modal isOpen={modalIsOpen}  onAfterOpen={afterOpenModal} onRequestClose={closeModal} style={customStyles} contentLabel="Example Modal">
                 <Form onsumbit={addNoteInfo}>
@@ -119,18 +119,7 @@ export default function PatientNote() {
            
           </Row>
           <Row>
-            <div>
-            {/* {Note.map(note => <Alert variant='info' key={note.id}>
-              <Alert.Heading> <div>{note.patient_name}</div></Alert.Heading>
-              <div>
-                <div><span className='fw-bold'>Background:</span> {note.background}</div>
-                <div><span className='fw-bold'>Problem:</span> {note.problem}</div>  
-                <div><span className='fw-bold'>Note:</span> {note.note}</div> 
-              </div>
-              <hr />
-              
-              <div className="mb-0"><Button variant="danger" onClick={() => deleteNoteInfo(note.id)}>Delete</Button></div>
-            </Alert>)} */}
+            <div className='mt-3'>
 
               {Note.map(note =>
               <Card border="secondary" className="mb-4" key={note.id}>
