@@ -11,7 +11,7 @@ export const getUserInfo = async usedId => {
 
     return {
         ...userInfo,
-        id: docSnap.therapist_id,
+        id: docSnap.id,
     };
 
 }

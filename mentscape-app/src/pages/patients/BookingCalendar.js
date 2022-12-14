@@ -102,6 +102,7 @@ function BookingCalendar() {
     }
     const handleScheduled = async dateTime => {
         setIsScheduling(true);
+        console.log(patient)
         const booked_apm = new Appointment(new Date(), dateTime, "anxiety", patient.id, 'none', 'active', therapist.id);
         setIsScheduled(await addAppointment(booked_apm));
     };

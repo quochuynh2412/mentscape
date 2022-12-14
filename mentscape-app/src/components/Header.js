@@ -1,6 +1,6 @@
 import { NavDropdown, Navbar } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import logo from '../assets/img/logo.png';
+import logo from '../assets/img/logo1.png';
 import { firebaseSignout } from '../firebase/authFunc';
 import { useState, useEffect } from 'react';
 import { getCurrentUserInfo } from '../firebase/user';
