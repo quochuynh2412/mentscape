@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Comment } from "./Comment";
 import {getCurrentUser} from '../../firebase/authFunc';
 import { getStory } from '../../firebase/myStory';
