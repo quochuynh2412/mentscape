@@ -61,7 +61,7 @@ export default function PatientNote() {
 
 
 
-  console.log(Note);
+
   const addNoteInfo = async (e) => {
       e.preventDefault();
       console.log(title,Name,problem,background,note);

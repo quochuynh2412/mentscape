@@ -100,10 +100,18 @@ function App() {
 				<Route path="/readStory" element={<ReadStory />} />
 				<Route path= '/commentlist' element = {<Commentlist/>}></Route>
 				<Route path="*" element={<NotFound />}/>
-				<Route path='/advice' element = {<Advice />}></Route>
+				<Route path='/advice' element = {
+					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
+						<Advice/>
+					</ProtectedRoute>}>
+				</Route>
 
 				<Route path='/comment' element = {<Comment/>}></Route>
-				<Route path='/advicelist' element = {<AdviceList/>}></Route>
+				<Route path='/advicelist' element = {
+					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
+						<AdviceList/>
+					</ProtectedRoute>}>
+				</Route>
 
 			</Routes>
 

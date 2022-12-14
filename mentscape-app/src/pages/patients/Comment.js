@@ -1,17 +1,14 @@
 import { Container, Card, Row, Col } from "react-bootstrap";
 
 export const Comment = (props) => {
-
     return (
-        <Container className="py-5" style={{alignItems: 'center' }}>
+        <Container className="py-2" style={{alignItems: 'center' }}>
         <Row className="justify-content-center">
           <Col md="12" lg="10">
             <Card className="text-dark">
               <Card.Body className="p-4">
-                <h4 className="mb-0">
-                  Recent comments
-                </h4>
-                <p className="fw-light mb-4 pb-2">
+            
+                <p className="fw-light mb-1 pb-2">
                 </p>
 
                 <div className="d-flex flex-start">
@@ -30,10 +27,7 @@ export const Comment = (props) => {
 
                     </div>
                     <p className="mb-0">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took a galley of type and scrambled it.
+                      {props.advice}
                     </p>
                   </div>
                 </div>
