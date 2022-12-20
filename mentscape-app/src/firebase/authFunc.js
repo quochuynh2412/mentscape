@@ -4,22 +4,21 @@ import { auth } from "../firebase-config";
 import { Navigate } from 'react-router-dom';
 
 export const firebaseSignUp = async (email, password) => {
-    //tao trong db auth
+    // Create new user
     const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
     );
     const userId = userCredential.user.uid;
-    //tra ve uid
+    // Return user id
     return userId;
 };
 
-// check uid???
+// Log in
 export const firebaseLogIn = async (email, password) => {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    // console.log(email)
-    // console.log(password)
+
     console.log(userCredential)
 
     const userId = userCredential.user.uid;
@@ -35,7 +34,7 @@ export const firebaseSignout = async () => {
         throw new Error('Error signing out');
     }
 }
-//??? chuc nang la gi the
+// Support useAuth func
 export const addAuthListener = (callback) => {
     const onChange = (user) => {
         if (user) {
@@ -58,7 +57,7 @@ export const getCurrentUser = () => {
     }
 }
 
-// check user xem ton tai k ???
+// Check if user have logged in or not
 export const useAuth = () => {
     const [authInfo, setAuthInfo] = useState(() => {
         const user = getCurrentUser();

@@ -154,6 +154,11 @@
     line-height: 2.0;
 }
 
+/* Quiz page */
+.podcast-slide .slick-slide > div {
+    padding: 0 20px;
+}
+
 
 
 

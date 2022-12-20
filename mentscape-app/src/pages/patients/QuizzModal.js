@@ -10,12 +10,12 @@ function QuizzModal(props) {
             t = "#FFFFFF";
         }
     }
-    const story_settings = {
+    const podcast_settings = {
         dots: true,
         infinite: true,
         speed: 700,
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: 2,
+        slidesToScroll: 1,
     }
     const mystyle = {
         color: t,
@@ -50,9 +50,9 @@ function QuizzModal(props) {
 
 
                 {/*<div className="content">*/}
-                    <div className="story_section" >
+                    <div className="story_section podcast-slide" >
                         <h4 className="mb-3 fw-bold text-center">Recommended Podcasts For You:</h4>
-                        <Slider {...story_settings}>
+                        <Slider {...podcast_settings}>
                             <iframe style={{ borderRadius: 22 + 'px' }} src="https://open.spotify.com/embed/episode/5vwIdOiYyMu63ZMrFs37Nv?utm_source=generator" width="200" height="300" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                             <iframe style={{ borderRadius: 22 + 'px' }} src="https://open.spotify.com/embed/episode/6Mu9PoPoFlf4lhJLTr5ODQ?utm_source=generator" width="200" height="300" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                             <iframe style={{ borderRadius: 22 + 'px' }} src="https://open.spotify.com/embed/episode/5eWiZnDe6zob1QdkbyMwwo?utm_source=generator" width="200" height="300" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
