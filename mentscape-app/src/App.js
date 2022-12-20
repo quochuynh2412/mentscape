@@ -28,6 +28,7 @@ import MyPatients from './pages/therapist/MyPatients';
 import { ReadStory } from './pages/patients/ReadStory';
 import { Comment } from './pages/patients/Comment';
 import { AdviceList } from './pages/patients/AdviceList';
+import Meditate from './pages/patients/MeditationPage/Meditate';
 
 
 
@@ -45,6 +46,7 @@ function App() {
 				<Route path="/signup/therapist" element={<SignUp isDoctor={true} />}></Route>
 				<Route path="/quizzes" element={<Quizzes />}></Route>
 				<Route path="/news" element={<News />}></Route>
+				<Route path="/meditate" element={<Meditate />}></Route>
 				<Route path="/profile" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<MyProfile />
@@ -99,16 +101,16 @@ function App() {
 				<Route path="/readStory" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<ReadStory />
-					</ProtectedRoute> 
-				}/>
-
-				<Route path='/myStory' element = {
-					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
-						<AdviceList/>
 					</ProtectedRoute>
 				} />
 
-				<Route path='/comment' element = {<Comment/>}></Route>
+				<Route path='/myStory' element={
+					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
+						<AdviceList />
+					</ProtectedRoute>
+				} />
+
+				<Route path='/comment' element={<Comment />}></Route>
 				<Route path="*" element={<NotFound />} />
 
 
