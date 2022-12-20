@@ -1,5 +1,50 @@
 import ava from "../../assets/img/doctors/doctor-01.jpg";
-function BookingForm() {
+import { Link } from "react-router-dom";
+import './BookingForm.css';
+import React, { useState, useContext } from "react";
+import { Form } from "react-bootstrap";
+import {db} from '../../firebase-config.js';
+
+function BookingForm(props) {
+    const [validated, setValidated] = useState(false);
+    const [date, setDate] = useState("");
+    const [time, setTime] = useState("");
+    const [note, setNote] = useState("");
+    const [status, setStatus] = useState("");
+    const [problem, setProblem] = useState("");
+    const [doctor, setDoctor] = useState({});
+    const [user, setUser] = useState({});
+
+
+    const handleSubmit = (event) => {
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      setValidated(true);
+
+        event.preventDefault();
+        db.collection("Appointment").add({
+            date: date,
+            time: time,
+            name: user.fullname,
+            note: note,
+            patient_id: user.id,
+            problem: problem,
+            status: status,
+            therapist: doctor.id
+        });
+
+        setUser({});
+        setDate("");
+        setTime("");
+        setProblem("");
+        setStatus("");
+        setNote("");
+        setDoctor({});
+    }; 
+
     return (
         <>
             <div className="mt-5 container">
@@ -8,7 +53,7 @@ function BookingForm() {
                         <div className="card form-detail">
                             <div className="card-body">
 
-                                <form action="#">
+                                <Form  noValidate validated={validated} onSubmit={handleSubmit} encType="multipart/form-data" method="get" action="">
 
                                     <div className="info-widget">
                                         <h4 className="text-center">Booking Information</h4>
@@ -16,43 +61,67 @@ function BookingForm() {
                                         <div className="row">
                                             <label className="text-start">Your Full Name:</label>
                                             <div className="form-group">
-                                                <input className="form-control" type="text" />
+                                                {/*<input className="form-control" type="text" name="name"/>*/}
+                                                <div>{user.name}</div>
+                                            </div>
+
+                                            {/*<div className="mt-3 mb-3 col-md-6 col-sm-12">*/}
+                                            {/*    <div className="form-group card-label">*/}
+                                            {/*        <label className="text-start">Appointment</label>*/}
+                                            {/*        <input*/}
+                                            {/*            className="w-100 rounded form-group"*/}
+                                            {/*            type="date"*/}
+                                            {/*            id="appointment"*/}
+                                            {/*            name="appointment"*/}
+                                            {/*        />*/}
+                                            {/*    </div>*/}
+                                            {/*</div>*/}
+
+                                            <div className="mt-3 mb-3 col-md-6 col-sm-12">
+                                                <div className="form-group card-label">
+                                                    <label className="text-start">Appointment:</label>
+                                                    <div></div>
+                                                </div>
                                             </div>
 
                                             <div className="mt-3 mb-3 col-md-6 col-sm-12">
                                                 <div className="form-group card-label">
-                                                    <label className="text-start">Appointment</label>
-                                                    <input
-                                                        className="w-100 rounded form-group"
-                                                        type="date"
-                                                        id="appointment"
-                                                        name="appointment"
-                                                    />
+                                                    <label className="text-start">Time</label>
+                                                    <div></div>
                                                 </div>
                                             </div>
 
-                                            <div className="col-md-6 col-sm-12">
-                                                <div className="mt-3 mb-3 form-group card-label">
-                                                    <label className="text-start" >
-                                                        Time:
-                                                    </label>
-                                                    <select
-                                                        className=" w-100 rounded form-group"
+                                            {/*<div className="col-md-6 col-sm-12">*/}
+                                            {/*    <div className="mt-3 mb-3 form-group card-label">*/}
+                                            {/*        <label className="text-start" >*/}
+                                            {/*            Time:*/}
+                                            {/*        </label>*/}
+                                            {/*        <select*/}
+                                            {/*            className=" w-100 rounded form-group"*/}
+                                            {/*            name="time"*/}
 
 
-                                                    >
-                                                        <option value="1">1:00</option>
-                                                        <option value="2">2:00</option>
-                                                        <option value="3">3:00</option>
-                                                        <option value="4">4:00</option>
-                                                        <option value="5">5:00</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            {/*        >*/}
+                                            {/*            <option value="1">1:00</option>*/}
+                                            {/*            <option value="2">2:00</option>*/}
+                                            {/*            <option value="3">3:00</option>*/}
+                                            {/*            <option value="4">4:00</option>*/}
+                                            {/*            <option value="5">5:00</option>*/}
+                                            {/*        </select>*/}
+                                            {/*    </div>*/}
+                                            {/*</div>*/}
 
-                                            <label className="mt-1 text-start">Question:</label>
+                                            <label className="mt-1 text-start">Note:</label>
                                             <div className="form-group card-label">
-                                                <input className="form-control" type="text" />
+                                                <input className="form-control" type="text"  name="note" value={note}
+                                                       onChange={(e) => setNote(e.target.value)}/>
+                                            </div>
+
+                                            <label className="mt-1 text-start">Status:</label>
+                                            <div className="form-group card-label">
+                                                <input className="form-control" type="text" name="status"
+                                                       name="note" value={status}
+                                                       onChange={(e) => setStatus(e.target.value)}/>
                                             </div>
 
                                             <label className="mt-3 text-start">Main Problem:</label>
@@ -60,26 +129,30 @@ function BookingForm() {
                                                 <textarea
                                                     className="form-control"
                                                     type="text"
+                                                    name="problem"
+                                                    name="note" value={problem}
+                                                    onChange={(e) => setProblem(e.target.value)}
                                                 ></textarea>
                                             </div>
                                         </div>
 
-                                        <div className="mt-3 exist-customer">
-                                            Existing Customer? <a href="abc.js">Click here to login</a>
-                                        </div>
+                                        {/*<div className="mt-3 exist-customer">*/}
+                                        {/*    Existing Customer?*/}
+                                        {/*    <Link to="/" className="text-info text-decoration-none">Click here to login</Link>*/}
+                                        {/*</div>*/}
                                     </div>
 
                                     <div className="submit-section mt-4">
                                         <button
-                                            
+
                                             type="submit"
                                             className="w-75 rounded-pill btn btn-primary submit-btn"
                                         >
-                                            Confirm
+                                            <Link to="#" className="text-white text-decoration-none">Confirm</Link>
                                         </button>
                                     </div>
 
-                                </form>
+                                </Form>
 
                             </div>
                         </div>
@@ -97,7 +170,7 @@ function BookingForm() {
                                     <a href="doctor-profile.html" className="col-xl-5 booking-doc-img">
                                         <img
                                             style={{ width: "5.5rem", height: "5.5rem" }}
-                                            src={ava}
+                                            src={doctor.url}
                                             alt="Doctor"
                                             className="img-fluid rounded-circle shadow-4-strong"
                                         />
@@ -125,6 +198,7 @@ function BookingForm() {
 
                                             <span className="ms-1 d-inline-block average-rating">35</span>
                                         </div>
+
                                         <div className="clinic-details">
                                             <p className="doc-location">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-geo-alt" viewBox="0 0 16 16">
@@ -133,18 +207,49 @@ function BookingForm() {
                                                 </svg> Newyork, USA
                                             </p>
                                         </div>
+
+
+
+
                                     </div>
                                 </div>
                             </div>
 
 
+                            <div className="card-body">
+                                <div className="booking-summary">
+                                    <div className="booking-item-wrap text-start">
+                                        <ul className="booking-date">
+                                            <li>Date: <span>16 Nov 2019</span></li>
+                                            <li>Time: <span>10:00 AM</span></li>
+                                        </ul>
+                                        <ul className="booking-fee">
+                                            <li>Consulting Fee: <span>$120</span></li>
+                                            <li>Booking Fee: <span>$10</span></li>
+                                            <li>Video Call: <span>$50</span></li>
+                                        </ul>
+                                        <div className="booking-total">
+                                            <ul className="booking-total-list">
+                                                <li>
+                                                    <span>Total:</span>
+                                                    <h6 className="total-cost">$180</h6>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
 
+                            </div>
+
+        ;                   
 
 
                         </div>
                     </div>
                 </div>
             </div>
+
+
         </>
     );
 }
