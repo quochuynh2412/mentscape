@@ -1,14 +1,9 @@
-import { Component } from 'react';
 import '../../css/Huynh.css';
-import { Link } from 'react-router-dom';
 import DocSidebar from '../../components/SideBar/DocSideBar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/esm/Container';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { fas, faCertificate } from '@fortawesome/free-solid-svg-icons';
 import { Header } from '../../components/Header';
 import { useState, useEffect } from 'react';
 import { getAppointments } from '../../firebase/appointment';
@@ -21,7 +16,6 @@ export const Dashboard = () => {
   const [showModal, setShowModal] = useState(true);
     useEffect(() => {
       const loadAppointment = async (userId) => {
-        // console.log(userId)
         const data = await getAppointments(false, userId);
         setApm(data);
       }

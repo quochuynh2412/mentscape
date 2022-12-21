@@ -5,7 +5,6 @@ import { Header } from "../../components/Header";
 import { ReadStoryItem } from "./ReadStoryItem";
 import { useState, useEffect } from "react";
 import { getStory } from "../../firebase/story";
-import { getUserInfo } from "../../firebase/user";
 import { getCurrentUser } from "../../firebase/authFunc";
 
 const story_settings = {

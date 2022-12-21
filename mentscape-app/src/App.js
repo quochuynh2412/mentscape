@@ -3,7 +3,6 @@ import {
 	Routes,
 	Route
 } from 'react-router-dom'
-import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LogIn } from './pages/common/LogIn';
@@ -11,7 +10,6 @@ import { SignUp } from './pages/common/SignUp';
 import { MyProfile } from './pages/common/MyProfile';
 import { PickSignUp } from './pages/common/PickSignUp';
 import Quizzes from "./pages/patients/Quizzes";
-import BookingForm from './pages/patients/BookingForm';
 import Appointments from './pages/patients/Appointments';
 import BookingCalendar from './pages/patients/BookingCalendar';
 import Detail from './pages/therapist/Detail';
@@ -23,12 +21,11 @@ import { Dashboard } from './pages/therapist/Dashboard';
 import { NotFound } from './pages/common/NotFound';
 import PatientNote from './pages/therapist/PatientNote';
 import { useAuth } from './firebase/authFunc';
-import "./css/style.css"
-import MyPatients from './pages/therapist/MyPatients';
 import { ReadStory } from './pages/patients/ReadStory';
 import { Comment } from './pages/patients/Comment';
 import { AdviceList } from './pages/patients/AdviceList';
 import Meditate from './pages/patients/MeditationPage/Meditate';
+import "./css/style.css"
 
 
 
@@ -57,11 +54,6 @@ function App() {
 						<BookingCalendar />
 					</ProtectedRoute>
 				} />
-				<Route path="/booking-form" element={
-					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
-						<BookingForm />
-					</ProtectedRoute>
-				} />
 				<Route path="/appointment" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<Appointments />
@@ -87,11 +79,6 @@ function App() {
 						<Dashboard />
 					</ProtectedRoute>
 				} />
-				<Route path="/myPatient" element={
-					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
-						<MyPatients />
-					</ProtectedRoute>
-				} />
 				<Route path="/PatientNote" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<PatientNote />
@@ -112,7 +99,6 @@ function App() {
 
 				<Route path='/comment' element={<Comment />}></Route>
 				<Route path="*" element={<NotFound />} />
-
 
 			</Routes>
 

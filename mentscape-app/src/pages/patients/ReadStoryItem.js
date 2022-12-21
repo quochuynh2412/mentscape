@@ -1,4 +1,3 @@
-import { addDoc } from "firebase/firestore";
 import { useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap"
 import { setNewAdvices } from "../../firebase/story";
@@ -7,9 +6,7 @@ export const ReadStoryItem = (props) => {
     const [advice, setAdvice] = useState("");
     const submitAdvice = async (e) => {
         const advices = props.advices
-        // console.log(props)
         advices.push(advice);
-        // console.log(advices);
         setNewAdvices(props.id, advices);
         alert("Send advices successfully");
         setAdvice("");

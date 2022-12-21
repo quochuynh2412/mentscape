@@ -49,8 +49,6 @@ function Search() {
                 }
             }
         }
-        console.log(gender_type);
-        console.log(speacialties)
     }
     return (
         <>

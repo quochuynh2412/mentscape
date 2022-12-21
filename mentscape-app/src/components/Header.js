@@ -26,13 +26,13 @@ export const Header = () => {
       <Navbar.Collapse id="navbar-nav">
         <ul className="d-flex justify-content-sm-center nav-main reset-list">
           {
-            (userInfo !== null && userInfo.role === "therapist") ?
+            (userInfo !== null && userInfo.role === "therapist") &&
               <li className="nav-links me-4">
                 <Link to="/dashboard" className="nav-links">Dashboard</Link>
               </li>
-              : <li className="me-4">
-                <Link to="/" className="nav-links">Home</Link>
-              </li>
+              // : <li className="me-4">
+              //   <Link to="/" className="nav-links">Home</Link>
+              // </li>
           }
 
           <li className="nav-links me-4">
@@ -47,6 +47,9 @@ export const Header = () => {
               :
               (userInfo !== null && userInfo.role === "patient") ?
                 <>
+                  <li className="nav-links me-4">
+                    <Link to="/meditate" className="nav-links">Meditation</Link>
+                  </li>
                   <li className="nav-links me-4">
                     <NavDropdown id="nav-dropdown" title="Story" className="nav-links">
                       <NavDropdown.Item href="/readStory">
