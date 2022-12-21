@@ -13,7 +13,6 @@ export const ReadStoryItem = (props) => {
         // alert("Send advices successfully");
         setAdvice("");
 
-        /* Paper plane animation
         /*************************************************************** 
         * Title: Paper plane animation
         * Author: CodeFree

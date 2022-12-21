@@ -62,7 +62,7 @@ function Appointments() {
                             </div>
                         </>
                         :
-                        <AppointmentsModal setModal={setShowModal} />
+                        <AppointmentsModal setModal={setShowModal}  />
                     }
                 </Container>
             </Container>

@@ -103,14 +103,14 @@ function AppointmentModal(props) {
                                     <div className="mt-3 ingle-info">
                                         <h6 className="text-start mb-1">Appointment's Note:</h6>
                                         <div className="p-1 text-start border rounded">
-                                            Abbvcbjbfkabkjbfvjfavjbfjvnabvbgfbvbgkbakjgkfbvbabsjvbjfbsjbvajbdfjbvbskbajfdvhfahdvfjdvfdhvahdvfhsvf,jvdfavgdf
+                                            I feel lost. There is nothing make me happy
                                         </div>
                                     </div>
 
                                     <div className="mt-3 ingle-info">
                                         <h6 className="text-start mb-1">Appointment's Question:</h6>
                                         <div className="p-1 text-start border rounded">
-                                            Abbvcbjbfkabkjbfvjfavjbfjvnabvbgfbvbgkbakjgkfbvbabsjvbjfbsjbvajbdfjbvbskbajfdvhfahdvfjdvfdhvahdvfhsvf,jvdfavgdf
+                                            How can I get over my depression?
                                         </div>
                                     </div>
 
