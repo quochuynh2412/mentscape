@@ -16,7 +16,7 @@ function TherapistCard(props) {
                 <Card.Body>
                     <Row>
                         <Col md={4}>
-                            <img src={props.profile_pic} className="img-fluid max mt-2" />
+                            <img src={props.profile_pic} className="mt-2 avatar-doctor" />
                         </Col>
                         <Col md={8}>
                             <div className="mt-2 row">
