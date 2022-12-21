@@ -5,6 +5,7 @@ import StickyBox from "react-sticky-box";
 import { getUserInfo } from '../../firebase/user.js';
 import { useEffect, useState } from 'react';
 import { getUserList } from '../../firebase/user.js';
+import { Header } from '../../components/Header.js';
 function Search() {
     var gender_type = new Array();
     var speacialties = new Array();
@@ -52,6 +53,8 @@ function Search() {
         console.log(speacialties)
     }
     return (
+        <>
+        <Header />
         <Container className='main-container' fluid>
             <Container >
                 <Row>
@@ -131,23 +134,16 @@ function Search() {
                         </StickyBox>
                     </Col>
                     <Col md={9} className="therapist-list-container">
-                        {/* <div className="row border bgBlue sort ">
-                    <select id="sort" name="sort" className="form-select ">
-                        <option selected>Sort By</option>
-                        <option value="name">Name</option>
-                        <option value="rating">Rating</option>
-                        <option value="pricelh">Price low to high</option>
-                        <option value="pricehl">Price high to low</option>
-                        <option value="distance">Distance</option>
-                    </select>
-                    </div> */}
+                        <Row>
                         {data.map(therapist => (
                             <TherapistCard {...therapist} />
                         ))}
+                        </Row>
                     </Col>
                 </Row>
             </Container>
         </Container>
+        </>
     );
 }
 export default Search;
