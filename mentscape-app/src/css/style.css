@@ -160,8 +160,13 @@
 }
 
 /* Paper plane animation
-References:
-CodeFree.Full Transcript Bookmarks Css Animation - Button To Folding Paper Plane Transition https: //codepen.io/aaroniker/pen/NWGZzXx */
+/*************************************************************** 
+* Title: Paper plane animation
+* Author: CodeFree
+* Date: 21 December 2022 
+* Code version: V1 
+* Availability: https: //codepen.io/aaroniker/pen/NWGZzXx (Accessed 1 December 2021) 
+****************************************************************/
 .send-btn {
     --primary: #275EFE;
     --primary-dark: #2055EE;

@@ -13,7 +13,14 @@ export const ReadStoryItem = (props) => {
         // alert("Send advices successfully");
         setAdvice("");
 
-        // Animation
+        /* Paper plane animation
+        /*************************************************************** 
+        * Title: Paper plane animation
+        * Author: CodeFree
+        * Date: 21 December 2022 
+        * Code version: V1 
+        * Availability: https: //codepen.io/aaroniker/pen/NWGZzXx (Accessed 1 December 2021) 
+        ****************************************************************/
         if (!activeSend) {
 
             setActiveSend(true);
