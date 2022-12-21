@@ -6,7 +6,8 @@ import { db } from '../../firebase-config';
 import { getAppointments } from "../../firebase/appointment";
 import { getCurrentUser } from "../../firebase/authFunc";
 import { Header } from "../../components/Header";
-import { Card, Container } from "react-bootstrap";
+import { Button, Card, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 function Appointments() {
     const [apm, setApm] = useState([]);
     useEffect(() => {
@@ -28,7 +29,12 @@ function Appointments() {
                             <div style={{ width: "95%" }} id="appointments" className="mt-4 mx-auto rounded-3 tab-pane fade show active">
                                 <Card className="card card-table mb-0">
                                     <Card.Header className="mb-1 card-header user-tabs">
-                                        <Card.Title>Appointments</Card.Title>
+                                        <div className="d-flex justify-content-between py-2">
+                                            <Card.Title>Appointments</Card.Title>
+                                            <div class="text-end">
+                                                <Link className="btn btn-large btn-success" to="/searchTherapist">Add appoinment</Link>
+                                            </div>
+                                        </div>
                                     </Card.Header>
                                     <Card.Body>
                                         <div className="table-responsive">

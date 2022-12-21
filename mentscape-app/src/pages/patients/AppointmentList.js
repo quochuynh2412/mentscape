@@ -1,6 +1,7 @@
 import ava from "../../assets/img/doctors/doctor-01.jpg";
 import { getUserInfo } from "../../firebase/user";
 import { useState, useEffect } from 'react'
+import { Button } from "react-bootstrap";
 function AppointmentList(props) {
     const [therapist, setTherapistInfo] = useState([]);
     const userId = props.isDoctor ? "patient_id" : "therapist_id"
@@ -44,7 +45,7 @@ function AppointmentList(props) {
                         </a>
                         <a style={{ fontSize: "large" }} href="doctor-profile.html" className=" p-3 col-sm-4 nav-link active">
                             {therapist.fullname}
-                            <span>Booking</span>
+                            <span className="ps-2">Booking</span>
                         </a>
                     </h2>
                 </td>

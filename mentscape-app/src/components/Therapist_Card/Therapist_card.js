@@ -1,11 +1,6 @@
-// import stockData from '../../data/therapist.json';
-// import ava from "/Users/dinhvinh/Documents/GitHub/mentscape/mentscape-app/src/data/avatar/download.jpeg";
-// import ava2 from "/Users/dinhvinh/Documents/GitHub/mentscape/mentscape-app/src/data/avatar/download (1).jpeg";
-// import ava3 from "/Users/dinhvinh/Documents/GitHub/mentscape/mentscape-app/src/data/avatar/images.jpeg";
 import '../../css/Vinh_css.css'
 import { GrMapLocation } from "react-icons/gr";
 import { GrBook } from "react-icons/gr";
-import { GrCertificate } from "react-icons/gr";
 import { GrMoney } from "react-icons/gr";
 import { Card, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -27,7 +22,13 @@ function TherapistCard(props) {
                                     <h2 className="infoSum2"><GrMapLocation /> Location: {props.address} </h2>
                                 </div>
                                 <div>
-                                    <h2 className="infoSum2"><GrBook /> Specialized:</h2>
+                                    <h2 className="infoSum2"><GrBook /> Specialized: {
+                                        props.specialties.map((specialty, index) =>
+                                            <span key={specialty}>
+                                                {index > 0 && ", "}
+                                                {specialty}
+                                            </span>)
+                                    }</h2>
                                 </div>
                                 <div>
                                     <h2 className="infoSum2"><GrMoney /> Price:50-100$</h2>

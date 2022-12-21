@@ -1,5 +1,4 @@
 import TherapistCard from '../../components/Therapist_Card/Therapist_card.js';
-import stockData from '../../data/therapist.json';
 import "../../css/Vinh_css.css";
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import StickyBox from "react-sticky-box";
