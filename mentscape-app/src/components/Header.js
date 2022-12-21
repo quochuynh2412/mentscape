@@ -41,15 +41,15 @@ export const Header = () => {
           <li className="nav-links me-4">
             <Link to="/news" className="nav-links">News</Link>
           </li>
+          <li className="nav-links me-4">
+            <Link to="/meditate" className="nav-links">Meditation</Link>
+          </li>
 
           {
             (userInfo === null) ? <li className="nav-links me-4"><Link to="/login" className="nav-links">Login</Link></li>
               :
               (userInfo !== null && userInfo.role === "patient") ?
                 <>
-                  <li className="nav-links me-4">
-                    <Link to="/meditate" className="nav-links">Meditation</Link>
-                  </li>
                   <li className="nav-links me-4">
                     <NavDropdown id="nav-dropdown" title="Story" className="nav-links">
                       <NavDropdown.Item href="/readStory">
