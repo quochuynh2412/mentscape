@@ -124,7 +124,8 @@ export const Dashboard = () => {
                                 <table className="table table-hover table-center mb-0">
                                   <thead>
                                     <tr>
-                                      <th>Doctor</th>
+                                      <th>Patinet's Avatar</th>
+                                      <th>Patient's Name</th>
                                       <th>Appt Date</th>
                                       <th>Main Problem</th>
                                       <th>Status</th>

@@ -41,7 +41,8 @@ function Appointments() {
                                             <table className="table table-hover table-center mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th>Doctor</th>
+                                                        <th>Avatar</th>
+                                                        <th>Therapist Name</th>
                                                         <th>Appt Date</th>
                                                         <th>Booking Date</th>
                                                         <th>Status</th>

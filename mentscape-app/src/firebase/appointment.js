@@ -16,41 +16,14 @@ export class Appointment {
     }
 }
 export async function getAppointments(isPatient, userId) {
-    // const apm = [];
-
-    if (isPatient) {
-        // querySnapshot.forEach(doc => {
-        //     if (doc.data().patient_id === userId) {
-        //         apm.push({
-        //             ...doc.data(),
-        //             id: doc.id
-        //         });
-        //         console.log(true)
-        //     }
-        // });
-        const querySnapshot = await getDocs(query(collection(db, "Appoinment"), where("patient_id", "==", userId)));
-        const apm = querySnapshot.docs.map(doc => ({
-            ...doc.data(),
-            id: doc.id,
-        })
-        );
-        return apm
-    } else {
-        // querySnapshot.forEach(doc => {
-        //     if (doc.data().therapist_id === userId) {
-        //         apm.push(doc.data());
-        //     }
-        // });
-
-        const querySnapshot = await getDocs(query(collection(db, "Appoinment"), where("therapist_id", "==", userId)));
-        const apm = querySnapshot.docs.map(doc => ({
-            ...doc.data(),
-            id: doc.id,
-        })
-        );
-        return apm
-    }
-    // return apm;
+    const searchRole = isPatient ? "patient_id" : "therapist_id";
+    const querySnapshot = await getDocs(query(collection(db, "Appoinment"), where(searchRole, "==", userId)));
+    const apm = querySnapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id,
+    })
+    );
+    return apm
 }
 export async function getAvailability(id) {
     const docSnap = await getDoc(doc(db, "Therapist_Available", id));
