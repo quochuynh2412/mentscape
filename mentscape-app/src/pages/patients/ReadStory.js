@@ -31,7 +31,7 @@ export const ReadStory = () => {
     <>
         <Header />
         <div className="story_section">
-            <h2 className="mb-3 fw-bold">Deepest Stories</h2>
+            <h2 className="mb-4 fw-bold">Deepest Stories</h2>
             <Slider {...story_settings}>
                 {stories.map(story => <ReadStoryItem {...story} key={story.id}/>)}
             </Slider>

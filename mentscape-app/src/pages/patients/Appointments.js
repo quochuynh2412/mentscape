@@ -31,7 +31,7 @@ function Appointments() {
                                     <Card.Header className="mb-1 card-header user-tabs">
                                         <div className="d-flex justify-content-between py-2">
                                             <Card.Title>Appointments</Card.Title>
-                                            <div class="text-end">
+                                            <div className="text-end">
                                                 <Link className="btn btn-large btn-success" to="/searchTherapist">Add appoinment</Link>
                                             </div>
                                         </div>
