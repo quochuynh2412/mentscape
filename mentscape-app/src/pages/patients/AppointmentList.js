@@ -1,6 +1,8 @@
 import ava from "../../assets/img/doctors/doctor-01.jpg";
 import { getUserInfo } from "../../firebase/user";
 import { useState, useEffect } from 'react'
+import { Button } from "react-bootstrap";
+import { deleteAppoinment } from "../../firebase/appointment";
 function AppointmentList(props) {
     const [therapist, setTherapistInfo] = useState([]);
     const userId = props.isDoctor ? "patient_id" : "therapist_id"
@@ -25,26 +27,35 @@ function AppointmentList(props) {
         props.setModal(false);
     }
 
+    const handleDelete = async (id) => {
+        // console.log(props);
+        await deleteAppoinment(id);
+        window.location.reload(false);
+    }
+
     return (
         <>
             <tr>
                 <td>
-                    <h2 className="row table-avatar">
-                        <a
-                            href="doctor-profile.html"
-                            className="col-sm-5 avatar avatar-sm me-2 nav-link active"
-                        >
-                            <img
-                                style={{ width: "5.5rem", height: "5.5rem" }}
-                                className="avatar-img rounded-circle"
-                                src={therapist.profile_pic}
-                                alt="Doctor"
-                            />
+                    <a
+                        href="doctor-profile.html"
+                        className="avatar avatar-sm me-2 nav-link active"
+                    >
+                        <img
+                            style={{ width: "70px", height: "70px" }}
+                            className="avatar-apm"
+                            src={therapist.profile_pic}
+                            alt="Doctor"
+                        />
 
-                        </a>
-                        <a style={{ fontSize: "large" }} href="doctor-profile.html" className=" p-3 col-sm-4 nav-link active">
+                    </a>
+                </td>
+                <td>
+                    <h2 className="row table-avatar">
+
+                        <a style={{ fontSize: "large" }} href="doctor-profile.html" className="nav-link active">
                             {therapist.fullname}
-                            <span>Booking</span>
+                            {/* <span className="ps-2">Booking</span> */}
                         </a>
                     </h2>
                 </td>

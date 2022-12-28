@@ -4,17 +4,23 @@ import { auth } from "../firebase-config";
 import { Navigate } from 'react-router-dom';
 
 export const firebaseSignUp = async (email, password) => {
+    // Create new user
     const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
     );
     const userId = userCredential.user.uid;
+    // Return user id
     return userId;
 };
 
+// Log in
 export const firebaseLogIn = async (email, password) => {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+    console.log(userCredential)
+
     const userId = userCredential.user.uid;
     return userId;
 };
@@ -28,7 +34,7 @@ export const firebaseSignout = async () => {
         throw new Error('Error signing out');
     }
 }
-
+// Support useAuth func
 export const addAuthListener = (callback) => {
     const onChange = (user) => {
         if (user) {
@@ -41,7 +47,9 @@ export const addAuthListener = (callback) => {
     return onAuthStateChanged(auth, onChange)
 }
 
+// lay data cua user bay gio
 export const getCurrentUser = () => {
+    // console.log(auth);
     const user = auth.currentUser;
     if (!user) return null;
     return {
@@ -49,6 +57,7 @@ export const getCurrentUser = () => {
     }
 }
 
+// Check if user have logged in or not
 export const useAuth = () => {
     const [authInfo, setAuthInfo] = useState(() => {
         const user = getCurrentUser();

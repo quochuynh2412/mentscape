@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
 import Container from "react-bootstrap/esm/Container";
 import DocSidebar from '../../components/SideBar/DocSideBar';
-import { doc,addDoc,setDoc,collection,deleteDoc } from "firebase/firestore"; 
+import { doc, addDoc, collection, deleteDoc } from "firebase/firestore"; 
 import Button from 'react-bootstrap/Button';
 import { db } from '../../firebase-config';
 import { Form, FormGroup} from "react-bootstrap";

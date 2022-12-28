@@ -1,5 +1,5 @@
 import { db } from '../firebase-config';
-import { doc, getDocs, getDoc, setDoc, addDoc } from "firebase/firestore";
+import { doc, getDocs, getDoc, setDoc, addDoc, deleteDoc, where, query } from "firebase/firestore";
 import { collection } from 'firebase/firestore';
 import { getUserInfo } from './user';
 import { async } from '@firebase/util';
@@ -16,29 +16,14 @@ export class Appointment {
     }
 }
 export async function getAppointments(isPatient, userId) {
-    const apm = [];
-    const querySnapshot = await getDocs(collection(db, "Appoinment"));
-    if (isPatient) {
-        querySnapshot.forEach(doc => {
-            if (doc.data().patient_id === userId) {
-                apm.push({
-                    ...doc.data(),
-                    id: doc.id
-                });
-                console.log(true)
-            }
-        });
-    } else {
-        querySnapshot.forEach(doc => {
-            if (doc.data().therapist_id === userId) {
-                apm.push({
-                    ...doc.data(),
-                    id: doc.id
-                });
-            }
-        });
-    }
-    return apm;
+    const searchRole = isPatient ? "patient_id" : "therapist_id";
+    const querySnapshot = await getDocs(query(collection(db, "Appoinment"), where(searchRole, "==", userId)));
+    const apm = querySnapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id,
+    })
+    );
+    return apm
 }
 export async function getAvailability(id) {
     const docSnap = await getDoc(doc(db, "Therapist_Available", id));
@@ -70,4 +55,8 @@ export async function addAppointment(apm) {
     } else {
         return false;
     }
+}
+
+export const deleteAppoinment = async (id) => {
+    await deleteDoc(doc(db, "Appoinment", id));
 }

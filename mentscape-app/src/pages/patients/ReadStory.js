@@ -5,7 +5,6 @@ import { Header } from "../../components/Header";
 import { ReadStoryItem } from "./ReadStoryItem";
 import { useState, useEffect } from "react";
 import { getStory } from "../../firebase/story";
-import { getUserInfo } from "../../firebase/user";
 import { getCurrentUser } from "../../firebase/authFunc";
 
 const story_settings = {
@@ -32,7 +31,7 @@ export const ReadStory = () => {
     <>
         <Header />
         <div className="story_section">
-            <h2 className="mb-3 fw-bold">Deepest Stories</h2>
+            <h2 className="mb-4 fw-bold">Deepest Stories</h2>
             <Slider {...story_settings}>
                 {stories.map(story => <ReadStoryItem {...story} key={story.id}/>)}
             </Slider>

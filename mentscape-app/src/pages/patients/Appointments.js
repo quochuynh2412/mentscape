@@ -6,7 +6,8 @@ import { db } from '../../firebase-config';
 import { getAppointments } from "../../firebase/appointment";
 import { getCurrentUser } from "../../firebase/authFunc";
 import { Header } from "../../components/Header";
-import { Card, Container } from "react-bootstrap";
+import { Button, Card, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 function Appointments() {
     const [apm, setApm] = useState([]);
     useEffect(() => {

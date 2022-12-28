@@ -1,7 +1,6 @@
 import { NavDropdown, Navbar } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import logo from '../assets/img/logo1.png';
-import { firebaseSignout } from '../firebase/authFunc';
 import { useState, useEffect } from 'react';
 import { getCurrentUserInfo } from '../firebase/user';
 
@@ -27,13 +26,13 @@ export const Header = () => {
       <Navbar.Collapse id="navbar-nav">
         <ul className="d-flex justify-content-sm-center nav-main reset-list">
           {
-            (userInfo !== null && userInfo.role === "therapist") ?
+            (userInfo !== null && userInfo.role === "therapist") &&
               <li className="nav-links me-4">
                 <Link to="/dashboard" className="nav-links">Dashboard</Link>
               </li>
-              : <li className="me-4">
-                <Link to="/" className="nav-links">Home</Link>
-              </li>
+              // : <li className="me-4">
+              //   <Link to="/" className="nav-links">Home</Link>
+              // </li>
           }
 
           <li className="nav-links me-4">
@@ -41,6 +40,9 @@ export const Header = () => {
           </li>
           <li className="nav-links me-4">
             <Link to="/news" className="nav-links">News</Link>
+          </li>
+          <li className="nav-links me-4">
+            <Link to="/meditate" className="nav-links">Meditation</Link>
           </li>
 
           {

@@ -89,7 +89,7 @@ const addStory = async (e) => {
                     <Form.Control type="text" id="description" value={description} onChange={e => setDescription(e.target.value)} placeholder="Description"/>
                   </div>
                   <div className="mt-3">
-                    <h4>Choose an avatar for you story:</h4>
+                    <h4>Choose an avatar for your story:</h4>
                     </div>
                     <div className="form-check form-check-inline">
                         <Form.Check type="radio" id="inline" name="story_ava" value="/img/story_ava/ava1.png" onChange={() => setStory_ava("/img/story_ava/ava1.png")} />

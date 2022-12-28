@@ -1,17 +1,14 @@
-import ava from "../../assets/img/doctors/doctor-01.jpg";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getUserInfo, getCurrentUserInfo } from "../../firebase/user";
 import { useState, useEffect } from 'react';
 import { getAppointments, getAvailability } from "../../firebase/appointment";
 import DayTimePicker from '@mooncake-dev/react-day-time-picker';
 import { Appointment, addAppointment } from "../../firebase/appointment";
-import AppointmentList from "./AppointmentList";
 import StickyBox from "react-sticky-box";
 import { Col, Row, Container, Card } from "react-bootstrap";
 import '../../css/Huynh.css'
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { fas } from '@fortawesome/free-solid-svg-icons'
+import { Header } from "../../components/Header";
 function BookingCalendar() {
     const [therapist, setTherapistInfo] = useState([]);
     const [appointmentList, setAppointmentList] = useState([]);
@@ -102,12 +99,12 @@ function BookingCalendar() {
     }
     const handleScheduled = async dateTime => {
         setIsScheduling(true);
-        console.log(patient)
         const booked_apm = new Appointment(new Date(), dateTime, "anxiety", patient.id, 'none', 'active', therapist.id);
         setIsScheduled(await addAppointment(booked_apm));
     };
     return (
         <>
+        <Header />
             <Container className="booking-calendar-container" fluid>
                 <Container className="mx-auto">
                     <Row>

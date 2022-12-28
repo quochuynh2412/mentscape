@@ -6,10 +6,22 @@
     background-color: rgb(255, 255, 255);
 }
 
-/* .avatar {
+.avatar-doctor {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border: 1px solid rgb(212, 209, 209);
     border-radius: 50%;
-    width: 20%;
-} */
+    object-fit: cover;
+
+} 
+.avatar-apm {
+    width: 150px;
+    height: 150px;
+    border: 1px solid rgb(212, 209, 209);
+    border-radius: 50%;
+    object-fit: cover;
+}
 
 .detail {
     width: 100%;

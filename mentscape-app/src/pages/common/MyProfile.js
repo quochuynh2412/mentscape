@@ -4,7 +4,6 @@ import { firebaseSignout } from "../../firebase/authFunc";
 import { getCurrentUserInfo } from "../../firebase/user";
 import { useState, useEffect } from "react";
 import { Header } from "../../components/Header";
-import { doc, setDoc } from "firebase/firestore"; 
 
 export const MyProfile = () => {
 
