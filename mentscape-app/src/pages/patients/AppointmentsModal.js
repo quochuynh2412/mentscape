@@ -1,4 +1,6 @@
 import ava from "../../assets/img/doctors/doctor-01.jpg";
+import { getUserInfo } from "../../firebase/user";
+import { useState, useEffect } from 'react'
 function AppointmentModal(props) {
     const closeDetail = () => {
         props.setModal(true);
