@@ -23,41 +23,38 @@ function Appointments() {
             <Header />
             <Container fluid className="main-container">
                 <Container>
-                    {showModal ?
-                        <>
-                            <div style={{ width: "95%" }} id="appointments" className="mt-4 mx-auto rounded-3 tab-pane fade show active">
-                                <Card className="card card-table mb-0">
-                                    <Card.Header className="mb-1 card-header user-tabs">
-                                        <Card.Title>Appointments</Card.Title>
-                                    </Card.Header>
-                                    <Card.Body>
-                                        <div className="table-responsive">
-                                            <table className="table table-hover table-center mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Doctor</th>
-                                                        <th>Appt Date</th>
-                                                        <th>Booking Date</th>
-                                                        <th>Status</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
+                    <div style={{ width: "95%" }} id="appointments" className="mt-4 mx-auto rounded-3 tab-pane fade show active">
+                        <Card className="card card-table mb-0">
+                            <Card.Header className="mb-1 card-header user-tabs">
+                                <Card.Title>Appointments</Card.Title>
+                            </Card.Header>
+                            <Card.Body>
+                                <div className="table-responsive">
+                                    <table className="table table-hover table-center mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Doctor</th>
+                                                <th>Appt Date</th>
+                                                <th>Booking Date</th>
+                                                <th>Status</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
 
-                                                <tbody>
-                                                    {apm.map(appointment => (
-                                                        <AppointmentList setModal={setShowModal} isDoctor={false} key={appointment.id}
-                                                            {...appointment} />
-                                                    ))}
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                        </>
-                        :
-                        <AppointmentsModal setModal={setShowModal} />
-                    }
+                                        <tbody>
+                                            {apm.map(appointment => (
+                                                <AppointmentList setModal={setShowModal} isDoctor={false} key={appointment.id}
+                                                    {...appointment} />
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    {apm.map(appointment => (
+                        <AppointmentsModal {...appointment} />
+                    ))}
                 </Container>
             </Container>
         </>

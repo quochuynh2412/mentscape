@@ -51,7 +51,7 @@ ul {
 .doctor-profile {
   margin: 10px;
   width: 280px !important;
-  height: auto !important;
+  height: 450px !important;
   padding: 15px;
   background-color: white;
 }
@@ -446,4 +446,7 @@ table.table td h2 span {
 }
 .card-title{
   margin: 10px !important;
+}
+.footer{
+  background-color: #106068;
 }

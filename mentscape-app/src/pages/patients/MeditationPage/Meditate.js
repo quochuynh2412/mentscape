@@ -4,6 +4,7 @@ import 'react-circular-progressbar/dist/styles.css'
 import styles from './App.module.css'
 import { Col, Row, Container } from 'react-bootstrap'
 // import logo from './logo.svg';
+import { Header } from '../../../components/Header'
 import SoundComponent from './playSound'
 import {
   StyledProgressBar,
@@ -232,127 +233,130 @@ class Meditate extends Component {
       this.state.audioStatus
     )
     return (
-      <Row className={styles.mainrow}>
-        <div onMouseMove={this._onMouseMove}>
-          <div className={styles['bg-overlay']}></div>
-          <BackgroundImage currentImage={this.state.bgImg} />
-          <Row className={styles.mainrow2}>
-            <Col md={7} className={styles.col}>
-              <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-                <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/7afCBcCSgX5HwKHPfVL7te?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/7afCBcCSgX5HwKHPfVL7te?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/7afCBcCSgX5HwKHPfVL7te?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
-            </Col>
-            <Col md={5} className={styles.col}>
-              <main className={styles.main}>
-                <div className={styles['player-options']}>
-                  <StyledCounter
-                    min={1} // 1minute
-                    max={120} // 120mins
-                    setDuration={(duration) => {
-                      // unit of "duration" is minutes
-                      this.timeSelect({ duration: duration * 60 }) // convert minutes to seconds
-                    }}
-                    duration={this.state.desiredTime / 60} // unit of "desiredTime" is seconds, convert seconds to minutes
-                    style={!this.state.counterHovered ? fadeTransition : null}
-                    onMouseEnter={this.handleCounterHover.bind(this)}
-                    onMouseLeave={this.handleCounterHover.bind(this)}
-                  />
-                  <StyledDropdown
-                    options={this.state.audioNames}
-                    style={!this.state.audioHovered ? fadeTransition : null}
-                    activeOption={activeAudio}
-                    changeOption={(audioName) => {
-                      this.audioSelect(audioName)
-                    }}
-                    onMouseEnter={this.handleAudioHover.bind(this)}
-                    onMouseLeave={this.handleAudioHover.bind(this)}
-                  />
+      <>
+        <Header></Header>
+        <Row className={styles.mainrow}>
+          <div onMouseMove={this._onMouseMove}>
+            <div className={styles['bg-overlay']}></div>
+            <BackgroundImage currentImage={this.state.bgImg} />
+            <Row className={styles.mainrow2}>
+              <Col md={7} className={styles.col}>
+                <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                  <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/7afCBcCSgX5HwKHPfVL7te?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                  <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/7afCBcCSgX5HwKHPfVL7te?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                  <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/7afCBcCSgX5HwKHPfVL7te?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
-
-                <div className={styles.middleWrap}>
-                  <div className={styles.audioSeek} style={partialFadeTransition}>
-                    <StyledProgressBar
-                      id="seek"
-                      percentage={this.state.seekCurrentPosition}
-                    />
-                    <div
-                      style={partialFadeTransition}
-                      className={
-                        this.state.pbuttonUrl === playButton
-                          ? `${styles.playPauseBtn} ${styles.pauseMode}`
-                          : `${styles.playPauseBtn} ${styles.playMode}`
-                      }
-                      alt="Play"
-                      onClick={this.playPause.bind(this)}
-                    >
-                      <img className={styles.pauseIcon} src={pauseButton} alt="" />
-                      <img className={styles.playIcon} src={playButton} alt="" />
-                    </div>
-                  </div>
-
-                  <div className={styles.timerWrap}>
-                    <StyledIcon
-                      className={styles.resetIcon}
-                      src={resetButton}
-                      alt="reset"
-                      style={{
-                        ...partialFadeTransition,
-                        opacity: isStopped ? 0.4 : this.state.center_opacity,
-                        transform: isStopped && 'none',
-                        pointerEvents: isStopped && 'none',
+              </Col>
+              <Col md={5} className={styles.col}>
+                <main className={styles.main}>
+                  <div className={styles['player-options']}>
+                    <StyledCounter
+                      min={1} // 1minute
+                      max={120} // 120mins
+                      setDuration={(duration) => {
+                        // unit of "duration" is minutes
+                        this.timeSelect({ duration: duration * 60 }) // convert minutes to seconds
                       }}
-                      handleOnClick={this.reset.bind(this)}
+                      duration={this.state.desiredTime / 60} // unit of "desiredTime" is seconds, convert seconds to minutes
+                      style={!this.state.counterHovered ? fadeTransition : null}
+                      onMouseEnter={this.handleCounterHover.bind(this)}
+                      onMouseLeave={this.handleCounterHover.bind(this)}
                     />
-                    <div className={styles.timer} style={partialFadeTransition}>
-                      <span id="timer-min" className={styles.min}>
-                        00
-                      </span>
-                      <span> : </span>
-                      <span id="timer-sec" className={styles.sec}>
-                        00
-                      </span>
+                    <StyledDropdown
+                      options={this.state.audioNames}
+                      style={!this.state.audioHovered ? fadeTransition : null}
+                      activeOption={activeAudio}
+                      changeOption={(audioName) => {
+                        this.audioSelect(audioName)
+                      }}
+                      onMouseEnter={this.handleAudioHover.bind(this)}
+                      onMouseLeave={this.handleAudioHover.bind(this)}
+                    />
+                  </div>
+
+                  <div className={styles.middleWrap}>
+                    <div className={styles.audioSeek} style={partialFadeTransition}>
+                      <StyledProgressBar
+                        id="seek"
+                        percentage={this.state.seekCurrentPosition}
+                      />
+                      <div
+                        style={partialFadeTransition}
+                        className={
+                          this.state.pbuttonUrl === playButton
+                            ? `${styles.playPauseBtn} ${styles.pauseMode}`
+                            : `${styles.playPauseBtn} ${styles.playMode}`
+                        }
+                        alt="Play"
+                        onClick={this.playPause.bind(this)}
+                      >
+                        <img className={styles.pauseIcon} src={pauseButton} alt="" />
+                        <img className={styles.playIcon} src={playButton} alt="" />
+                      </div>
+                    </div>
+
+                    <div className={styles.timerWrap}>
+                      <StyledIcon
+                        className={styles.resetIcon}
+                        src={resetButton}
+                        alt="reset"
+                        style={{
+                          ...partialFadeTransition,
+                          opacity: isStopped ? 0.4 : this.state.center_opacity,
+                          transform: isStopped && 'none',
+                          pointerEvents: isStopped && 'none',
+                        }}
+                        handleOnClick={this.reset.bind(this)}
+                      />
+                      <div className={styles.timer} style={partialFadeTransition}>
+                        <span id="timer-min" className={styles.min}>
+                          00
+                        </span>
+                        <span> : </span>
+                        <span id="timer-sec" className={styles.sec}>
+                          00
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  className={styles['volume-control']}
-                  style={{
-                    fadeTransition,
-                  }}
-                >
-                  <StyledIcon
-                    className={styles['volume-icon']}
-                    src={this.state.volumeIcon}
-                    handleOnClick={this.toggleMute.bind(this)}
-                    style={fadeTransition}
-                  />
-                  &nbsp;
-                  <div className={styles['volume-slider']} style={fadeTransition}>
-                    <StyledSlider
-                      id="slider"
-                      onChange={this.volumeChange}
-                      step={1}
-                      min={0}
-                      max={100}
-                      value={this.state.mute ? 0 : this.state.volume}
+                  <div
+                    className={styles['volume-control']}
+                    style={{
+                      fadeTransition,
+                    }}
+                  >
+                    <StyledIcon
+                      className={styles['volume-icon']}
+                      src={this.state.volumeIcon}
+                      handleOnClick={this.toggleMute.bind(this)}
+                      style={fadeTransition}
                     />
+                    &nbsp;
+                    <div className={styles['volume-slider']} style={fadeTransition}>
+                      <StyledSlider
+                        id="slider"
+                        onChange={this.volumeChange}
+                        step={1}
+                        min={0}
+                        max={100}
+                        value={this.state.mute ? 0 : this.state.volume}
+                      />
+                    </div>
                   </div>
-                </div>
-                <SoundComponent
-                  ref={this.soundCompoRef}
-                  playStatus={this.state.audioStatus}
-                  url={this.state.audioUrl}
-                  funcPerc={this.moveSeek.bind(this)}
-                  desiredT={this.state.desiredTime}
-                  volume={this.state.mute ? 0 : this.state.volume}
-                />
-              </main>
-            </Col>
-          </Row>
-        </div>
-      </Row>
+                  <SoundComponent
+                    ref={this.soundCompoRef}
+                    playStatus={this.state.audioStatus}
+                    url={this.state.audioUrl}
+                    funcPerc={this.moveSeek.bind(this)}
+                    desiredT={this.state.desiredTime}
+                    volume={this.state.mute ? 0 : this.state.volume}
+                  />
+                </main>
+              </Col>
+            </Row>
+          </div>
+        </Row>
+      </>
     )
   }
 }

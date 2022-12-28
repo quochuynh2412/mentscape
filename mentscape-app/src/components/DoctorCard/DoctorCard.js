@@ -8,6 +8,8 @@ import "../../index.css"
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas, faCertificate } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
+import { getUserList } from '../../firebase/user.js';
 library.add(fas, faCertificate);
 export default function DoctorCard() {
     const settings = {
@@ -18,14 +20,22 @@ export default function DoctorCard() {
         slidesToScroll: 1,
         arrows: true,
     }
+    const [therapistData, setTherapistData] = useState([]);
+    useEffect(() => {
+        const loadTherapist = async () => {
+            const data = await getUserList(false);
+            setTherapistData(data)
+        }
+        loadTherapist();
+    }, [])
     return (
         <div className="doctor-slider">
             <Slider {...settings}>
-                {doctors.map(doctor => (
-                    <div className="doctor-profile shadow rounded" key={doctor.id}>
+                {therapistData.map(doctor => (
+                    <div className="doctor-profile shadow rounded">
                         <div className="doc-img">
                             <Link to="#">
-                                <img className="img-fluid" alt="User Image" src="/img/placeholders/user.webp" />
+                                <img className="img-fluid" alt="User Image" src={doctor.profile_pic} />
                             </Link>
                             <Link to="#" className="fav-btn">
                                 <i className="far fa-bookmark"></i>
@@ -33,10 +43,10 @@ export default function DoctorCard() {
                         </div>
                         <div className="pro-content">
                             <h3 className="doc-name">
-                                <Link href="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>{doctor.name}</Link>
+                                <Link href="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>{doctor.fullname}</Link>
                                 <span className="verified"><FontAwesomeIcon icon="fa-solid fa-certificate" color="green" size="xs" /></span>
                             </h3>
-                            <p className="speciality">{doctor.degree}</p>
+                            <p className="speciality"></p>
                             {/* <div className="rating">
                                     <i className="fas fa-star filled"></i>
                                     <i className="fas fa-star filled"></i>
@@ -59,10 +69,10 @@ export default function DoctorCard() {
                             </ul>
                             <div className="row row-sm">
                                 <div className="col-6">
-                                    <Link to="/" className="btn btn-outline-info">View Profile</Link>
+                                    <Link to={`/booking-calendar/$id=${doctor.id}`} className="btn btn-outline-info">View Profile</Link>
                                 </div>
                                 <div className="col-6">
-                                    <Link to="/" className="btn btn-primary">Book Now</Link>
+                                    <Link to={`/booking-calendar/$id=${doctor.id}`} className="btn btn-primary">Book Now</Link>
                                 </div>
                             </div>
                         </div>

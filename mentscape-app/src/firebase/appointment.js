@@ -21,14 +21,20 @@ export async function getAppointments(isPatient, userId) {
     if (isPatient) {
         querySnapshot.forEach(doc => {
             if (doc.data().patient_id === userId) {
-                apm.push(doc.data());
+                apm.push({
+                    ...doc.data(),
+                    id: doc.id
+                });
                 console.log(true)
             }
         });
     } else {
         querySnapshot.forEach(doc => {
             if (doc.data().therapist_id === userId) {
-                apm.push(doc.data());
+                apm.push({
+                    ...doc.data(),
+                    id: doc.id
+                });
             }
         });
     }

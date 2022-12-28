@@ -80,12 +80,39 @@ export default class Home extends Component {
                     <h2>Book Our Doctor</h2>
                     <p>All therapists in the Mentscape network are professional experts with advanced training.Their specialties include depression, anxiety, trauma, relationship issues, GBTQIA, gender, and sexuality...  </p>
                   </div>
+                  <Link to="/searchTherapist">
+                    <button className="btn btn-primary">Find a Doctor</button>
+                  </Link>
                 </Col>
                 <Col lg={6}>
                   <DoctorCard></DoctorCard>
                 </Col>
               </Row>
             </Container>
+          </section>
+          <section className="news-preview">
+            <div className="news-slider">
+              <Row>
+                <Col>
+                  <div className="section-header">
+                    <h2>Listen to some recommended podcasts</h2>
+                    <p>Lorem Ipsum is simply dummy text </p>
+                  </div>
+                </Col>
+                <Col className="align-bottom">
+                  <Link to="/meditate">
+                    <div className="text-end align-bottom">See more</div>
+                  </Link>
+                </Col>
+              </Row>
+              <Slider {...news_settings} className="podcast-slider">
+                <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/3vnnDukKGGbFlHssODhFqK?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/3JLJ0PrUwpQbpwlxcJXRKc?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/1fbpxp2zZldEszwlOqpIsv?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/6yXpPLNcxzY0Z4djsbXzlf?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/5ReMLc2Gg7MpMSycNMXOj1?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+              </Slider>
+            </div >
           </section>
           <section className="news-preview">
             <div className="news-slider">
@@ -109,7 +136,6 @@ export default class Home extends Component {
               </Slider>
             </div >
           </section>
-          <iframe style={{ borderRadius: 12 + 'px' }} src="https://open.spotify.com/embed/episode/5vwIdOiYyMu63ZMrFs37Nv?utm_source=generator" width="352" height="352" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
       </>
     )
