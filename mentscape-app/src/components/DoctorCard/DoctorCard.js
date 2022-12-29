@@ -33,7 +33,7 @@ export default function DoctorCard() {
         <div className="doctor-slider">
             <Slider {...settings}>
                 {therapistData.map(doctor => (
-                    <div className="doctor-profile shadow rounded">
+                    <div className="doctor-profile shadow">
                         <div className="doc-img">
                             <Link to="#">
                                 <img className="img-fluid" alt="User Image" src={doctor.profile_pic} />
@@ -43,12 +43,13 @@ export default function DoctorCard() {
                             </Link>
                         </div>
                         <div className="pro-content">
-                            <h3 className="doc-name mb-0">
-                                <Link href="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>{doctor.fullname}</Link>
-                                <span className="verified"><FontAwesomeIcon icon="fa-solid fa-certificate" color="green" size="xs" /></span>
-                            </h3>
-                            {/* <p className="speciality"></p> */}
-                            <div className="rating">
+                            <div className="doc-details row row-sm">
+                                <h3 className="doc-name mb-0">
+                                    <Link href="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>{doctor.fullname}</Link>
+                                    <span className="verified"><FontAwesomeIcon icon="fa-solid fa-certificate" color="green" size="xs" /></span>
+                                </h3>
+                                {/* <p className="speciality"></p> */}
+                                <div className="rating">
                                     <AiFillStar />
                                     <AiFillStar />
                                     <AiFillStar />
@@ -56,14 +57,16 @@ export default function DoctorCard() {
                                     <AiFillStar />
                                     <span className="d-inline-block average-rating ms-1">(17)</span>
                                 </div>
-                            <ul className="available-info ps-0 mt-2">
-                                <li>
-                                    <FontAwesomeIcon icon="fa-solid fa-location-dot" /> {doctor.address}
-                                </li>
-                                <li>
-                                    <FontAwesomeIcon icon="fa-solid fa-clock" /> Available now
-                                </li>
-                                {/* <li>
+                                <ul className="p-content available-info mt-2">
+                                    <li>
+                                        {/* <FontAwesomeIcon icon="fa-solid fa-location-dot" /> */}
+                                        {doctor.address}
+                                    </li>
+                                    <li>
+                                        {/* <FontAwesomeIcon icon="fa-solid fa-clock" />  */}
+                                        Available now
+                                    </li>
+                                    {/* <li>
                                     <FontAwesomeIcon icon="fa-solid fa-clock" /> 
                                      {doctor.specialties.map((specialty, index) =>
                                         <span key={specialty}>
@@ -72,16 +75,18 @@ export default function DoctorCard() {
                                         </span>)
                                     }
                                 </li> */}
-                                <li>
-                                    <FontAwesomeIcon icon="fa-solid fa-money-check-dollar" /> $50 - $100
-                                    <i className="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
-                                </li>
-                            </ul>
-                            <div className="row row-sm">
+                                    <li>
+                                        {/* <FontAwesomeIcon icon="fa-solid fa-money-check-dollar" /> */}
+                                        $50 - $100
+                                        <i className="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="row row-sm align-self-end">
                                 <div className="col-6">
                                     <Link to={`/booking-calendar/$id=${doctor.id}`} className="btn btn-outline-info">View Profile</Link>
                                 </div>
-                                <div className="col-6">
+                                <div className="col-6 justify-content-center">
                                     <Link to={`/booking-calendar/$id=${doctor.id}`} className="btn btn-primary">Book Now</Link>
                                 </div>
                             </div>

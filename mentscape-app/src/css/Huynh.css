@@ -20,11 +20,11 @@ ul {
 }
 .info,
 .selected-doctors {
-  margin: 100px 0;
+  margin-top: 100px;
 }
 
 .selected-doctors {
-  background-color: rgb(243, 243, 243);
+  background-color: #e9f0fc;
   padding: 50px 0;
 }
 
@@ -51,9 +51,10 @@ ul {
 .doctor-profile {
   margin: 10px;
   width: 280px !important;
-  height: 450px !important;
+  height: 460px !important;
   padding: 15px;
   background-color: white;
+  border-radius: 25px !important;
 }
 
 .doc-img {
@@ -137,7 +138,9 @@ ul {
   padding: 20px;
   text-align: center;
 }
+.p-content{
 
+}
 .dash-widget {
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -449,4 +452,17 @@ table.table td h2 span {
 }
 .footer{
   background-color: #106068;
+}
+.doc-details{
+  margin: 5px 0;
+}
+.doc-details:nth-child(n){
+  padding-left: 12px;
+}
+.news-preview{
+  padding: 40px 0;
+  margin-top: 40px;
+}
+.news{
+  background-color: #e9f0fc;
 }

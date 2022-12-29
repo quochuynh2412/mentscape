@@ -36,7 +36,7 @@ export default class Home extends Component {
     return (
       <>
         <Header />
-        <div className="overflow-hidden">
+        <div className="overflow-hidden main-container-2">
           <Banner></Banner>
           <section className="info">
             <div className="header">
@@ -90,7 +90,7 @@ export default class Home extends Component {
               </Row>
             </Container>
           </section>
-          <section className="news-preview">
+          <section className="news-preview ">
             <div className="news-slider">
               <Row>
                 <Col>
@@ -114,7 +114,7 @@ export default class Home extends Component {
               </Slider>
             </div >
           </section>
-          <section className="news-preview pb-5">
+          <section className="news-preview news pb-5">
             <div className="news-slider">
               <Row>
                 <Col>

@@ -29,8 +29,8 @@ function Appointments() {
                             <Card.Header className="mb-1 card-header user-tabs">
                                 <div className="d-flex justify-content-between py-2">
                                     <Card.Title>Appointments</Card.Title>
-                                    <div className="text-end">
-                                        <Link className="btn btn-large btn-success" to="/searchTherapist">Add appoinment</Link>
+                                    <div className="d-flex text-end align-items-center">
+                                        <Link className="btn btn-large btn-success align-self-center" to="/searchTherapist">Add appoinment</Link>
                                     </div>
                                 </div>
                             </Card.Header>
@@ -39,6 +39,7 @@ function Appointments() {
                                     <table className="table table-hover table-center mb-0">
                                         <thead>
                                             <tr>
+                                                <th></th>
                                                 <th>Doctor</th>
                                                 <th>Appt Date</th>
                                                 <th>Booking Date</th>
