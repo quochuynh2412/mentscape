@@ -4,11 +4,10 @@ import Advice from './Advice';
 import { getCurrentUser } from '../../firebase/authFunc';
 import { getStory } from '../../firebase/myStory';
 import { useState, useEffect } from 'react';
-import { getCurrentUserInfo } from '../../firebase/user';
 import Modal from 'react-modal';
 import { Container, Form, FormGroup} from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
-import { doc,addDoc,setDoc,collection, } from "firebase/firestore"; 
+import { addDoc,collection } from "firebase/firestore"; 
 import { db } from '../../firebase-config';
 
 export const AdviceList = () => {
@@ -44,7 +43,6 @@ export const AdviceList = () => {
     function closeModal() {
       setIsOpen(false);
     }
-//
 
 const addStory = async (e) => {
     e.preventDefault();
@@ -93,28 +91,26 @@ const addStory = async (e) => {
                     </div>
                     <div className="form-check form-check-inline">
                         <Form.Check type="radio" id="inline" name="story_ava" value="/img/story_ava/ava1.png" onChange={() => setStory_ava("/img/story_ava/ava1.png")} />
-                        <img src="/img/story_ava/ava1.png"  width="100" height="100"/> 
+                        <img src="/img/story_ava/ava1.png"  width="100" height="100" alt="ava-1"/> 
                     </div>
                     <div className="form-check form-check-inline">
                         <Form.Check type="radio"  id="inline" name="story_ava" onChange={()=> setStory_ava("/img/story_ava/ava2.png")} value="/img/story_ava/ava2.png"  />
-                        <img src="/img/story_ava/ava2.png"  width="100" height="100"/> 
+                <img src="/img/story_ava/ava2.png" width="100" height="100" alt="ava-2" /> 
                     </div>
                     <div className="form-check form-check-inline">
                         <Form.Check type="radio" id="inline" name="story_ava" onChange={() => setStory_ava("/img/story_ava/ava3.png")} value="/img/story_ava/ava3.png" />
-                        <img src="/img/story_ava/ava3.png"  width="100" height="100"/> 
+                <img src="/img/story_ava/ava3.png" width="100" height="100" alt="ava-3" /> 
                     </div>
                     <div className="form-check form-check-inline">
                         <Form.Check type="radio" id="inline" name="story_ava" onChange={() => setStory_ava("/img/story_ava/ava4.png")} value="/img/story_ava/ava4.png"/>
-                        <img src="/img/story_ava/ava4.png"  width="100" height="100"/> 
+                <img src="/img/story_ava/ava4.png" width="100" height="100" alt="ava-4" /> 
                     </div>
                     <Button variant="primary" className="mt-2 w-100" type="submit" name="act" onSubmit={addStory} >Submit</Button>
                 </FormGroup>
             </Form>
           </Modal>
 
-          {/* <div> */}
-          {Story.map(story => <Advice {...story} />)}
-          {/* </div> */}
+          {Story.map(story => <Advice {...story} key={story.id}/>)}
       </Container>
       </>
   )

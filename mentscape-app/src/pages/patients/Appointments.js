@@ -39,7 +39,8 @@ function Appointments() {
                                     <table className="table table-hover table-center mb-0">
                                         <thead>
                                             <tr>
-                                                <th>Doctor</th>
+                                                <th>Therapist's Avatar</th>
+                                                <th>Therapist's Name</th>
                                                 <th>Appt Date</th>
                                                 <th>Booking Date</th>
                                                 <th>Status</th>
@@ -59,7 +60,7 @@ function Appointments() {
                         </Card>
                     </div>
                     {apm.map(appointment => (
-                        <AppointmentsModal {...appointment} />
+                        <AppointmentsModal {...appointment} key={appointment.id}/>
                     ))}
                 </Container>
             </Container>
