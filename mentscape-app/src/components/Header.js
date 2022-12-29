@@ -24,15 +24,15 @@ export const Header = () => {
       <Navbar.Toggle aria-controls="navbar-nav" />
 
       <Navbar.Collapse id="navbar-nav">
-        <ul className="d-flex justify-content-sm-center nav-main reset-list">
+        <ul className="d-flex justify-content-sm-center nav-main reset-list align-middle align-items-center">
           {
             (userInfo !== null && userInfo.role === "therapist") &&
-              <li className="nav-links me-4">
-                <Link to="/dashboard" className="nav-links">Dashboard</Link>
-              </li>
-              // : <li className="me-4">
-              //   <Link to="/" className="nav-links">Home</Link>
-              // </li>
+            <li className="nav-links me-4">
+              <Link to="/dashboard" className="nav-links">Dashboard</Link>
+            </li>
+            // : <li className="me-4">
+            //   <Link to="/" className="nav-links">Home</Link>
+            // </li>
           }
 
           <li className="nav-links me-4">
