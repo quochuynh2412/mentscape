@@ -242,6 +242,7 @@ class Meditate extends Component {
             <Row className={styles.mainrow2}>
               <Col md={7} className={styles.col}>
                 <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                  <h3 className='text-white ms-5 mb-3 p-2'>Podcasts</h3>
                   <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/7afCBcCSgX5HwKHPfVL7te?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                   <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/7afCBcCSgX5HwKHPfVL7te?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                   <iframe style={{ borderRadius: 12 + "px" }} src="https://open.spotify.com/embed/episode/7afCBcCSgX5HwKHPfVL7te?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

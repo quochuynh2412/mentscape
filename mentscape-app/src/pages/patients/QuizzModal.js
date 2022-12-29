@@ -66,7 +66,7 @@ function QuizzModal(props) {
 
                 <div className="row justify-content-center card-footer">
                     <button onClick={() => props.restart()} className="w-50 mx-auto rounded-pill btn btn-secondary">Do quizzes again</button>
-                    <Link className="w-50 mx-auto rounded-pill btn btn-primary" to="/appointment">Go to the Appointment page!</Link>
+                    <Link className="w-50 mx-auto rounded-pill btn btn-primary" to="/searchTherapist">Book an appointment</Link>
                 </div>
 
 

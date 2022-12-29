@@ -78,7 +78,7 @@ export default class Home extends Component {
                 <Col lg={4}>
                   <div className="section-header">
                     <h2>Book Our Doctor</h2>
-                    <p>All therapists in the Mentscape network are professional experts with advanced training.Their specialties include depression, anxiety, trauma, relationship issues, GBTQIA, gender, and sexuality...  </p>
+                    <p>All therapists in the Mentscape network are professional experts with advanced training. Their specialties include depression, anxiety, trauma, relationship issues, LGBTQIA, gender, and sexuality...  </p>
                   </div>
                   <Link to="/searchTherapist">
                     <button className="btn btn-primary">Find a Doctor</button>
@@ -96,7 +96,7 @@ export default class Home extends Component {
                 <Col>
                   <div className="section-header">
                     <h2>Listen to some recommended podcasts</h2>
-                    <p>Lorem Ipsum is simply dummy text </p>
+                    <p>Quite the mind and the soul will speak </p>
                   </div>
                 </Col>
                 <Col className="align-bottom">
@@ -114,13 +114,13 @@ export default class Home extends Component {
               </Slider>
             </div >
           </section>
-          <section className="news-preview">
+          <section className="news-preview pb-5">
             <div className="news-slider">
               <Row>
                 <Col>
                   <div className="section-header">
                     <h2>Catch on with news</h2>
-                    <p>Lorem Ipsum is simply dummy text </p>
+                    <p>Quite the mind and the soul will speak </p>
                   </div>
                 </Col>
                 <Col className="align-bottom">

@@ -11,7 +11,7 @@
 
 /* Header */
 .nav-links, .nav-logo {
-    font-size: 20px;
+    /* font-size: 20px; */
     font-weight: 700;
 }
 .nav-links:hover {
