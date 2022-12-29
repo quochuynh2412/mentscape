@@ -1,7 +1,6 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import doctors from "./doctor.json"
 import * as React from "react";
 import { Link } from "react-router-dom"
 import "../../index.css"
@@ -55,7 +54,7 @@ export default function DoctorCard() {
                                     <AiFillStar />
                                     <AiFillStar />
                                     <AiFillStar />
-                                    <span className="d-inline-block average-rating ms-1">(17)</span>
+                                    <span className="d-inline-block average-rating ms-1">(35)</span>
                                 </div>
                                 <ul className="p-content available-info mt-2">
                                     <li>

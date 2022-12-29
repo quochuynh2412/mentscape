@@ -136,9 +136,7 @@ export const Dashboard = () => {
                                   <tbody>
                                     {apm.map(appointment => (
                                       <AppointmentList setModal={setShowModal} isDoctor={true} key={appointment.id}
-                                        {
-                                          ...appointment
-                                        } />
+                                        {...appointment} />
                                     ))}
                                   </tbody>
                                 </table>

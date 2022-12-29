@@ -1,12 +1,8 @@
 import '../../css/Huynh.css';
 import news from '../../components/News/news.json'
-import NewsCard from "../../components/News/NewsCard/NewsCard";
 import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
-import Container from "react-bootstrap/esm/Container";
 import Banner from "../../components/Banner/Banner";
-import ReactDOM from 'react-dom/client';
-import CardGroup from 'react-bootstrap/CardGroup';
 import { Header } from '../../components/Header';
 export default function News() {
     return (
@@ -23,8 +19,8 @@ export default function News() {
             <section className='articles-preview'>
                 <Row>
                     <Col>
-                        {news.slice(0, 3).map(article => (
-                            <Row>
+                        {news.slice(0, 3).map((article, index) => (
+                            <Row key={index}>
                                 <div className="article-card d-flex rounded shadow">
                                     <div className="article-img flex-shrink-0">
                                         <img src="/img/news.webp" alt="..." />
@@ -38,8 +34,8 @@ export default function News() {
                         ))}
                     </Col>
                     <Col>
-                        {news.slice(4, 6).map(article => (
-                            <Row>
+                        {news.slice(4, 6).map((article, index) => (
+                            <Row key={index}>
                                 <div className="article-card d-flex rounded shadow">
                                     <div className="article-img flex-shrink-0">
                                         <img src="/img/news.webp" alt="..." />

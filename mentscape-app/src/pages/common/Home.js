@@ -9,9 +9,6 @@ import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
 import news from '../../components/News/news.json'
 import NewsCard from "../../components/News/NewsCard/NewsCard";
-import { Carousel } from "bootstrap";
-import { Route, Router } from "react-router-dom";
-import News from "./News";
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
@@ -19,14 +16,14 @@ import { Header } from "../../components/Header";
 const feature_settings = {
   dots: true,
   infinite: true,
-  speed: 200,
+  speed: 400,
   slidesToShow: 3,
   slidesToScroll: 1,
 }
 const news_settings = {
   dots: true,
   infinite: true,
-  speed: 200,
+  speed: 700,
   slidesToShow: 4,
   slidesToScroll: 1,
 }
@@ -120,7 +117,7 @@ export default class Home extends Component {
                 <Col>
                   <div className="section-header">
                     <h2>Catch on with news</h2>
-                    <p>Quite the mind and the soul will speak </p>
+                    <p>Stay up to date </p>
                   </div>
                 </Col>
                 <Col className="align-bottom">
