@@ -60,3 +60,7 @@ export async function addAppointment(apm) {
 export const deleteAppoinment = async (id) => {
     await deleteDoc(doc(db, "Appoinment", id));
 }
+export async function cancelAppointment(id) {
+    const ref = doc(db, "Appoinment", id)
+    setDoc(ref, { status: "cancelled" }, { merge: true })
+}
