@@ -6,11 +6,12 @@ function AppointmentModal(props) {
         props.setModal(true);
     }
     const [therapist, setTherapistInfo] = useState([]);
-    const userId = props.isDoctor ? "patient_id" : "therapist_id"
+    const patientId = props.patient_id
+    const therapistId = props.therapist_id
     const [patient, setPatientInfo] = useState([]);
     useEffect(() => {
         const loadTherapist = async () => {
-            const data = await getUserInfo(props[userId]);
+            const data = await getUserInfo(props.therapist_id);
             setTherapistInfo(data);
             const pdata = await getUserInfo(props.patient_id);
             setPatientInfo(pdata);
