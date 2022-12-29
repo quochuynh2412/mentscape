@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fas, faCertificate } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import { getUserList } from '../../firebase/user.js';
+import { AiFillStar } from 'react-icons/ai'
 library.add(fas, faCertificate);
 export default function DoctorCard() {
     const settings = {
@@ -42,28 +43,37 @@ export default function DoctorCard() {
                             </Link>
                         </div>
                         <div className="pro-content">
-                            <h3 className="doc-name">
+                            <h3 className="doc-name mb-0">
                                 <Link href="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>{doctor.fullname}</Link>
                                 <span className="verified"><FontAwesomeIcon icon="fa-solid fa-certificate" color="green" size="xs" /></span>
                             </h3>
-                            <p className="speciality"></p>
-                            {/* <div className="rating">
-                                    <i className="fas fa-star filled"></i>
-                                    <i className="fas fa-star filled"></i>
-                                    <i className="fas fa-star filled"></i>
-                                    <i className="fas fa-star filled"></i>
-                                    <i className="fas fa-star filled"></i>
-                                    <span className="d-inline-block average-rating">(17)</span>
-                                </div> */}
-                            <ul className="available-info">
+                            {/* <p className="speciality"></p> */}
+                            <div className="rating">
+                                    <AiFillStar />
+                                    <AiFillStar />
+                                    <AiFillStar />
+                                    <AiFillStar />
+                                    <AiFillStar />
+                                    <span className="d-inline-block average-rating ms-1">(17)</span>
+                                </div>
+                            <ul className="available-info ps-0 mt-2">
                                 <li>
                                     <FontAwesomeIcon icon="fa-solid fa-location-dot" /> {doctor.address}
                                 </li>
                                 <li>
-                                    <FontAwesomeIcon icon="fa-solid fa-clock" /> Available on Fri, 22 Mar
+                                    <FontAwesomeIcon icon="fa-solid fa-clock" /> Available now
                                 </li>
+                                {/* <li>
+                                    <FontAwesomeIcon icon="fa-solid fa-clock" /> 
+                                     {doctor.specialties.map((specialty, index) =>
+                                        <span key={specialty}>
+                                            {index > 0 && ", "}
+                                            {specialty}
+                                        </span>)
+                                    }
+                                </li> */}
                                 <li>
-                                    <FontAwesomeIcon icon="fa-solid fa-money-check-dollar" /> $300 - $1000
+                                    <FontAwesomeIcon icon="fa-solid fa-money-check-dollar" /> $50 - $100
                                     <i className="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
                                 </li>
                             </ul>

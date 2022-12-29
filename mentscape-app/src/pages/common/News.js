@@ -27,7 +27,7 @@ export default function News() {
                             <Row>
                                 <div className="article-card d-flex rounded shadow">
                                     <div className="article-img flex-shrink-0">
-                                        <img src="/img/placeholders/rectangle.png" alt="..." />
+                                        <img src="/img/news.webp" alt="..." />
                                     </div>
                                     <div className="flex-grow-1 ms-3">
                                         <p className='fw-bold'>{article.title}</p>
@@ -42,7 +42,7 @@ export default function News() {
                             <Row>
                                 <div className="article-card d-flex rounded shadow">
                                     <div className="article-img flex-shrink-0">
-                                        <img src="/img/placeholders/rectangle.png" alt="..." />
+                                        <img src="/img/news.webp" alt="..." />
                                     </div>
                                     <div className="flex-grow-1 ms-3">
                                         <p className='fw-bold'>{article.title}</p>
