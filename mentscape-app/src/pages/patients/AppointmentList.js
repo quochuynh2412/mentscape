@@ -1,16 +1,13 @@
-import ava from "../../assets/img/doctors/doctor-01.jpg";
 import { getUserInfo } from "../../firebase/user";
 import { useState, useEffect } from 'react'
-import { deleteAppoinment, cancelAppointment } from "../../firebase/appointment";
+import { cancelAppointment } from "../../firebase/appointment";
 function AppointmentList(props) {
     const [therapist, setTherapistInfo] = useState([]);
     const userId = props.isDoctor ? "patient_id" : "therapist_id"
     useEffect(() => {
         const loadTherapist = async () => {
-            // console.log(props.therapist_id);
             const data = await getUserInfo(props[userId]);
             setTherapistInfo(data);
-            // console.log(data);
         }
         loadTherapist();
     }, []);
@@ -27,7 +24,6 @@ function AppointmentList(props) {
     }
 
     const handleDelete = async () => {
-        // console.log(props);
         await cancelAppointment(props.id);
         // window.location.reload(false);
     }
@@ -37,7 +33,6 @@ function AppointmentList(props) {
             <tr>
                 <td>
                     <a
-                        href="doctor-profile.html"
                         className="avatar avatar-sm me-2 nav-link active"
                     >
                         <img
@@ -52,7 +47,7 @@ function AppointmentList(props) {
                 <td>
                     <h2 className="row table-avatar">
 
-                        <a style={{ fontSize: "large" }} href="doctor-profile.html" className="nav-link active">
+                        <a style={{ fontSize: "large" }} href="#" className="nav-link active">
                             {therapist.fullname}
                             {/* <span className="ps-2">Booking</span> */}
                         </a>

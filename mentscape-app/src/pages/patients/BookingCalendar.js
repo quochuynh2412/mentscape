@@ -134,7 +134,7 @@ function BookingCalendar() {
                                     <Card.Body>
                                         <div className="booking-info">
                                             <h5>
-                                                <a className="text-decoration-none link-dark" href="doctor-profile.html">Dr. {therapist.fullname}</a>
+                                                <a className="text-decoration-none link-dark">Dr. {therapist.fullname}</a>
                                             </h5>
                                             <ul className="therapist-detail">
                                                 <li className="rating">
