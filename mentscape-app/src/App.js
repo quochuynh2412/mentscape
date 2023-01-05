@@ -12,11 +12,9 @@ import { PickSignUp } from './pages/common/PickSignUp';
 import Quizzes from "./pages/patients/Quizzes";
 import Appointments from './pages/patients/Appointments';
 import BookingCalendar from './pages/patients/BookingCalendar';
-import Detail from './pages/therapist/Detail';
 import Search from './pages/patients/Search';
 import News from './pages/common/News';
 import Home from './pages/common/Home';
-import Approve_page from './pages/admin/Approve-page';
 import { Dashboard } from './pages/therapist/Dashboard';
 import { NotFound } from './pages/common/NotFound';
 import PatientNote from './pages/therapist/PatientNote';
@@ -59,19 +57,9 @@ function App() {
 						<Appointments />
 					</ProtectedRoute>
 				} />
-				<Route path="/detailTherapist" element={
-					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
-						<Detail />
-					</ProtectedRoute>
-				} />
 				<Route path="/searchTherapist" element={
 					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
 						<Search />
-					</ProtectedRoute>
-				} />
-				<Route path="/admin" element={
-					<ProtectedRoute isAuthed={!!user} isLoading={isLoading}>
-						<Approve_page />
 					</ProtectedRoute>
 				} />
 				<Route path="/dashboard" element={

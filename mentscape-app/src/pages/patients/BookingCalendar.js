@@ -118,7 +118,7 @@ function BookingCalendar() {
                                         <div className="widget-profile pro-widget-content">
                                             <div className="profile-info-widget">
                                                 <div className="booking-doc-img">
-                                                    <img src={therapist.profile_pic} alt="User Image" />
+                                                    <img src={therapist.profile_pic} alt="User profile" />
                                                 </div>
                                                 <div className="profile-det-info">
                                                     <h3>{therapist.fullname}</h3>

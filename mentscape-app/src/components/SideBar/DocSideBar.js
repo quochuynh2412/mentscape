@@ -1,9 +1,7 @@
 import '../../css/Huynh.css'
 import StickyBox from "react-sticky-box";
 import { Link } from 'react-router-dom';
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { fas, faCertificate } from '@fortawesome/free-solid-svg-icons';
 import { firebaseSignout } from '../../firebase/authFunc';
 import { useEffect, useState } from 'react';
 import { getCurrentUserInfo } from '../../firebase/user';

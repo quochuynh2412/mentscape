@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import Sound from 'react-sound'
 import 'react-circular-progressbar/dist/styles.css'
 import styles from './App.module.css'
-import { Col, Row, Container } from 'react-bootstrap'
-// import logo from './logo.svg';
+import { Col, Row } from 'react-bootstrap'
 import { Header } from '../../../components/Header'
 import SoundComponent from './playSound'
 import {

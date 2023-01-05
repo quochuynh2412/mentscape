@@ -35,7 +35,7 @@ Website link: https://mentscape-25fdd.web.app/
 * Code version: V1 
 * Availability: https://github.com/akshat157/meditate-app (Accessed 1 December 2021) 
 
-# Doctor dashboard & Doctor profile photo
+### Doctor dashboard & Doctor profile photo
 * Title: Doctor dashboard
 * Author: Bisofts software studio
 * Date: 19 May 2021 

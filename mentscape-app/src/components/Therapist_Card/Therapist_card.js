@@ -3,13 +3,13 @@ import { GrMapLocation } from "react-icons/gr";
 import { GrBook, GrTooltip } from "react-icons/gr";
 import { GrMoney } from "react-icons/gr";
 
-import { Card, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Card, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 function TherapistCard(props) {
     return (
             <Col lg={6} className="gx-5 gy-3" >
                 <Card>
-                        <img src={props.profile_pic} className="mt-4 avatar-doctor" />
+                        <img src={props.profile_pic} className="mt-4 avatar-doctor" alt="avatar doctor" />
                     <Card.Body>
                         <Card.Title className='text-center'><span>Dr. </span>{props.fullname}</Card.Title>
                         <Card.Text>

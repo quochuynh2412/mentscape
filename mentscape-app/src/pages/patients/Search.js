@@ -2,7 +2,6 @@ import TherapistCard from '../../components/Therapist_Card/Therapist_card.js';
 import "../../css/Vinh_css.css";
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import StickyBox from "react-sticky-box";
-import { getUserInfo } from '../../firebase/user.js';
 import { useEffect, useState } from 'react';
 import { getUserList } from '../../firebase/user.js';
 import { Header } from '../../components/Header.js';

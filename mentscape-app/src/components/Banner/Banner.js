@@ -13,11 +13,11 @@ export default function Banner() {
                         variant="dark">
                         <Carousel.Item>
                             <img src='/img/banner1-01.png'
-                                className="d-block w-100"></img>
+                                className="d-block w-100" alt="banner1"></img>
                         </Carousel.Item>
                         <Carousel.Item>
                             <img src='/img/banner2-01.png'
-                                className="d-block w-100"></img>
+                                className="d-block w-100" alt="banner2"></img>
                         </Carousel.Item>
                     </Carousel>
                 </Row>
