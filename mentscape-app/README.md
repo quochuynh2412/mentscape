@@ -27,3 +27,10 @@ Website link: https://mentscape-25fdd.web.app/
 * Date: 21 December 2022 
 * Code version: V1 
 * Availability: https: //codepen.io/aaroniker/pen/NWGZzXx (Accessed 1 December 2021) 
+
+### Meditate App:
+* Title: Meditate App
+* Author: Akshat Malviya
+* Date: 3 November 2022 
+* Code version: V1 
+* Availability: https://github.com/akshat157/meditate-app (Accessed 1 December 2021) 

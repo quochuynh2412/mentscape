@@ -33,7 +33,13 @@ import {
   streamImg,
   resetButton,
 } from './constants'
-
+/*************************************************************** 
+* Title: Meditate App
+* Author: Akshat Malviya
+* Date: 3 November 2022 
+* Code version: V1 
+* Availability: https://github.com/akshat157/meditate-app (Accessed 1 December 2021) 
+****************************************************************/
 class Meditate extends Component {
   constructor(props) {
     super(props)
